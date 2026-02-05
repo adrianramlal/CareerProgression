@@ -29,26 +29,75 @@ fetch('data.json')
 
 function initApp() {
 
-    // --- 0. INJECT CSS FOR ANIMATIONS & COLLAPSING ---
-    if (!document.getElementById('dynamic-collapse-style')) {
+    // --- 0. INJECT CSS (Tatil Style + Animations) ---
+    if (!document.getElementById('dynamic-tatil-style')) {
         const style = document.createElement('style');
-        style.id = 'dynamic-collapse-style';
+        style.id = 'dynamic-tatil-style';
         style.innerHTML = `
-            .role-card.hidden { display: none !important; }
-            
-            /* Smooth Reveal Animation */
-            @keyframes popIn {
-                0% { opacity: 0; transform: translateY(10px); }
-                100% { opacity: 1; transform: translateY(0); }
-            }
-            
-            .role-card:not(.hidden) {
-                animation: popIn 0.4s ease-out forwards;
+            :root {
+                --tatil-red: #E31837; 
+                --tatil-black: #000000;
+                --card-border: #ccc;
             }
 
-            /* Smooth Line Transitions */
+            .role-card.hidden { display: none !important; }
+            
+            /* --- CARD STYLING (MATCHING UPLOADED FILE) --- */
+            .role-card {
+                background: white;
+                padding: 15px;
+                border-radius: 4px;
+                border-left: 5px solid var(--card-border);
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                cursor: pointer;
+                transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+                position: relative;
+                opacity: 0; /* Start invisible for pop-in */
+                animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            }
+
+            .role-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            }
+
+            .role-card h3 { color: var(--tatil-black); margin-top: 0; }
+            .role-card p { color: #666; }
+
+            /* Active / Selected State */
+            .role-card.active {
+                border-left-color: var(--tatil-red);
+                background: var(--tatil-black);
+                transform: scale(1.02);
+            }
+            .role-card.active h3 { color: white; }
+            .role-card.active p { color: #ccc; }
+
+            /* Path Highlight State (Parents/Children) */
+            .role-card.path-highlight {
+                border-left-color: var(--tatil-red);
+            }
+
+            /* --- ANIMATIONS --- */
+            @keyframes popIn {
+                0% { opacity: 0; transform: translateY(10px) scale(0.95); }
+                100% { opacity: 1; transform: translateY(0) scale(1); }
+            }
+
+            /* Line Styling */
             .connector-path {
-                transition: d 0.4s ease-in-out, opacity 0.3s ease;
+                fill: none;
+                stroke: #ccc;
+                stroke-width: 2px;
+                transition: stroke 0.3s ease, stroke-width 0.3s ease, opacity 0.3s ease;
+            }
+            .connector-path.highlighted {
+                stroke: var(--tatil-red);
+                stroke-width: 3px;
+                filter: drop-shadow(0px 0px 2px rgba(227, 24, 55, 0.3));
+            }
+            .connector-path.dimmed {
+                opacity: 0.1;
             }
         `;
         document.head.appendChild(style);
@@ -87,10 +136,13 @@ function initApp() {
             header.textContent = level.levelName;
             col.appendChild(header);
 
-            level.roles.forEach(role => {
+            level.roles.forEach((role, rIndex) => {
                 const card = document.createElement('div');
                 card.className = 'role-card';
                 card.id = `card-${role.id}`;
+                // Stagger animation slightly for a "waterfall" feel
+                card.style.animationDelay = `${(index * 0.1) + (rIndex * 0.05)}s`;
+                
                 card.innerHTML = `
                     <h3>${role.title}</h3>
                     <p>${role.dept}</p>
@@ -104,20 +156,18 @@ function initApp() {
                 });
                 
                 col.appendChild(card);
-                
                 cardElements[role.id] = { element: card, data: role };
             });
 
             container.appendChild(col);
         });
 
-        setTimeout(() => drawLines(false), 100);
+        // Delay drawing lines slightly to allow card animations to settle
+        setTimeout(() => drawLines(false), 300);
     }
 
     // 2. Draw SVG Lines
     function drawLines(isHighlighted = false) {
-        // NOTE: We do NOT clear svgLayer.innerHTML here immediately if we want smooth transitions of existing lines,
-        // but for layout changes (hiding/showing), fully redrawing is safer to prevent artifacts.
         svgLayer.innerHTML = ''; 
         connections = [];
 
@@ -130,7 +180,6 @@ function initApp() {
 
             source.data.nextSteps.forEach(targetId => {
                 const target = cardElements[targetId];
-                // Both Source and Target must be visible
                 if(target && !target.element.classList.contains('hidden')) {
                     createPath(source, target, isHighlighted);
                 }
@@ -138,6 +187,7 @@ function initApp() {
         });
     }
 
+    // --- UPDATED CURVE LOGIC (MATCHING UPLOADED FILE) ---
     function createPath(sourceObj, targetObj, isHighlighted) {
         const sourceEl = sourceObj.element;
         const targetEl = targetObj.element;
@@ -146,14 +196,17 @@ function initApp() {
         const sRect = sourceEl.getBoundingClientRect();
         const tRect = targetEl.getBoundingClientRect();
 
+        // Calculate positions including scroll offsets
         const x1 = (sRect.right - containerRect.left) + container.scrollLeft;
         const y1 = (sRect.top - containerRect.top) + (sRect.height / 2) + container.scrollTop;
         
         const x2 = (tRect.left - containerRect.left) + container.scrollLeft;
         const y2 = (tRect.top - containerRect.top) + (tRect.height / 2) + container.scrollTop;
 
-        const controlOffset = (x2 - x1) / 2;
-        const pathData = `M ${x1} ${y1} C ${x1 + controlOffset} ${y1}, ${x2 - controlOffset} ${y2}, ${x2} ${y2}`;
+        // NEW: Tighter curvature logic from your file (50px offset)
+        // This creates a cleaner connection that exits/enters straight horizontally
+        const tension = 50; 
+        const pathData = `M ${x1} ${y1} C ${x1 + tension} ${y1}, ${x2 - tension} ${y2}, ${x2} ${y2}`;
 
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("d", pathData);
@@ -179,12 +232,12 @@ function initApp() {
             detailsPanel.reqSection.style.display = "none";
         }
         
-        drawLines(false);
+        // Wait for CSS transitions (hidden -> block) before redrawing lines
+        setTimeout(() => drawLines(false), 50);
     }
 
-    // 4. Selection Logic (Updated for Backwards/Forwards)
+    // 4. Selection Logic
     function selectRole(role) {
-        // Update Panel
         detailsPanel.title.textContent = role.title;
         detailsPanel.level.textContent = role.dept;
         detailsPanel.desc.textContent = role.desc;
@@ -195,11 +248,10 @@ function initApp() {
             detailsPanel.reqSection.style.display = "none";
         }
 
-        // --- PATH LOGIC ---
         const relatedIds = new Set();
         relatedIds.add(role.id);
         
-        // A. Look Forwards (Children/Grandchildren)
+        // A. Look Forwards
         function collectChildren(currentData) {
             if(!currentData.nextSteps) return;
             currentData.nextSteps.forEach(nextId => {
@@ -210,16 +262,14 @@ function initApp() {
         }
         collectChildren(role);
 
-        // B. Look Backwards (Parents/Grandparents) - NEW FEATURE
+        // B. Look Backwards
         function collectParents(targetId) {
-            // Scan the entire dataset to find who points TO the targetId
             CAREER_DATA.forEach(level => {
                 level.roles.forEach(potentialParent => {
                     if (potentialParent.nextSteps && potentialParent.nextSteps.includes(targetId)) {
-                        // Avoid infinite loops if circular ref exists
                         if (!relatedIds.has(potentialParent.id)) {
                             relatedIds.add(potentialParent.id);
-                            collectParents(potentialParent.id); // Recurse upwards
+                            collectParents(potentialParent.id); 
                         }
                     }
                 });
@@ -232,7 +282,6 @@ function initApp() {
             if (relatedIds.has(obj.data.id)) {
                 obj.element.classList.remove('hidden');
                 
-                // Active = Clicked Role, Highlight = Path (Parents or Children)
                 if (obj.data.id === role.id) {
                     obj.element.classList.add('active');
                     obj.element.classList.remove('path-highlight');
@@ -246,7 +295,7 @@ function initApp() {
             }
         });
 
-        // FORCE REDRAW with slight delay to allow layout to settle
+        // Redraw lines after layout shift
         setTimeout(() => {
             drawLines(true);
             if(viewport.scrollTo) {
