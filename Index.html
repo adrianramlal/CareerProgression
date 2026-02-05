@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatil Career Pathways</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <!-- Used CSS to approximate Logo style -->
+		<div class="logo">
+   		 <img src="tatil-general-logo.svg" alt="Tatil Logo" width="80">
+		</div>
+        </div>
+        <div style="font-size: 0.9rem; font-weight: bold;">
+            Select a role to view possible futures
+        </div>
+    </header>
+
+
+    <div class="main-container">
+        <!-- DETAILS PANEL (Left) -->
+        <div class="details-panel" id="detailsPanel">
+            <div class="details-header">
+                <h2 id="detailTitle">Welcome</h2>
+                <span class="meta" id="detailLevel">Start Exploring</span>
+            </div>
+            <div class="detail-section">
+                <h4>Description</h4>
+                <p id="detailDesc">Click on any role card on the chart to see job details, requirements, and where that career path can lead within Tatil.</p>
+            </div>
+            <div class="detail-section" id="reqSection" style="display:none;">
+                <h4>Typical Requirements</h4>
+                <p id="detailReq"></p>
+            </div>
+        </div>
+
+        <!-- CHART AREA (Right) -->
+        <div class="chart-viewport">
+            <svg id="connections-layer"></svg>
+            <div class="chart-container" id="chartContainer">
+                <!-- Javascript will inject columns and cards here -->
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
