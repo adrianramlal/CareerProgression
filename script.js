@@ -1,7 +1,6 @@
 // =========================================================
 // --- DATA LOADING ---
 // =========================================================
-// We start with an empty array. The data is fetched from data.json.
 let CAREER_DATA = []; 
 
 // Fetch the external JSON file
@@ -16,13 +15,11 @@ fetch('data.json')
     CAREER_DATA = data;
     console.log("Data loaded successfully");
     
-    // START THE APP HERE
-    // We only run the logic after this line ensures data exists.
+    // START THE APP
     initApp(); 
   })
   .catch(error => {
     console.error("Error loading JSON:", error);
-    // Optional: Display an error message on the screen for the user
     document.body.innerHTML = "<h3 style='color:red; text-align:center; margin-top:50px;'>Error loading career data. Please check data.json.</h3>";
   });
 
@@ -30,23 +27,35 @@ fetch('data.json')
 // --- MAIN APPLICATION LOGIC ---
 // =========================================================
 
-// We wrap the entire application in a function so it doesn't run prematurely.
 function initApp() {
 
-    // --- 0. INJECT CSS FOR COLLAPSING BEHAVIOR ---
+    // --- 0. INJECT CSS FOR ANIMATIONS & COLLAPSING ---
     if (!document.getElementById('dynamic-collapse-style')) {
         const style = document.createElement('style');
         style.id = 'dynamic-collapse-style';
         style.innerHTML = `
             .role-card.hidden { display: none !important; }
-            /* Removed transition to ensure lines draw correctly immediately */
+            
+            /* Smooth Reveal Animation */
+            @keyframes popIn {
+                0% { opacity: 0; transform: translateY(10px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+            
+            .role-card:not(.hidden) {
+                animation: popIn 0.4s ease-out forwards;
+            }
+
+            /* Smooth Line Transitions */
+            .connector-path {
+                transition: d 0.4s ease-in-out, opacity 0.3s ease;
+            }
         `;
         document.head.appendChild(style);
     }
 
     const container = document.getElementById('chartContainer');
     const svgLayer = document.getElementById('connections-layer');
-    // Using a safe access pattern for the viewport
     const viewport = document.querySelector('.chart-viewport') || document.body; 
 
     const detailsPanel = {
@@ -57,7 +66,6 @@ function initApp() {
         reqSection: document.getElementById('reqSection')
     };
 
-    // State for drag functionality
     const chartState = { 
         isDown: false, startX: 0, startY: 0, 
         scrollLeft: 0, scrollTop: 0, isDragging: false 
@@ -103,13 +111,13 @@ function initApp() {
             container.appendChild(col);
         });
 
-        // Initial draw (No highlight)
         setTimeout(() => drawLines(false), 100);
     }
 
     // 2. Draw SVG Lines
-    // Added 'isHighlighted' parameter to force red lines when filtering
     function drawLines(isHighlighted = false) {
+        // NOTE: We do NOT clear svgLayer.innerHTML here immediately if we want smooth transitions of existing lines,
+        // but for layout changes (hiding/showing), fully redrawing is safer to prevent artifacts.
         svgLayer.innerHTML = ''; 
         connections = [];
 
@@ -122,6 +130,7 @@ function initApp() {
 
             source.data.nextSteps.forEach(targetId => {
                 const target = cardElements[targetId];
+                // Both Source and Target must be visible
                 if(target && !target.element.classList.contains('hidden')) {
                     createPath(source, target, isHighlighted);
                 }
@@ -133,12 +142,10 @@ function initApp() {
         const sourceEl = sourceObj.element;
         const targetEl = targetObj.element;
 
-        // Robust coordinate calculation including scroll offsets
         const containerRect = container.getBoundingClientRect();
         const sRect = sourceEl.getBoundingClientRect();
         const tRect = targetEl.getBoundingClientRect();
 
-        // Calculate positions relative to the container content
         const x1 = (sRect.right - containerRect.left) + container.scrollLeft;
         const y1 = (sRect.top - containerRect.top) + (sRect.height / 2) + container.scrollTop;
         
@@ -151,15 +158,11 @@ function initApp() {
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("d", pathData);
         
-        // APPLY CLASS: If we are in "Select Mode", make lines Red (highlighted). 
-        // Otherwise use default.
         const classNames = isHighlighted ? "connector-path highlighted" : "connector-path";
         path.setAttribute("class", classNames);
-        
         path.id = `path-${sourceObj.data.id}-${targetObj.data.id}`;
         
         svgLayer.appendChild(path);
-
         connections.push({ from: sourceObj.data.id, to: targetObj.data.id, element: path });
     }
 
@@ -176,13 +179,12 @@ function initApp() {
             detailsPanel.reqSection.style.display = "none";
         }
         
-        // Draw lines without highlight (Standard view)
         drawLines(false);
     }
 
-    // 4. Selection Logic
+    // 4. Selection Logic (Updated for Backwards/Forwards)
     function selectRole(role) {
-        // Update details...
+        // Update Panel
         detailsPanel.title.textContent = role.title;
         detailsPanel.level.textContent = role.dept;
         detailsPanel.desc.textContent = role.desc;
@@ -193,10 +195,11 @@ function initApp() {
             detailsPanel.reqSection.style.display = "none";
         }
 
-        // Identify Path
+        // --- PATH LOGIC ---
         const relatedIds = new Set();
         relatedIds.add(role.id);
         
+        // A. Look Forwards (Children/Grandchildren)
         function collectChildren(currentData) {
             if(!currentData.nextSteps) return;
             currentData.nextSteps.forEach(nextId => {
@@ -207,10 +210,29 @@ function initApp() {
         }
         collectChildren(role);
 
-        // Collapse Layout
+        // B. Look Backwards (Parents/Grandparents) - NEW FEATURE
+        function collectParents(targetId) {
+            // Scan the entire dataset to find who points TO the targetId
+            CAREER_DATA.forEach(level => {
+                level.roles.forEach(potentialParent => {
+                    if (potentialParent.nextSteps && potentialParent.nextSteps.includes(targetId)) {
+                        // Avoid infinite loops if circular ref exists
+                        if (!relatedIds.has(potentialParent.id)) {
+                            relatedIds.add(potentialParent.id);
+                            collectParents(potentialParent.id); // Recurse upwards
+                        }
+                    }
+                });
+            });
+        }
+        collectParents(role.id);
+
+        // Apply Classes
         Object.values(cardElements).forEach(obj => {
             if (relatedIds.has(obj.data.id)) {
                 obj.element.classList.remove('hidden');
+                
+                // Active = Clicked Role, Highlight = Path (Parents or Children)
                 if (obj.data.id === role.id) {
                     obj.element.classList.add('active');
                     obj.element.classList.remove('path-highlight');
@@ -224,7 +246,7 @@ function initApp() {
             }
         });
 
-        // FORCE REDRAW: Pass 'true' to make lines Red
+        // FORCE REDRAW with slight delay to allow layout to settle
         setTimeout(() => {
             drawLines(true);
             if(viewport.scrollTo) {
@@ -287,11 +309,6 @@ function initApp() {
         });
     }
 
-    window.addEventListener('resize', () => drawLines(false)); // Redraw standard on resize
+    window.addEventListener('resize', () => drawLines(false)); 
     renderChart();
 }
-
-
-
-
-
