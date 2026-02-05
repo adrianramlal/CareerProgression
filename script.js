@@ -4,78 +4,34 @@
         // Edit this JSON object to add/remove roles or change connections.
         // "nextSteps": Array of IDs that this role leads TO.
         
-        const CAREER_DATA = [
-            {
-                levelName: "Entry Level (Band A)",
-                roles: [
-                    { id: "office_asst", title: "Office Assistant", dept: "Operations", desc: "General office support duties including filing and mail distribution.", req: "3-5 O'Levels.", nextSteps: ["admin_asst_i"] },
-                    { id: "courier", title: "Courier", dept: "Operations", desc: "Responsible for the safe and timely delivery of documents and packages.", req: "Valid Driver's Permit, O'Levels.", nextSteps: ["office_asst"] },
-                    { id: "telephone_op", title: "Telephone Operator", dept: "Admin", desc: "Manages incoming calls and directs them to appropriate personnel.", req: "3-5 O'Levels, clear speech.", nextSteps: ["csr_i"] }
-                ]
-            },
-            {
-                levelName: "Level 1 (Band B)",
-                roles: [
-                    { id: "accounting_asst_i", title: "Accounting Assistant I", dept: "Finance", desc: "Performs routine clerical accounting duties, reconciliations, and cheque preparation.", req: "5 O'Levels, 3 A'Levels or CAT/ACCA L1. 1 Yr Exp.", nextSteps: ["accounting_asst_ii"] },
-                    { id: "admin_asst_i", title: "Administrative Assistant I", dept: "Admin", desc: "Provides administrative support, telephone coverage, and mail handling.", req: "5 O'Levels, 2 CAPE. 1 Yr Exp.", nextSteps: ["admin_asst_ii"] },
-                    { id: "csr_i", title: "Customer Service Rep I", dept: "Client Services", desc: "Provides admin support and level 1 customer service. Processes routine non-financial changes.", req: "5 O'Levels, 2 A'Levels. 0-1 Yr Exp.", nextSteps: ["csr_ii"] },
-                    { id: "prem_proc_clerk_i", title: "Premium Processing Clerk I", dept: "Finance", desc: "Performs clerical accounting tasks, salary deduction deposits, and posting entries.", req: "5 O'Levels, 3 A'Levels, Diploma. 1 Yr Exp.", nextSteps: ["prem_proc_clerk_ii"] },
-                    { id: "reinsurance_admin_i", title: "Reinsurance Administrator I", dept: "Underwriting", desc: "Maintains records, compiles policy listings, and supports the Reinsurance team.", req: "Bachelor's Degree or LOMA. 0-1 Yr Exp.", nextSteps: ["reinsurance_admin_ii"] },
-                    { id: "policy_issue_clerk", title: "Policy Issue Clerk", dept: "Operations", desc: "Prepares and assembles policy documents for delivery.", req: "5 O'Levels. Attention to detail.", nextSteps: ["policy_registrar_i"] },
-                    { id: "cust_relations_officer_i", title: "Customer Relations Officer I", dept: "Sales Admin", desc: "Builds relationships with clients/agents. Supports growth of the portfolio.", req: "5 O'Levels, Diploma. 0-1 Yr Exp.", nextSteps: ["cust_relations_officer_ii"] }
-                ]
-            },
-            {
-                levelName: "Level 2 (Band C)",
-                roles: [
-                    { id: "accounting_asst_ii", title: "Accounting Assistant II", dept: "Finance", desc: "Performs clerical accounting, reconciles named accounts, and assists with payroll.", req: "BSc Accounting or ACCA L2. 3 Yrs Exp.", nextSteps: ["accounting_asst_iii"] },
-                    { id: "admin_asst_ii", title: "Administrative Assistant II", dept: "Admin", desc: "Supports managers/underwriters, prepares reports, manages schedules.", req: "2 CAPE, Diploma. 2 Yrs Exp.", nextSteps: ["admin_asst_iii"] },
-                    { id: "csr_ii", title: "Customer Service Rep II", dept: "Client Services", desc: "Resolves wide variety of issues. Processes surrenders, maturities, and claims.", req: "5 O'Levels, 2 A'Levels, LOMA 1&2. Knowledge of products.", nextSteps: ["csr_iii"] },
-                    { id: "prem_proc_clerk_ii", title: "Premium Processing Clerk II", dept: "Finance", desc: "Reconciles input to financial systems, processes payments, investigates queries.", req: "5 O'Levels, 3 A'Levels, Diploma. 3 Yrs Exp.", nextSteps: ["prem_proc_clerk_iii"] },
-                    { id: "reinsurance_admin_ii", title: "Reinsurance Administrator II", dept: "Underwriting", desc: "Administers treaties, cedes risk, validates billings, and analyzes claims.", req: "Bachelor's Degree, LOMA. 2 Yrs Exp.", nextSteps: ["reinsurance_admin_iii"] },
-                    { id: "underwriter_i", title: "Underwriter I", dept: "Underwriting", desc: "Examines applicant health status and underwrites ordinary life/group excess.", req: "5 O'Levels, 2 A'Levels, LOMA 280/290. 1-2 Yrs Exp.", nextSteps: ["underwriter_ii"] },
-                    { id: "cust_retention_rep_i", title: "Customer Retention Rep I", dept: "Operations", desc: "(Conservation Officer I) Contacts customers to prevent termination and manage orphan portfolio.", req: "5 O'Levels, Sales cert. 2-3 Yrs Exp.", nextSteps: ["cust_retention_rep_ii"] },
-                    { id: "pension_admin_i", title: "Pension Administrator I", dept: "Pensions", desc: "Maintains databases, prepares benefit calcs, ensures regulatory compliance.", req: "Assoc Degree (Actuarial/Business). 1 Yr Exp.", nextSteps: ["pension_admin_ii"] },
-                    { id: "group_life_admin_i", title: "Group Life Administrator I", dept: "Group Business", desc: "Updates Group Life plans, files, and client information. Prepares proposals.", req: "5 CXC, Diploma, LOMA. 1-2 Yrs Exp.", nextSteps: ["group_life_admin_ii"] }
-                ]
-            },
-            {
-                levelName: "Level 3 (Band D)",
-                roles: [
-                    { id: "accounting_asst_iii", title: "Accounting Assistant III", dept: "Finance", desc: "Prepares Agents payroll, statutory deductions, and financial statements.", req: "BSc Accounting, ACCA L3. 5 Yrs Exp.", nextSteps: [] },
-                    { id: "admin_asst_iii", title: "Administrative Assistant III", dept: "Admin", desc: "High-level support to Manager. Board reports. Complex administration.", req: "2 CAPE, Diploma, LOMA. 3 Yrs Exp.", nextSteps: [] },
-                    { id: "csr_iii", title: "Customer Service Rep III", dept: "Client Services", desc: "Leads team, executes technical processes, subject matter expert in test environment.", req: "Degree, ACS/LOMA. Lead team experience.", nextSteps: ["cust_relations_officer_ii"] },
-                    { id: "prem_proc_clerk_iii", title: "Premium Processing Clerk III", dept: "Finance", desc: "Resolves complex queries, reconciles suspense accounts, logs bankers orders.", req: "BSc or 5 Yrs Exp.", nextSteps: ["accounting_asst_iii"] },
-                    { id: "reinsurance_admin_iii", title: "Reinsurance Administrator III", dept: "Underwriting", desc: "Treaty administration, reconciliations, regulatory compliance, and reporting.", req: "Bachelor's Degree, Expert Treaty knowledge. 5 Yrs Exp.", nextSteps: [] },
-                    { id: "underwriter_ii", title: "Underwriter II", dept: "Underwriting", desc: "Assesses risk, trains trainees, makes counter offers.", req: "Assoc Degree, LOMA 281/291. 2-3 Yrs Exp.", nextSteps: ["underwriter_iii"] },
-                    { id: "cust_retention_rep_ii", title: "Customer Retention Rep II", dept: "Operations", desc: "(Conservation Officer II) Advises clients on solutions, acquires new business.", req: "Bachelor's Degree, 5 O'Levels. 4-5 Yrs Exp.", nextSteps: ["cust_retention_rep_iii"] },
-                    { id: "pension_admin_ii", title: "Pension Administrator II", dept: "Pensions", desc: "Databases, tax computations, valuation reporting, trustee meeting coordination.", req: "BS/BA Degree, LOMA ASRI. 4 Yrs Exp.", nextSteps: ["pension_admin_iii"] },
-                    { id: "group_life_admin_ii", title: "Group Life Administrator II", dept: "Group Business", desc: "Prepares contracts, endorsements, premium billings and reinsurance reports.", req: "Assoc Degree, LOMA. 2-3 Yrs Exp.", nextSteps: ["group_life_admin_iii"] },
-                    { id: "systems_admin_i", title: "Systems Administrator I", dept: "IT", desc: "Maintains IT infrastructure and supports users.", req: "Degree in CS/IT. 2 Yrs Exp.", nextSteps: ["systems_admin_ii"] },
-                    { id: "cust_relations_officer_ii", title: "Customer Relations Officer II", dept: "Sales Admin", desc: "Builds relationships, supervises branch staff, resolves disputes.", req: "Associate Degree, LOMA. 2-4 Yrs Exp.", nextSteps: ["cust_relations_officer_iii"] }
-                ]
-            },
-            {
-                levelName: "Level 4 (Band E)",
-                roles: [
-                    { id: "underwriter_iii", title: "Underwriter III", dept: "Underwriting", desc: "Assesses complex risk, approves junior decisions, trains agents.", req: "Bachelor's Degree, FALU asset. 4-5 Yrs Exp.", nextSteps: [] },
-                    { id: "systems_admin_ii", title: "Systems Administrator II", dept: "IT", desc: "Senior infrastructure support and system maintenance.", req: "Degree in CS/IT. 4 Yrs Exp.", nextSteps: ["systems_admin_iii"] },
-                    { id: "cust_relations_officer_iii", title: "Customer Relations Officer III", dept: "Sales Admin", desc: "Supervises customer service staff, strategic support for portfolio growth.", req: "Degree, LOMA. 5 Yrs Exp.", nextSteps: [] },
-                    { id: "marketing_officer", title: "Marketing Officer", dept: "Marketing", desc: "Executes marketing strategies and campaigns.", req: "Degree in Marketing. 3-4 Yrs Exp.", nextSteps: [] },
-                    { id: "mortgage_officer", title: "Mortgage Officer", dept: "Finance", desc: "Manages mortgage portfolio and client relations.", req: "Degree in Finance/Business. 3-5 Yrs Exp.", nextSteps: [] }
-                ]
-            },
-            {
-                levelName: "Specialist (Band F)",
-                roles: [
-                    { id: "actuarial_asst", title: "Actuarial Assistant", dept: "Actuarial", desc: "Supports actuarial valuations and reporting.", req: "Degree in Actuarial/Math. 1 Yr Exp.", nextSteps: [] },
-                    { id: "systems_admin_iii", title: "Systems Administrator III", dept: "IT", desc: "Lead IT Administrator for infrastructure.", req: "Master's/Degree. Senior exp.", nextSteps: [] },
-                    { id: "cust_retention_rep_iii", title: "Customer Retention Rep III", dept: "Operations", desc: "(Conservation Officer III) Strategic conservation, complex analysis, reporting.", req: "Degree, LOMA FLMI. 6 Yrs Exp.", nextSteps: [] },
-                    { id: "group_life_admin_iii", title: "Group Life Administrator III", dept: "Group Business", desc: "Updates plans, assists in strategic planning and procedure formulation.", req: "Bachelor's Degree, LOMA/FLMI. 4-5 Yrs Exp.", nextSteps: [] },
-                    { id: "pension_admin_iii", title: "Pension Administrator III", dept: "Pensions", desc: "Benefit models, quotation packages, client presentations.", req: "BS/BA Degree, LOMA FSRI. 8 Yrs Exp.", nextSteps: [] }
-                ]
-            }
-        ];
+        let CAREER_DATA = []; // Initialize empty
+
+// Fetch the external JSON file
+fetch('data.json')
+  .then(response => {
+    if (!response.ok) {
+        throw new Error("HTTP error " + response.status);
+    }
+    return response.json();
+  })
+  .then(data => {
+    CAREER_DATA = data;
+    console.log("Data loaded successfully");
+    
+    // IMPORTANT: Call your main initialization function here!
+    // If you try to use CAREER_DATA outside this block immediately, 
+    // it will still be empty because the file hasn't finished loading yet.
+    initApp(); 
+  })
+  .catch(error => {
+    console.error("Error loading JSON:", error);
+  });
+
+function initApp() {
+    // Put your code that uses CAREER_DATA here
+    // For example: renderCareerPath(CAREER_DATA);
+    console.log("App started with data:", CAREER_DATA);
+}
 
         // =========================================================
         // --- LOGIC: DO NOT EDIT BELOW UNLESS YOU KNOW JS ---
@@ -309,4 +265,5 @@
         window.addEventListener('resize', drawLines);
         
         // Initial Run
+
         renderChart();
