@@ -33,6 +33,18 @@ fetch('data.json')
 // We wrap the entire application in a function so it doesn't run prematurely.
 function initApp() {
 
+    // --- 0. INJECT CSS FOR COLLAPSING BEHAVIOR ---
+    // This ensures that hidden roles take up zero space, causing others to stack up.
+    if (!document.getElementById('dynamic-collapse-style')) {
+        const style = document.createElement('style');
+        style.id = 'dynamic-collapse-style';
+        style.innerHTML = `
+            .role-card.hidden { display: none !important; }
+            .role-card { transition: all 0.3s ease; } /* Smooth movement */
+        `;
+        document.head.appendChild(style);
+    }
+
     const container = document.getElementById('chartContainer');
     const svgLayer = document.getElementById('connections-layer');
     // Using a safe access pattern for the viewport
@@ -108,15 +120,19 @@ function initApp() {
         svgLayer.innerHTML = ''; 
         connections = [];
 
+        // Update SVG size to match the current container (which might have shrunk)
         svgLayer.style.width = container.scrollWidth + 'px';
         svgLayer.style.height = container.scrollHeight + 'px';
 
         Object.values(cardElements).forEach(source => {
+            // CRITICAL CHANGE: Do not draw lines from hidden cards
+            if(source.element.classList.contains('hidden')) return;
             if(!source.data.nextSteps) return;
 
             source.data.nextSteps.forEach(targetId => {
                 const target = cardElements[targetId];
-                if(target) {
+                // Check if target exists AND is visible
+                if(target && !target.element.classList.contains('hidden')) {
                     createPath(source, target);
                 }
             });
@@ -154,37 +170,27 @@ function initApp() {
         });
     }
 
-    // 3. NEW: Reset Function (Cleans up the view)
+    // 3. Reset Function (Restores Full View)
     function resetView() {
-        // Make all cards visible again
+        // Show all cards
         Object.values(cardElements).forEach(obj => {
-            obj.element.classList.remove('active', 'path-highlight');
-            obj.element.style.opacity = '1';
-            obj.element.style.pointerEvents = 'auto'; // Re-enable clicking
+            obj.element.classList.remove('active', 'path-highlight', 'hidden');
         });
 
-        // Make all lines visible again
-        connections.forEach(conn => {
-            conn.element.classList.remove('highlighted', 'dimmed');
-            conn.element.style.opacity = '1';
-        });
-
-        // Reset details panel text
+        // Clear details
         if(detailsPanel.title) {
             detailsPanel.title.textContent = "Select a Role";
             detailsPanel.level.textContent = "Career Path Explorer";
             detailsPanel.desc.textContent = "Click on a role card to view requirements and future career opportunities.";
             detailsPanel.reqSection.style.display = "none";
         }
+        
+        // Redraw lines to match the restored grid positions
+        drawLines();
     }
 
-    // 4. UPDATED: Selection Logic
+    // 4. Selection Logic (Collapses View)
     function selectRole(role) {
-        // First, reset everything locally to ensure clean state calculation
-        Object.values(cardElements).forEach(obj => {
-            obj.element.classList.remove('active', 'path-highlight');
-        });
-
         // A. Update Detail Panel
         detailsPanel.title.textContent = role.title;
         detailsPanel.level.textContent = role.dept;
@@ -198,52 +204,64 @@ function initApp() {
         }
 
         // B. Identify "Related" Roles (The path)
-        // We use a Set to store the IDs of the role and its children
         const relatedIds = new Set();
         relatedIds.add(role.id);
         
-        // Recursive function to find all downstream children
-        function collectChildren(currentId) {
-            const children = connections.filter(c => c.from === currentId);
-            children.forEach(c => {
-                relatedIds.add(c.to);
-                collectChildren(c.to); // Recurse
+        // Find all children (recursive)
+        // Note: We need to look at the raw DATA to find connections, 
+        // because the 'connections' array might be empty if we are redrawing.
+        function collectChildren(currentData) {
+            if(!currentData.nextSteps) return;
+            currentData.nextSteps.forEach(nextId => {
+                relatedIds.add(nextId);
+                // Find the data object for this ID to recurse
+                const nextRoleData = findRoleData(nextId); 
+                if(nextRoleData) collectChildren(nextRoleData);
             });
         }
-        collectChildren(role.id);
+        collectChildren(role);
 
-        // C. Apply Visibility Logic
+        // C. Collapse Layout
         // Loop through ALL cards
         Object.values(cardElements).forEach(obj => {
             if (relatedIds.has(obj.data.id)) {
-                // If related: Keep visible
-                obj.element.style.opacity = '1';
-                obj.element.style.pointerEvents = 'auto';
+                // Keep visible
+                obj.element.classList.remove('hidden');
                 
                 if (obj.data.id === role.id) {
                     obj.element.classList.add('active');
+                    obj.element.classList.remove('path-highlight');
                 } else {
                     obj.element.classList.add('path-highlight');
+                    obj.element.classList.remove('active');
                 }
             } else {
-                // If NOT related: "Disappear"
-                obj.element.style.opacity = '0.05'; // Faint ghost (so layout stays) or 0 for invisible
-                obj.element.style.pointerEvents = 'none'; // Prevent clicking hidden items
+                // Hide completely (this triggers the "One Line" effect)
+                obj.element.classList.add('hidden');
+                obj.element.classList.remove('active', 'path-highlight');
             }
         });
 
-        // D. Apply Line Visibility
-        connections.forEach(conn => {
-            // Only show lines that connect two "related" nodes
-            if (relatedIds.has(conn.from) && relatedIds.has(conn.to)) {
-                conn.element.style.opacity = '1';
-                conn.element.classList.add('highlighted');
-                conn.element.classList.remove('dimmed');
-            } else {
-                conn.element.style.opacity = '0.05'; // Hide unconnected lines
-                conn.element.classList.add('dimmed');
+        // D. Redraw lines and Recenter
+        // We must wait a tiny moment for the browser to "collapse" the divs 
+        // before we draw the lines to the new positions.
+        setTimeout(() => {
+            drawLines();
+            
+            // Optional: Scroll to top-left so user sees the start of the path
+            if(viewport.scrollTo) {
+                viewport.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             }
-        });
+        }, 50);
+    }
+    
+    // Helper to find data by ID from the global array
+    function findRoleData(id) {
+        for (let level of CAREER_DATA) {
+            const found = level.roles.find(r => r.id === id);
+            if (found) return found;
+        }
+        return null;
     }
 
     // =========================================================
@@ -306,4 +324,5 @@ function initApp() {
     // Initial Run
     renderChart();
 }
+
 
