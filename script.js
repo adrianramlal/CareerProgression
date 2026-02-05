@@ -290,7 +290,8 @@ function initApp() {
     window.addEventListener('resize', () => drawLines(false)); // Redraw standard on resize
     renderChart();
 }
-}
+
+
 
 
 
