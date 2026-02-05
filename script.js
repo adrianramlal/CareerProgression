@@ -22,7 +22,7 @@ fetch('data.json')
 
 function initApp() {
 
-    // --- 1. INJECT CSS (VISUALS FROM UPLOADED FILE) ---
+    // --- 1. INJECT CSS (VISUALS) ---
     if (!document.getElementById('dynamic-styles')) {
         const style = document.createElement('style');
         style.id = 'dynamic-styles';
@@ -45,7 +45,7 @@ function initApp() {
                 background: white;
                 padding: 15px;
                 border-radius: 4px;
-                border-left: 5px solid #ccc; /* Default Border */
+                border-left: 5px solid #ccc;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
                 transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
                 position: relative;
@@ -165,12 +165,12 @@ function initApp() {
         setTimeout(() => drawLines(false), 100);
     }
 
-    // --- DRAW LINES (UPDATED LOGIC) ---
+    // --- DRAW LINES (FIXED LOGIC) ---
     function drawLines(isHighlighted = false) {
         svgLayer.innerHTML = ''; 
         connections = [];
 
-        // Match container size exactly
+        // Resize SVG to fit entire scrollable content
         svgLayer.setAttribute('width', container.scrollWidth);
         svgLayer.setAttribute('height', container.scrollHeight);
 
@@ -190,18 +190,18 @@ function initApp() {
     function createPath(sourceObj, targetObj, isHighlighted) {
         const sRect = sourceObj.element.getBoundingClientRect(); 
         const tRect = targetObj.element.getBoundingClientRect();
-        const cRect = container.getBoundingClientRect();
-
-        // 1. Calculate precise coordinates relative to the container
-        // Note: We use cRect (container rect) to ensure lines move WITH the scrolling content
-        const x1 = sRect.right - cRect.left; 
-        const y1 = (sRect.top - cRect.top) + sRect.height/2;
         
-        const x2 = tRect.left - cRect.left; 
-        const y2 = (tRect.top - cRect.top) + tRect.height/2;
+        // CRITICAL FIX: Calculate relative to the SVG layer itself.
+        // This solves the padding gap AND the scrolling disconnect issues.
+        const svgRect = svgLayer.getBoundingClientRect();
 
-        // 2. The "Tight Curve" Logic from your file (x + 50)
-        // This creates a cleaner "network" look than standard Bezier midpoints
+        const x1 = sRect.right - svgRect.left; 
+        const y1 = (sRect.top - svgRect.top) + sRect.height/2;
+        
+        const x2 = tRect.left - svgRect.left; 
+        const y2 = (tRect.top - svgRect.top) + tRect.height/2;
+
+        // Use the tight curve logic (x + 50)
         const pathData = `M ${x1} ${y1} C ${x1 + 50} ${y1}, ${x2 - 50} ${y2}, ${x2} ${y2}`;
 
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -244,11 +244,11 @@ function initApp() {
             detailsPanel.reqSection.style.display = "none";
         }
 
-        // Pathfinding (Parents & Children)
+        // Pathfinding
         const relatedIds = new Set();
         relatedIds.add(role.id);
         
-        // Forward (Future)
+        // Forward
         function collectChildren(currentData) {
             if(!currentData.nextSteps) return;
             currentData.nextSteps.forEach(nextId => {
@@ -259,7 +259,7 @@ function initApp() {
         }
         collectChildren(role);
 
-        // Backward (History)
+        // Backward
         function collectParents(targetId) {
             CAREER_DATA.forEach(level => {
                 level.roles.forEach(potentialParent => {
@@ -274,7 +274,7 @@ function initApp() {
         }
         collectParents(role.id);
 
-        // Collapse Layout
+        // Update Visibility
         Object.values(cardElements).forEach(obj => {
             if (relatedIds.has(obj.data.id)) {
                 obj.element.classList.remove('hidden');
@@ -292,7 +292,7 @@ function initApp() {
             }
         });
 
-        // Redraw with delay for smooth animation
+        // Redraw
         setTimeout(() => {
             drawLines(true);
             if(viewport.scrollTo) {
