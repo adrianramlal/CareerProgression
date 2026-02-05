@@ -3,24 +3,17 @@
 // =========================================================
 let CAREER_DATA = []; 
 
-// Fetch the external JSON file
 fetch('data.json')
   .then(response => {
-    if (!response.ok) {
-        throw new Error("HTTP error " + response.status);
-    }
+    if (!response.ok) throw new Error("HTTP error " + response.status);
     return response.json();
   })
   .then(data => {
     CAREER_DATA = data;
-    console.log("Data loaded successfully");
-    
-    // START THE APP
     initApp(); 
   })
   .catch(error => {
     console.error("Error loading JSON:", error);
-    document.body.innerHTML = "<h3 style='color:red; text-align:center; margin-top:50px;'>Error loading career data. Please check data.json.</h3>";
   });
 
 // =========================================================
@@ -29,31 +22,33 @@ fetch('data.json')
 
 function initApp() {
 
-    // --- 0. INJECT CSS (Tatil Style + Animations) ---
-    if (!document.getElementById('dynamic-tatil-style')) {
+    // --- 1. INJECT CSS (VISUALS FROM UPLOADED FILE) ---
+    if (!document.getElementById('dynamic-styles')) {
         const style = document.createElement('style');
-        style.id = 'dynamic-tatil-style';
+        style.id = 'dynamic-styles';
         style.innerHTML = `
             :root {
                 --tatil-red: #E31837; 
                 --tatil-black: #000000;
-                --card-border: #ccc;
+                --gray-light: #f8f9fa;
             }
 
-            .role-card.hidden { display: none !important; }
-            
-            /* --- CARD STYLING (MATCHING UPLOADED FILE) --- */
+            /* The Grid Background */
+            .chart-viewport {
+                background-color: var(--gray-light);
+                background-image: radial-gradient(#ddd 1px, transparent 1px);
+                background-size: 20px 20px;
+            }
+
+            /* Card Styling */
             .role-card {
                 background: white;
                 padding: 15px;
                 border-radius: 4px;
-                border-left: 5px solid var(--card-border);
+                border-left: 5px solid #ccc; /* Default Border */
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+                transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
                 position: relative;
-                opacity: 0; /* Start invisible for pop-in */
-                animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
             }
 
             .role-card:hover {
@@ -61,27 +56,37 @@ function initApp() {
                 box-shadow: 0 5px 15px rgba(0,0,0,0.15);
             }
 
-            .role-card h3 { color: var(--tatil-black); margin-top: 0; }
-            .role-card p { color: #666; }
-
-            /* Active / Selected State */
             .role-card.active {
                 border-left-color: var(--tatil-red);
                 background: var(--tatil-black);
-                transform: scale(1.02);
             }
             .role-card.active h3 { color: white; }
             .role-card.active p { color: #ccc; }
-
-            /* Path Highlight State (Parents/Children) */
+            
             .role-card.path-highlight {
                 border-left-color: var(--tatil-red);
+                box-shadow: 0 0 10px rgba(227, 24, 55, 0.2);
             }
 
-            /* --- ANIMATIONS --- */
+            .role-card.hidden {
+                display: none !important;
+            }
+
+            /* Badge */
+            .branch-badge {
+                position: absolute; right: 10px; top: 10px;
+                background: #eee; color: #666; font-size: 10px;
+                width: 20px; height: 20px; border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+            }
+
+            /* Smooth Reveal Animation */
             @keyframes popIn {
-                0% { opacity: 0; transform: translateY(10px) scale(0.95); }
-                100% { opacity: 1; transform: translateY(0) scale(1); }
+                0% { opacity: 0; transform: translateY(10px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+            .role-card:not(.hidden) {
+                animation: popIn 0.4s ease-out forwards;
             }
 
             /* Line Styling */
@@ -89,15 +94,11 @@ function initApp() {
                 fill: none;
                 stroke: #ccc;
                 stroke-width: 2px;
-                transition: stroke 0.3s ease, stroke-width 0.3s ease, opacity 0.3s ease;
+                transition: d 0.5s ease, stroke 0.3s ease, stroke-width 0.3s ease;
             }
             .connector-path.highlighted {
                 stroke: var(--tatil-red);
                 stroke-width: 3px;
-                filter: drop-shadow(0px 0px 2px rgba(227, 24, 55, 0.3));
-            }
-            .connector-path.dimmed {
-                opacity: 0.1;
             }
         `;
         document.head.appendChild(style);
@@ -107,6 +108,7 @@ function initApp() {
     const svgLayer = document.getElementById('connections-layer');
     const viewport = document.querySelector('.chart-viewport') || document.body; 
 
+    // UI Elements
     const detailsPanel = {
         title: document.getElementById('detailTitle'),
         level: document.getElementById('detailLevel'),
@@ -115,6 +117,7 @@ function initApp() {
         reqSection: document.getElementById('reqSection')
     };
 
+    // Drag State
     const chartState = { 
         isDown: false, startX: 0, startY: 0, 
         scrollLeft: 0, scrollTop: 0, isDragging: false 
@@ -123,11 +126,11 @@ function initApp() {
     let cardElements = {}; 
     let connections = []; 
 
-    // 1. Render the HTML Grid
+    // --- RENDER GRID ---
     function renderChart() {
         container.innerHTML = '';
         
-        CAREER_DATA.forEach((level, index) => {
+        CAREER_DATA.forEach((level) => {
             const col = document.createElement('div');
             col.className = 'level-column';
             
@@ -136,17 +139,14 @@ function initApp() {
             header.textContent = level.levelName;
             col.appendChild(header);
 
-            level.roles.forEach((role, rIndex) => {
+            level.roles.forEach(role => {
                 const card = document.createElement('div');
                 card.className = 'role-card';
                 card.id = `card-${role.id}`;
-                // Stagger animation slightly for a "waterfall" feel
-                card.style.animationDelay = `${(index * 0.1) + (rIndex * 0.05)}s`;
-                
                 card.innerHTML = `
                     <h3>${role.title}</h3>
                     <p>${role.dept}</p>
-                    ${role.nextSteps && role.nextSteps.length > 0 ? `<div class="branch-badge" title="Can branch to multiple roles">+${role.nextSteps.length}</div>` : ''}
+                    ${role.nextSteps && role.nextSteps.length > 0 ? `<div class="branch-badge" title="Connections">+${role.nextSteps.length}</div>` : ''}
                 `;
                 
                 card.addEventListener('click', (e) => {
@@ -162,17 +162,17 @@ function initApp() {
             container.appendChild(col);
         });
 
-        // Delay drawing lines slightly to allow card animations to settle
-        setTimeout(() => drawLines(false), 300);
+        setTimeout(() => drawLines(false), 100);
     }
 
-    // 2. Draw SVG Lines
+    // --- DRAW LINES (UPDATED LOGIC) ---
     function drawLines(isHighlighted = false) {
         svgLayer.innerHTML = ''; 
         connections = [];
 
-        svgLayer.style.width = container.scrollWidth + 'px';
-        svgLayer.style.height = container.scrollHeight + 'px';
+        // Match container size exactly
+        svgLayer.setAttribute('width', container.scrollWidth);
+        svgLayer.setAttribute('height', container.scrollHeight);
 
         Object.values(cardElements).forEach(source => {
             if(source.element.classList.contains('hidden')) return;
@@ -187,26 +187,22 @@ function initApp() {
         });
     }
 
-    // --- UPDATED CURVE LOGIC (MATCHING UPLOADED FILE) ---
     function createPath(sourceObj, targetObj, isHighlighted) {
-        const sourceEl = sourceObj.element;
-        const targetEl = targetObj.element;
+        const sRect = sourceObj.element.getBoundingClientRect(); 
+        const tRect = targetObj.element.getBoundingClientRect();
+        const cRect = container.getBoundingClientRect();
 
-        const containerRect = container.getBoundingClientRect();
-        const sRect = sourceEl.getBoundingClientRect();
-        const tRect = targetEl.getBoundingClientRect();
-
-        // Calculate positions including scroll offsets
-        const x1 = (sRect.right - containerRect.left) + container.scrollLeft;
-        const y1 = (sRect.top - containerRect.top) + (sRect.height / 2) + container.scrollTop;
+        // 1. Calculate precise coordinates relative to the container
+        // Note: We use cRect (container rect) to ensure lines move WITH the scrolling content
+        const x1 = sRect.right - cRect.left; 
+        const y1 = (sRect.top - cRect.top) + sRect.height/2;
         
-        const x2 = (tRect.left - containerRect.left) + container.scrollLeft;
-        const y2 = (tRect.top - containerRect.top) + (tRect.height / 2) + container.scrollTop;
+        const x2 = tRect.left - cRect.left; 
+        const y2 = (tRect.top - cRect.top) + tRect.height/2;
 
-        // NEW: Tighter curvature logic from your file (50px offset)
-        // This creates a cleaner connection that exits/enters straight horizontally
-        const tension = 50; 
-        const pathData = `M ${x1} ${y1} C ${x1 + tension} ${y1}, ${x2 - tension} ${y2}, ${x2} ${y2}`;
+        // 2. The "Tight Curve" Logic from your file (x + 50)
+        // This creates a cleaner "network" look than standard Bezier midpoints
+        const pathData = `M ${x1} ${y1} C ${x1 + 50} ${y1}, ${x2 - 50} ${y2}, ${x2} ${y2}`;
 
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("d", pathData);
@@ -219,7 +215,7 @@ function initApp() {
         connections.push({ from: sourceObj.data.id, to: targetObj.data.id, element: path });
     }
 
-    // 3. Reset Function
+    // --- RESET VIEW ---
     function resetView() {
         Object.values(cardElements).forEach(obj => {
             obj.element.classList.remove('active', 'path-highlight', 'hidden');
@@ -228,16 +224,16 @@ function initApp() {
         if(detailsPanel.title) {
             detailsPanel.title.textContent = "Select a Role";
             detailsPanel.level.textContent = "Career Path Explorer";
-            detailsPanel.desc.textContent = "Click on a role card to view requirements and future career opportunities.";
+            detailsPanel.desc.textContent = "Click a card to view details.";
             detailsPanel.reqSection.style.display = "none";
         }
         
-        // Wait for CSS transitions (hidden -> block) before redrawing lines
-        setTimeout(() => drawLines(false), 50);
+        drawLines(false);
     }
 
-    // 4. Selection Logic
+    // --- SELECTION LOGIC ---
     function selectRole(role) {
+        // Details
         detailsPanel.title.textContent = role.title;
         detailsPanel.level.textContent = role.dept;
         detailsPanel.desc.textContent = role.desc;
@@ -248,10 +244,11 @@ function initApp() {
             detailsPanel.reqSection.style.display = "none";
         }
 
+        // Pathfinding (Parents & Children)
         const relatedIds = new Set();
         relatedIds.add(role.id);
         
-        // A. Look Forwards
+        // Forward (Future)
         function collectChildren(currentData) {
             if(!currentData.nextSteps) return;
             currentData.nextSteps.forEach(nextId => {
@@ -262,7 +259,7 @@ function initApp() {
         }
         collectChildren(role);
 
-        // B. Look Backwards
+        // Backward (History)
         function collectParents(targetId) {
             CAREER_DATA.forEach(level => {
                 level.roles.forEach(potentialParent => {
@@ -277,7 +274,7 @@ function initApp() {
         }
         collectParents(role.id);
 
-        // Apply Classes
+        // Collapse Layout
         Object.values(cardElements).forEach(obj => {
             if (relatedIds.has(obj.data.id)) {
                 obj.element.classList.remove('hidden');
@@ -295,7 +292,7 @@ function initApp() {
             }
         });
 
-        // Redraw lines after layout shift
+        // Redraw with delay for smooth animation
         setTimeout(() => {
             drawLines(true);
             if(viewport.scrollTo) {
@@ -312,10 +309,7 @@ function initApp() {
         return null;
     }
 
-    // =========================================================
-    // --- DRAG & BACKGROUND CLICK LOGIC ---
-    // =========================================================
-
+    // --- INTERACTION ---
     if(viewport) {
         viewport.addEventListener('mousedown', (e) => {
             chartState.isDown = true;
