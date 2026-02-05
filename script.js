@@ -34,13 +34,12 @@ fetch('data.json')
 function initApp() {
 
     // --- 0. INJECT CSS FOR COLLAPSING BEHAVIOR ---
-    // This ensures that hidden roles take up zero space, causing others to stack up.
     if (!document.getElementById('dynamic-collapse-style')) {
         const style = document.createElement('style');
         style.id = 'dynamic-collapse-style';
         style.innerHTML = `
             .role-card.hidden { display: none !important; }
-            .role-card { transition: all 0.3s ease; } /* Smooth movement */
+            /* Removed transition to ensure lines draw correctly immediately */
         `;
         document.head.appendChild(style);
     }
@@ -60,16 +59,12 @@ function initApp() {
 
     // State for drag functionality
     const chartState = { 
-        isDown: false, 
-        startX: 0, 
-        startY: 0, 
-        scrollLeft: 0, 
-        scrollTop: 0, 
-        isDragging: false 
+        isDown: false, startX: 0, startY: 0, 
+        scrollLeft: 0, scrollTop: 0, isDragging: false 
     };
 
-    let cardElements = {}; // Map ID -> DOM Element
-    let connections = []; // Store line coordinates
+    let cardElements = {}; 
+    let connections = []; 
 
     // 1. Render the HTML Grid
     function renderChart() {
@@ -94,90 +89,86 @@ function initApp() {
                     ${role.nextSteps && role.nextSteps.length > 0 ? `<div class="branch-badge" title="Can branch to multiple roles">+${role.nextSteps.length}</div>` : ''}
                 `;
                 
-                // CLICK EVENT FOR ROLE
                 card.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Stop the click from hitting the background
+                    e.stopPropagation(); 
                     if (chartState.isDragging) return; 
                     selectRole(role);
                 });
                 
                 col.appendChild(card);
                 
-                cardElements[role.id] = {
-                    element: card,
-                    data: role
-                };
+                cardElements[role.id] = { element: card, data: role };
             });
 
             container.appendChild(col);
         });
 
-        setTimeout(drawLines, 100);
+        // Initial draw (No highlight)
+        setTimeout(() => drawLines(false), 100);
     }
 
     // 2. Draw SVG Lines
-    function drawLines() {
+    // Added 'isHighlighted' parameter to force red lines when filtering
+    function drawLines(isHighlighted = false) {
         svgLayer.innerHTML = ''; 
         connections = [];
 
-        // Update SVG size to match the current container (which might have shrunk)
         svgLayer.style.width = container.scrollWidth + 'px';
         svgLayer.style.height = container.scrollHeight + 'px';
 
         Object.values(cardElements).forEach(source => {
-            // CRITICAL CHANGE: Do not draw lines from hidden cards
             if(source.element.classList.contains('hidden')) return;
             if(!source.data.nextSteps) return;
 
             source.data.nextSteps.forEach(targetId => {
                 const target = cardElements[targetId];
-                // Check if target exists AND is visible
                 if(target && !target.element.classList.contains('hidden')) {
-                    createPath(source, target);
+                    createPath(source, target, isHighlighted);
                 }
             });
         });
     }
 
-    function createPath(sourceObj, targetObj) {
+    function createPath(sourceObj, targetObj, isHighlighted) {
         const sourceEl = sourceObj.element;
         const targetEl = targetObj.element;
 
+        // Robust coordinate calculation including scroll offsets
         const containerRect = container.getBoundingClientRect();
         const sRect = sourceEl.getBoundingClientRect();
         const tRect = targetEl.getBoundingClientRect();
 
-        const x1 = (sRect.right - containerRect.left);
-        const y1 = (sRect.top - containerRect.top) + (sRect.height / 2);
+        // Calculate positions relative to the container content
+        const x1 = (sRect.right - containerRect.left) + container.scrollLeft;
+        const y1 = (sRect.top - containerRect.top) + (sRect.height / 2) + container.scrollTop;
         
-        const x2 = (tRect.left - containerRect.left);
-        const y2 = (tRect.top - containerRect.top) + (tRect.height / 2);
+        const x2 = (tRect.left - containerRect.left) + container.scrollLeft;
+        const y2 = (tRect.top - containerRect.top) + (tRect.height / 2) + container.scrollTop;
 
         const controlOffset = (x2 - x1) / 2;
         const pathData = `M ${x1} ${y1} C ${x1 + controlOffset} ${y1}, ${x2 - controlOffset} ${y2}, ${x2} ${y2}`;
 
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("d", pathData);
-        path.setAttribute("class", "connector-path");
+        
+        // APPLY CLASS: If we are in "Select Mode", make lines Red (highlighted). 
+        // Otherwise use default.
+        const classNames = isHighlighted ? "connector-path highlighted" : "connector-path";
+        path.setAttribute("class", classNames);
+        
         path.id = `path-${sourceObj.data.id}-${targetObj.data.id}`;
         
         svgLayer.appendChild(path);
 
-        connections.push({
-            from: sourceObj.data.id,
-            to: targetObj.data.id,
-            element: path
-        });
+        connections.push({ from: sourceObj.data.id, to: targetObj.data.id, element: path });
     }
 
-    // 3. Reset Function (Restores Full View)
+    // 3. Reset Function
     function resetView() {
-        // Show all cards
         Object.values(cardElements).forEach(obj => {
             obj.element.classList.remove('active', 'path-highlight', 'hidden');
         });
 
-        // Clear details
         if(detailsPanel.title) {
             detailsPanel.title.textContent = "Select a Role";
             detailsPanel.level.textContent = "Career Path Explorer";
@@ -185,17 +176,16 @@ function initApp() {
             detailsPanel.reqSection.style.display = "none";
         }
         
-        // Redraw lines to match the restored grid positions
-        drawLines();
+        // Draw lines without highlight (Standard view)
+        drawLines(false);
     }
 
-    // 4. Selection Logic (Collapses View)
+    // 4. Selection Logic
     function selectRole(role) {
-        // A. Update Detail Panel
+        // Update details...
         detailsPanel.title.textContent = role.title;
         detailsPanel.level.textContent = role.dept;
         detailsPanel.desc.textContent = role.desc;
-        
         if(role.req) {
             detailsPanel.req.textContent = role.req;
             detailsPanel.reqSection.style.display = "block";
@@ -203,31 +193,24 @@ function initApp() {
             detailsPanel.reqSection.style.display = "none";
         }
 
-        // B. Identify "Related" Roles (The path)
+        // Identify Path
         const relatedIds = new Set();
         relatedIds.add(role.id);
         
-        // Find all children (recursive)
-        // Note: We need to look at the raw DATA to find connections, 
-        // because the 'connections' array might be empty if we are redrawing.
         function collectChildren(currentData) {
             if(!currentData.nextSteps) return;
             currentData.nextSteps.forEach(nextId => {
                 relatedIds.add(nextId);
-                // Find the data object for this ID to recurse
                 const nextRoleData = findRoleData(nextId); 
                 if(nextRoleData) collectChildren(nextRoleData);
             });
         }
         collectChildren(role);
 
-        // C. Collapse Layout
-        // Loop through ALL cards
+        // Collapse Layout
         Object.values(cardElements).forEach(obj => {
             if (relatedIds.has(obj.data.id)) {
-                // Keep visible
                 obj.element.classList.remove('hidden');
-                
                 if (obj.data.id === role.id) {
                     obj.element.classList.add('active');
                     obj.element.classList.remove('path-highlight');
@@ -236,26 +219,20 @@ function initApp() {
                     obj.element.classList.remove('active');
                 }
             } else {
-                // Hide completely (this triggers the "One Line" effect)
                 obj.element.classList.add('hidden');
                 obj.element.classList.remove('active', 'path-highlight');
             }
         });
 
-        // D. Redraw lines and Recenter
-        // We must wait a tiny moment for the browser to "collapse" the divs 
-        // before we draw the lines to the new positions.
+        // FORCE REDRAW: Pass 'true' to make lines Red
         setTimeout(() => {
-            drawLines();
-            
-            // Optional: Scroll to top-left so user sees the start of the path
+            drawLines(true);
             if(viewport.scrollTo) {
                 viewport.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             }
         }, 50);
     }
     
-    // Helper to find data by ID from the global array
     function findRoleData(id) {
         for (let level of CAREER_DATA) {
             const found = level.roles.find(r => r.id === id);
@@ -273,7 +250,6 @@ function initApp() {
             chartState.isDown = true;
             chartState.isDragging = false; 
             viewport.classList.add('active');
-            
             chartState.startX = e.pageX - viewport.offsetLeft;
             chartState.startY = e.pageY - viewport.offsetTop;
             chartState.scrollLeft = viewport.scrollLeft;
@@ -288,41 +264,33 @@ function initApp() {
         viewport.addEventListener('mouseup', (e) => {
             chartState.isDown = false;
             viewport.classList.remove('active');
-            
-            // CHECK: If it wasn't a drag, it was a click on the blank area
             if (!chartState.isDragging) {
-                // Check if the click target is NOT a card
                 if (!e.target.closest('.role-card')) {
                     resetView();
                 }
             }
-
             setTimeout(() => { chartState.isDragging = false; }, 50);
         });
 
         viewport.addEventListener('mousemove', (e) => {
             if (!chartState.isDown) return;
             e.preventDefault(); 
-            
             const x = e.pageX - viewport.offsetLeft;
             const y = e.pageY - viewport.offsetTop;
             const walkX = (x - chartState.startX); 
             const walkY = (y - chartState.startY);
-            
             if (Math.abs(walkX) > 5 || Math.abs(walkY) > 5) {
                 chartState.isDragging = true;
             }
-
             viewport.scrollLeft = chartState.scrollLeft - walkX;
             viewport.scrollTop = chartState.scrollTop - walkY;
         });
     }
 
-    // Window resize handling to redraw lines
-    window.addEventListener('resize', drawLines);
-    
-    // Initial Run
+    window.addEventListener('resize', () => drawLines(false)); // Redraw standard on resize
     renderChart();
 }
+}
+
 
 
