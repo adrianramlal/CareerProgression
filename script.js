@@ -35,6 +35,9 @@ function initApp() {
 
     const container = document.getElementById('chartContainer');
     const svgLayer = document.getElementById('connections-layer');
+    // Using a safe access pattern for the viewport
+    const viewport = document.querySelector('.chart-viewport') || document.body; 
+
     const detailsPanel = {
         title: document.getElementById('detailTitle'),
         level: document.getElementById('detailLevel'),
@@ -61,17 +64,14 @@ function initApp() {
         container.innerHTML = '';
         
         CAREER_DATA.forEach((level, index) => {
-            // Create Column
             const col = document.createElement('div');
             col.className = 'level-column';
             
-            // Header
             const header = document.createElement('div');
             header.className = 'level-header';
             header.textContent = level.levelName;
             col.appendChild(header);
 
-            // Roles
             level.roles.forEach(role => {
                 const card = document.createElement('div');
                 card.className = 'role-card';
@@ -82,15 +82,15 @@ function initApp() {
                     ${role.nextSteps && role.nextSteps.length > 0 ? `<div class="branch-badge" title="Can branch to multiple roles">+${role.nextSteps.length}</div>` : ''}
                 `;
                 
-                // Interaction: Check if we were dragging before selecting
+                // CLICK EVENT FOR ROLE
                 card.addEventListener('click', (e) => {
-                    if (chartState.isDragging) return; // Prevent click if this was a drag action
+                    e.stopPropagation(); // Stop the click from hitting the background
+                    if (chartState.isDragging) return; 
                     selectRole(role);
                 });
                 
                 col.appendChild(card);
                 
-                // Store reference
                 cardElements[role.id] = {
                     element: card,
                     data: role
@@ -100,16 +100,14 @@ function initApp() {
             container.appendChild(col);
         });
 
-        // Wait for DOM layout then draw lines
         setTimeout(drawLines, 100);
     }
 
     // 2. Draw SVG Lines
     function drawLines() {
-        svgLayer.innerHTML = ''; // Clear existing
+        svgLayer.innerHTML = ''; 
         connections = [];
 
-        // Set SVG size to match scrollable container width
         svgLayer.style.width = container.scrollWidth + 'px';
         svgLayer.style.height = container.scrollHeight + 'px';
 
@@ -129,14 +127,9 @@ function initApp() {
         const sourceEl = sourceObj.element;
         const targetEl = targetObj.element;
 
-        // Get coordinates relative to the chart container
         const containerRect = container.getBoundingClientRect();
         const sRect = sourceEl.getBoundingClientRect();
         const tRect = targetEl.getBoundingClientRect();
-
-        // Calculate start (Right side of source) and end (Left side of target)
-        // Adjust for scrolling
-        const scrollLeft = container.parentNode.scrollLeft;
 
         const x1 = (sRect.right - containerRect.left);
         const y1 = (sRect.top - containerRect.top) + (sRect.height / 2);
@@ -144,7 +137,6 @@ function initApp() {
         const x2 = (tRect.left - containerRect.left);
         const y2 = (tRect.top - containerRect.top) + (tRect.height / 2);
 
-        // Bezier Curve Logic for smooth "S" shape
         const controlOffset = (x2 - x1) / 2;
         const pathData = `M ${x1} ${y1} C ${x1 + controlOffset} ${y1}, ${x2 - controlOffset} ${y2}, ${x2} ${y2}`;
 
@@ -162,8 +154,37 @@ function initApp() {
         });
     }
 
-    // 3. Handle Interaction
+    // 3. NEW: Reset Function (Cleans up the view)
+    function resetView() {
+        // Make all cards visible again
+        Object.values(cardElements).forEach(obj => {
+            obj.element.classList.remove('active', 'path-highlight');
+            obj.element.style.opacity = '1';
+            obj.element.style.pointerEvents = 'auto'; // Re-enable clicking
+        });
+
+        // Make all lines visible again
+        connections.forEach(conn => {
+            conn.element.classList.remove('highlighted', 'dimmed');
+            conn.element.style.opacity = '1';
+        });
+
+        // Reset details panel text
+        if(detailsPanel.title) {
+            detailsPanel.title.textContent = "Select a Role";
+            detailsPanel.level.textContent = "Career Path Explorer";
+            detailsPanel.desc.textContent = "Click on a role card to view requirements and future career opportunities.";
+            detailsPanel.reqSection.style.display = "none";
+        }
+    }
+
+    // 4. UPDATED: Selection Logic
     function selectRole(role) {
+        // First, reset everything locally to ensure clean state calculation
+        Object.values(cardElements).forEach(obj => {
+            obj.element.classList.remove('active', 'path-highlight');
+        });
+
         // A. Update Detail Panel
         detailsPanel.title.textContent = role.title;
         detailsPanel.level.textContent = role.dept;
@@ -176,45 +197,60 @@ function initApp() {
             detailsPanel.reqSection.style.display = "none";
         }
 
-        // B. Visual Reset
-        document.querySelectorAll('.role-card').forEach(el => el.classList.remove('active', 'path-highlight'));
-        document.querySelectorAll('.connector-path').forEach(el => {
-            el.classList.remove('highlighted');
-            el.classList.add('dimmed');
-        });
-
-        // C. Highlight Selected
-        const selectedEl = cardElements[role.id].element;
-        selectedEl.classList.add('active');
-
-        // D. Highlight Forward Paths (Recursively)
-        highlightForward(role.id);
-    }
-
-    function highlightForward(currentId) {
-        // Find paths starting from this ID
-        const forwardConnections = connections.filter(c => c.from === currentId);
+        // B. Identify "Related" Roles (The path)
+        // We use a Set to store the IDs of the role and its children
+        const relatedIds = new Set();
+        relatedIds.add(role.id);
         
-        forwardConnections.forEach(conn => {
-            // Highlight Line
-            conn.element.classList.remove('dimmed');
-            conn.element.classList.add('highlighted');
+        // Recursive function to find all downstream children
+        function collectChildren(currentId) {
+            const children = connections.filter(c => c.from === currentId);
+            children.forEach(c => {
+                relatedIds.add(c.to);
+                collectChildren(c.to); // Recurse
+            });
+        }
+        collectChildren(role.id);
 
-            // Highlight Target Card
-            const targetCard = cardElements[conn.to].element;
-            targetCard.classList.add('path-highlight');
+        // C. Apply Visibility Logic
+        // Loop through ALL cards
+        Object.values(cardElements).forEach(obj => {
+            if (relatedIds.has(obj.data.id)) {
+                // If related: Keep visible
+                obj.element.style.opacity = '1';
+                obj.element.style.pointerEvents = 'auto';
+                
+                if (obj.data.id === role.id) {
+                    obj.element.classList.add('active');
+                } else {
+                    obj.element.classList.add('path-highlight');
+                }
+            } else {
+                // If NOT related: "Disappear"
+                obj.element.style.opacity = '0.05'; // Faint ghost (so layout stays) or 0 for invisible
+                obj.element.style.pointerEvents = 'none'; // Prevent clicking hidden items
+            }
+        });
 
-            // Recurse
-            highlightForward(conn.to);
+        // D. Apply Line Visibility
+        connections.forEach(conn => {
+            // Only show lines that connect two "related" nodes
+            if (relatedIds.has(conn.from) && relatedIds.has(conn.to)) {
+                conn.element.style.opacity = '1';
+                conn.element.classList.add('highlighted');
+                conn.element.classList.remove('dimmed');
+            } else {
+                conn.element.style.opacity = '0.05'; // Hide unconnected lines
+                conn.element.classList.add('dimmed');
+            }
         });
     }
 
     // =========================================================
-    // --- DRAG TO SCROLL FUNCTIONALITY ---
+    // --- DRAG & BACKGROUND CLICK LOGIC ---
     // =========================================================
-    const viewport = document.querySelector('.chart-viewport');
 
-    if(viewport) { // Safety check in case class name changed
+    if(viewport) {
         viewport.addEventListener('mousedown', (e) => {
             chartState.isDown = true;
             chartState.isDragging = false; 
@@ -231,9 +267,18 @@ function initApp() {
             viewport.classList.remove('active');
         });
 
-        viewport.addEventListener('mouseup', () => {
+        viewport.addEventListener('mouseup', (e) => {
             chartState.isDown = false;
             viewport.classList.remove('active');
+            
+            // CHECK: If it wasn't a drag, it was a click on the blank area
+            if (!chartState.isDragging) {
+                // Check if the click target is NOT a card
+                if (!e.target.closest('.role-card')) {
+                    resetView();
+                }
+            }
+
             setTimeout(() => { chartState.isDragging = false; }, 50);
         });
 
@@ -261,3 +306,4 @@ function initApp() {
     // Initial Run
     renderChart();
 }
+
