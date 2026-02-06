@@ -108,6 +108,56 @@
                 ]
             },
             {
+                "id": "1027",
+                "title": "Pension Administrator I",
+                "dept": "Pensions",
+                "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
+                "req": "  Associate degree from an accredited college/university in Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics\n  Basic proficiency in Microsoft Word \n  Intermediate proficiency in Microsoft Excel\n  At least one year experience in the Financial Services Industry would be an asset",
+                "nextSteps": [
+                    "1048"
+                ]
+            },
+            {
+                "id": "1016",
+                "title": "Premium Processing Clerk I",
+                "dept": "Finance",
+                "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
+                "req": "  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  1 year experience directly related to the duties and responsibilities specified.",
+                "nextSteps": [
+                    "1017"
+                ]
+            },
+            {
+                "id": "1030",
+                "title": "Underwriter I",
+                "dept": "Underwriting",
+                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines.",
+                "req": "  Minimum 5 O Levels and 2 A  Levels \n  LOMA 280 LOMA 290 \n  Diploma in Business Management or related field would be an asset\n  Working knowledge of Microsoft Office Suite.\n  At least 1-2 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
+                "nextSteps": [
+                    "1038"
+                ]
+            },
+            {
+                "id": "1037",
+                "title": "Systems Administrator I",
+                "dept": "IT",
+                "desc": "",
+                "req": "",
+                "nextSteps": [
+                    "1051"
+                ]
+            },
+            {
+                "id": "1015",
+                "title": "Policy Registrar I",
+                "dept": "Operations",
+                "desc": "",
+                "req": "",
+                "nextSteps": [
+                    "1034"
+                ]
+            },
+            {
                 "id": "1011",
                 "title": "Group Pension Clerk",
                 "dept": "Pensions",
@@ -148,35 +198,11 @@
                 "nextSteps": []
             },
             {
-                "id": "1027",
-                "title": "Pension Administrator I",
-                "dept": "Pensions",
-                "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
-                "req": "  Associate degree from an accredited college/university in Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics\n  Basic proficiency in Microsoft Word \n  Intermediate proficiency in Microsoft Excel\n  At least one year experience in the Financial Services Industry would be an asset",
-                "nextSteps": []
-            },
-            {
                 "id": "1014",
                 "title": "Policy Issue Clerk",
                 "dept": "Operations",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1015",
-                "title": "Policy Registrar I",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1016",
-                "title": "Premium Processing Clerk I",
-                "dept": "Finance",
-                "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
-                "req": "  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  1 year experience directly related to the duties and responsibilities specified.",
                 "nextSteps": []
             },
             {
@@ -209,22 +235,6 @@
                 "dept": "",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1037",
-                "title": "Systems Administrator I",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1030",
-                "title": "Underwriter I",
-                "dept": "Underwriting",
-                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines.",
-                "req": "  Minimum 5 O Levels and 2 A  Levels \n  LOMA 280 LOMA 290 \n  Diploma in Business Management or related field would be an asset\n  Working knowledge of Microsoft Office Suite.\n  At least 1-2 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
                 "nextSteps": []
             }
         ]
@@ -293,6 +303,56 @@
                 ]
             },
             {
+                "id": "1048",
+                "title": "Pension Administrator II",
+                "dept": "Pensions",
+                "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
+                "req": "  BS/BA degree from an accredited college/university in \n  Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n  LOMA Associate Secure Retirement Institute designation (ASRI)\n  Manage and track document changes \n  Creation and use of mail merge documents \n  Creation and formatting of illustrations/graphics \n  Intermediate proficiency in Microsoft Excel \n  Create, modify and format charts\n  Demonstration or certification of at least two of the following: \n  Business Writing \n  Minute Taking \n  Public Speaking \n  Payroll Administration \n  Records Administration/Management\n  Minimum of 4 years of experience in administration of defined benefit and defined contribution pension plans\n  Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
+                "nextSteps": [
+                    "1055"
+                ]
+            },
+            {
+                "id": "1017",
+                "title": "Premium Processing Clerk II",
+                "dept": "",
+                "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
+                "req": "  BSc in Business Management or Accounting\n  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  3 years  experience directly related to the duties and responsibilities specified.",
+                "nextSteps": [
+                    "1035"
+                ]
+            },
+            {
+                "id": "1038",
+                "title": "Underwriter II",
+                "dept": "Underwriting",
+                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines; and assist with training Underwriting Trainees.",
+                "req": "  Associate Degree in Business Management or related field\n  LOMA 281 LOMA 291, ACS or FLMI\n  Academy of Life Underwriting, Associate (AALU) would be an asset\n  Working knowledge of Microsoft Office Suite.\n  At least 2-3 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
+                "nextSteps": [
+                    "1057"
+                ]
+            },
+            {
+                "id": "1051",
+                "title": "Systems Administrator II",
+                "dept": "IT",
+                "desc": "",
+                "req": "",
+                "nextSteps": [
+                    "1056"
+                ]
+            },
+            {
+                "id": "1034",
+                "title": "Policy Registrar II",
+                "dept": "Operations",
+                "desc": "",
+                "req": "",
+                "nextSteps": [
+                    "1049"
+                ]
+            },
+            {
                 "id": "1041",
                 "title": "Business Analyst",
                 "dept": "Administration",
@@ -325,30 +385,6 @@
                 "nextSteps": []
             },
             {
-                "id": "1048",
-                "title": "Pension Administrator II",
-                "dept": "Pensions",
-                "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
-                "req": "  BS/BA degree from an accredited college/university in \n  Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n  LOMA Associate Secure Retirement Institute designation (ASRI)\n  Manage and track document changes \n  Creation and use of mail merge documents \n  Creation and formatting of illustrations/graphics \n  Intermediate proficiency in Microsoft Excel \n  Create, modify and format charts\n  Demonstration or certification of at least two of the following: \n  Business Writing \n  Minute Taking \n  Public Speaking \n  Payroll Administration \n  Records Administration/Management\n  Minimum of 4 years of experience in administration of defined benefit and defined contribution pension plans\n  Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
-                "nextSteps": []
-            },
-            {
-                "id": "1034",
-                "title": "Policy Registrar II",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1017",
-                "title": "Premium Processing Clerk II",
-                "dept": "",
-                "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
-                "req": "  BSc in Business Management or Accounting\n  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  3 years  experience directly related to the duties and responsibilities specified.",
-                "nextSteps": []
-            },
-            {
                 "id": "1050",
                 "title": "Public Relations Assistant",
                 "dept": "Marketing",
@@ -362,22 +398,6 @@
                 "dept": "Underwriting",
                 "desc": "Responsible for the administration of reinsurance treaties for Individual and Group Business within authorized limits. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
                 "req": "  Bachelor degree in Business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, ALMI\n  Knowledge of Treaty standards\n  Microsoft Office Suite - Advance\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills.\n  Exceptional written and oral communication abilities\n  Minimum of (2) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience.\n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n  Sound knowledge of Reinsurance",
-                "nextSteps": []
-            },
-            {
-                "id": "1051",
-                "title": "Systems Administrator II",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1038",
-                "title": "Underwriter II",
-                "dept": "Underwriting",
-                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines; and assist with training Underwriting Trainees.",
-                "req": "  Associate Degree in Business Management or related field\n  LOMA 281 LOMA 291, ACS or FLMI\n  Academy of Life Underwriting, Associate (AALU) would be an asset\n  Working knowledge of Microsoft Office Suite.\n  At least 2-3 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
                 "nextSteps": []
             }
         ]
@@ -434,6 +454,46 @@
                 "nextSteps": []
             },
             {
+                "id": "1055",
+                "title": "Pension Administrator III",
+                "dept": "Pensions",
+                "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
+                "req": "  BS/BA degree from an accredited college/university in \n  Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n  LOMA Associate Secure Retirement Institute designation (ASRI)\n  LOMA Fellow Secure Retirement Institute designation (FSRI) or equivalent qualification \n  Certificate designation (pensions) from CEBS, RPA, PPAC or from another credited employee benefit institution.\n  Manage and track document changes \n  Creation and use of mail merge documents \n  Creation and formatting of illustrations/graphics \n  Advance proficiency in Microsoft Excel \n  Create, modify and Macro commands\n  Demonstration or certification of at least four of the following: \n  Business Writing \n  Minute Taking \n  Public Speaking \n  Payroll Administration \n  Records Administration/Management\n  Minimum of 8 years of experience in administration of defined benefit and defined contribution pension plans\n  Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
+                "nextSteps": []
+            },
+            {
+                "id": "1035",
+                "title": "Premium Processing Clerk III",
+                "dept": "Finance",
+                "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
+                "req": "  BSc in Business Management or Accounting\n  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  5 years  experience directly related to the duties and responsibilities specified.",
+                "nextSteps": []
+            },
+            {
+                "id": "1057",
+                "title": "Underwriter III",
+                "dept": "Underwriting",
+                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines; and trains/coaches Underwriting Trainees.",
+                "req": "  Bachelor s Degree in Business Management or related field\n  Academy of Life Underwriting, Fellow (FALU) would be an asset\n  FLMI, ACS\n  Working knowledge of Microsoft Office Suite.\n  At least 4-5 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
+                "nextSteps": []
+            },
+            {
+                "id": "1056",
+                "title": "Systems Administrator III",
+                "dept": "IT",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            },
+            {
+                "id": "1049",
+                "title": "Policy Registrar III",
+                "dept": "Operations",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            },
+            {
                 "id": "1052",
                 "title": "Actuarial Assistant",
                 "dept": "Actuarial",
@@ -450,51 +510,11 @@
                 "nextSteps": []
             },
             {
-                "id": "1055",
-                "title": "Pension Administrator III",
-                "dept": "Pensions",
-                "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
-                "req": "  BS/BA degree from an accredited college/university in \n  Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n  LOMA Associate Secure Retirement Institute designation (ASRI)\n  LOMA Fellow Secure Retirement Institute designation (FSRI) or equivalent qualification \n  Certificate designation (pensions) from CEBS, RPA, PPAC or from another credited employee benefit institution.\n  Manage and track document changes \n  Creation and use of mail merge documents \n  Creation and formatting of illustrations/graphics \n  Advance proficiency in Microsoft Excel \n  Create, modify and Macro commands\n  Demonstration or certification of at least four of the following: \n  Business Writing \n  Minute Taking \n  Public Speaking \n  Payroll Administration \n  Records Administration/Management\n  Minimum of 8 years of experience in administration of defined benefit and defined contribution pension plans\n  Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
-                "nextSteps": []
-            },
-            {
-                "id": "1049",
-                "title": "Policy Registrar III",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1035",
-                "title": "Premium Processing Clerk III",
-                "dept": "Finance",
-                "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
-                "req": "  BSc in Business Management or Accounting\n  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  5 years  experience directly related to the duties and responsibilities specified.",
-                "nextSteps": []
-            },
-            {
                 "id": "1036",
                 "title": "Reinsurance Administrator III",
                 "dept": "Underwriting",
                 "desc": "Responsible for the administration of reinsurance treaties for Individual and Group Business. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
                 "req": "  Bachelor s degree in business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, FLMI \n  Expert knowledge of Treaty standards\n  Microsoft Office Suite - Advance\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills.\n  Exceptional written and oral communication abilities \n  Minimum of (5) year experience in Reinsurance and (5) years in Life Insurance or strong working experience. \n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n  Sound knowledge of Reinsurance\n  Signoff on reinsurance reports",
-                "nextSteps": []
-            },
-            {
-                "id": "1056",
-                "title": "Systems Administrator III",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1057",
-                "title": "Underwriter III",
-                "dept": "Underwriting",
-                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines; and trains/coaches Underwriting Trainees.",
-                "req": "  Bachelor s Degree in Business Management or related field\n  Academy of Life Underwriting, Fellow (FALU) would be an asset\n  FLMI, ACS\n  Working knowledge of Microsoft Office Suite.\n  At least 4-5 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
                 "nextSteps": []
             }
         ]
