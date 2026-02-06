@@ -16,7 +16,9 @@
                 "dept": "Administration",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
+                "nextSteps": [
+                    "1007"
+                ]
             },
             {
                 "id": "1003",
@@ -24,20 +26,24 @@
                 "dept": "Operations",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1004",
-                "title": "Systems Processor",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "nextSteps": [
+                    "1007"
+                ]
             },
             {
                 "id": "1005",
                 "title": "Telephone Operator",
                 "dept": "Administration",
+                "desc": "",
+                "req": "",
+                "nextSteps": [
+                    "1010"
+                ]
+            },
+            {
+                "id": "1004",
+                "title": "Systems Processor",
+                "dept": "IT",
                 "desc": "",
                 "req": "",
                 "nextSteps": []
@@ -80,9 +86,9 @@
             {
                 "id": "1023",
                 "title": "Customer Retention Rep I",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
+                "dept": "Life Operations",
+                "desc": "Responsible for advising clients on viable solutions with the main objective of facilitating conservation related activities in conjunction with Sales Admin, Customer Service, Client Services, New Business / Underwriting and Claims. The incumbent should provide effective and efficient customer service to both internal and external clients in alignment with the Company’s goals and objectives.",
+                "req": "· 5 CXC ‘O’ Levels, including Mathematics and English · A’ Levels · LOMA diploma – FLMI / ACS\n· Training in Microsoft Office Suite and other operating software with intermediate level in Microsoft Word and Excel. · Training in Customer Service procedures and policies.\n· At least 2-3 years’ experience in a Customer Service / Sales Environment in the financial services industry, and/or Conservation.",
                 "nextSteps": [
                     "1043"
                 ]
@@ -101,8 +107,8 @@
                 "id": "1025",
                 "title": "Group Life Administrator I",
                 "dept": "Underwriting",
-                "desc": "",
-                "req": "",
+                "desc": "This position is responsible for updating Group Life Plans by preparing and maintaining files, client information and relevant underwriting administration.",
+                "req": "• 5 CXC Passes including Mathematics and English\n• Diploma in Business Management or related respect\n• LOMA 280, LOMA 290\n• Working knowledge of Microsoft Office Suite\n• Training in Group Life Plans and Reinsurance Treaties\n• Benefit administration will be an asset\n• Minimum 1-2 years’ experience in the Insurance industry\n• Customer Service Experience would be an asset",
                 "nextSteps": [
                     "1044"
                 ]
@@ -155,6 +161,16 @@
                 "req": "",
                 "nextSteps": [
                     "1034"
+                ]
+            },
+            {
+                "id": "1019",
+                "title": "Reinsurance Administrator I",
+                "dept": "Underwriting",
+                "desc": "Responsible for supporting the Reinsurance team in the Administration of the Reinsurance portfolio. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
+                "req": "  Bachelor degree in Business studies, Mathematics, Accounts, Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, FLMI  Working knowledge of Treaty standards\n  Microsoft Office Suite - Intermediate\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills\n  Exceptional written and oral communication abilities \n  Minimum of (0-1) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience\n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices\n  Sound knowledge of Reinsurance",
+                "nextSteps": [
+                    "1029"
                 ]
             },
             {
@@ -222,14 +238,6 @@
                 "nextSteps": []
             },
             {
-                "id": "1019",
-                "title": "Reinsurance Administrator I",
-                "dept": "Underwriting",
-                "desc": "Responsible for supporting the Reinsurance team in the Administration of the Reinsurance portfolio. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
-                "req": "  Bachelor degree in Business studies, Mathematics, Accounts, Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, FLMI  Working knowledge of Treaty standards\n  Microsoft Office Suite - Intermediate\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills\n  Exceptional written and oral communication abilities \n  Minimum of (0-1) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience\n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices\n  Sound knowledge of Reinsurance",
-                "nextSteps": []
-            },
-            {
                 "id": "1020",
                 "title": "Research Suspense Clerk",
                 "dept": "",
@@ -275,9 +283,9 @@
             {
                 "id": "1043",
                 "title": "Customer Retention Rep II",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
+                "dept": "Life Operations",
+                "desc": "Responsible for advising clients on viable solutions with the main objective of facilitating conservation related activities in conjunction with Sales Admin, Customer Service, Client Services, New Business / Underwriting and Claims. The incumbent should provide effective and efficient customer service to both internal and external clients in alignment with the Company’s goals and objectives.",
+                "req": "· Bachelor’s degree in Marketing/Sales \n· 5 CXC ‘O’ Levels, including Mathematics and English · State License · ALMI/ACS\n· Working knowledge of Microsoft Office Suite, and industry related business operating software. \n· In depth Product Knowledge\n· At least 3-4 years’ experience in a Customer Service / Sales Environment in the financial services industry, and/or Conservation.",
                 "nextSteps": [
                     "1053"
                 ]
@@ -296,8 +304,8 @@
                 "id": "1044",
                 "title": "Group Life Administrator II",
                 "dept": "Underwriting",
-                "desc": "",
-                "req": "",
+                "desc": "This position is responsible for updating Group Life Plans by preparing and maintaining files, client information and relevant underwriting administration.",
+                "req": "• Associate Degree in Business Management or related respect\n• LOMA 281, LOMA 291\n• Working knowledge of Microsoft Office Suite\n• Training in Group Life Plans and Reinsurance Treaties\n• Benefit administration will be an asset\n• Minimum 2-3 years’ experience in the Insurance industry \n• Customer Service Experience would be an asset",
                 "nextSteps": [
                     "1054"
                 ]
@@ -307,7 +315,7 @@
                 "title": "Pension Administrator II",
                 "dept": "Pensions",
                 "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
-                "req": "  BS/BA degree from an accredited college/university in \n  Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n  LOMA Associate Secure Retirement Institute designation (ASRI)\n  Manage and track document changes \n  Creation and use of mail merge documents \n  Creation and formatting of illustrations/graphics \n  Intermediate proficiency in Microsoft Excel \n  Create, modify and format charts\n  Demonstration or certification of at least two of the following: \n  Business Writing \n  Minute Taking \n  Public Speaking \n  Payroll Administration \n  Records Administration/Management\n  Minimum of 4 years of experience in administration of defined benefit and defined contribution pension plans\n  Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
+                "req": "  BS/BA degree from an accredited college/university in Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n  LOMA Associate Secure Retirement Institute designation (ASRI)\n  Manage and track document changes \n  Creation and use of mail merge documents \n  Creation and formatting of illustrations/graphics \n  Intermediate proficiency in Microsoft Excel \n  Create, modify and format charts\n  Demonstration or certification of at least two of the following: \n  Business Writing \n  Minute Taking \n  Public Speaking \n  Payroll Administration \n  Records Administration/Management\n  Minimum of 4 years of experience in administration of defined benefit and defined contribution pension plans\n  Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
                 "nextSteps": [
                     "1055"
                 ]
@@ -353,6 +361,16 @@
                 ]
             },
             {
+                "id": "1029",
+                "title": "Reinsurance Administrator II",
+                "dept": "Underwriting",
+                "desc": "Responsible for the administration of reinsurance treaties for Individual and Group Business within authorized limits. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
+                "req": "  Bachelor degree in Business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, ALMI\n  Knowledge of Treaty standards\n  Microsoft Office Suite - Advance\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills.\n  Exceptional written and oral communication abilities\n  Minimum of (2) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience.\n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n  Sound knowledge of Reinsurance",
+                "nextSteps": [
+                    "1036"
+                ]
+            },
+            {
                 "id": "1041",
                 "title": "Business Analyst",
                 "dept": "Administration",
@@ -391,14 +409,6 @@
                 "desc": "",
                 "req": "",
                 "nextSteps": []
-            },
-            {
-                "id": "1029",
-                "title": "Reinsurance Administrator II",
-                "dept": "Underwriting",
-                "desc": "Responsible for the administration of reinsurance treaties for Individual and Group Business within authorized limits. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
-                "req": "  Bachelor degree in Business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, ALMI\n  Knowledge of Treaty standards\n  Microsoft Office Suite - Advance\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills.\n  Exceptional written and oral communication abilities\n  Minimum of (2) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience.\n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n  Sound knowledge of Reinsurance",
-                "nextSteps": []
             }
         ]
     },
@@ -432,9 +442,9 @@
             {
                 "id": "1053",
                 "title": "Customer Retention Rep III",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
+                "dept": "Life Operations",
+                "desc": "Responsible for advising clients on viable solutions with the main objective of facilitating conservation related activities in conjunction with Sales Admin, Customer Service, Client Services, New Business / Underwriting and Claims. The incumbent should provide effective and efficient customer service to both internal and external clients in alignment with the Company’s goals and objectives.",
+                "req": "· Bachelor’s degree in Marketing / Sales · 5 CXC ‘O’ Levels, including Mathematics and English; · A’ Levels · Sales techniques certification · LOMA diploma – FLMI / ACS\n\n· Training in Microsoft Office Suite and other operating software with intermediate level in Microsoft Word and Excel. · Training in Customer Service procedures and policies.\n\nEXPERIENCE · At least 4-5 years’ experience in a Customer Service / Sales Environment in the financial services industry, and/or Conservation.",
                 "nextSteps": []
             },
             {
@@ -449,8 +459,8 @@
                 "id": "1054",
                 "title": "Group Life Administrator III",
                 "dept": "Underwriting",
-                "desc": "",
-                "req": "",
+                "desc": "This position is responsible for implementing and updating Group Life Plans by preparing and maintaining files, client information, reports and relevant underwriting administration.",
+                "req": "• Bachelor’s Degree in Business Management or related respect\n• LOMA 281, LOMA 291 or FLMI\n• Working knowledge of Microsoft Office Suite\n• Training in Group Life Plans and Reinsurance Treaties\n• Benefit administration will be an asset\n• Minimum 4-5 years’ experience in the Insurance industry \n• Customer Service Experience would be an asset",
                 "nextSteps": []
             },
             {
@@ -494,6 +504,14 @@
                 "nextSteps": []
             },
             {
+                "id": "1036",
+                "title": "Reinsurance Administrator III",
+                "dept": "Underwriting",
+                "desc": "Responsible for the administration of reinsurance treaties for Individual and Group Business. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
+                "req": "  Bachelor s degree in business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, FLMI \n  Expert knowledge of Treaty standards\n  Microsoft Office Suite - Advance\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills.\n  Exceptional written and oral communication abilities \n  Minimum of (5) year experience in Reinsurance and (5) years in Life Insurance or strong working experience. \n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n  Sound knowledge of Reinsurance\n  Signoff on reinsurance reports",
+                "nextSteps": []
+            },
+            {
                 "id": "1052",
                 "title": "Actuarial Assistant",
                 "dept": "Actuarial",
@@ -507,14 +525,6 @@
                 "dept": "Finance",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1036",
-                "title": "Reinsurance Administrator III",
-                "dept": "Underwriting",
-                "desc": "Responsible for the administration of reinsurance treaties for Individual and Group Business. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
-                "req": "  Bachelor s degree in business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, FLMI \n  Expert knowledge of Treaty standards\n  Microsoft Office Suite - Advance\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills.\n  Exceptional written and oral communication abilities \n  Minimum of (5) year experience in Reinsurance and (5) years in Life Insurance or strong working experience. \n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n  Sound knowledge of Reinsurance\n  Signoff on reinsurance reports",
                 "nextSteps": []
             }
         ]
