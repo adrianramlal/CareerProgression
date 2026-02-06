@@ -1,5 +1,50 @@
 [
     {
+        "levelName": "Group A - Entry Level",
+        "roles": [
+            {
+                "id": "1001",
+                "title": "Courier",
+                "dept": "Operations",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            },
+            {
+                "id": "1002",
+                "title": "Executive Assistant",
+                "dept": "Administration",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            },
+            {
+                "id": "1003",
+                "title": "Office Assistant",
+                "dept": "Operations",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            },
+            {
+                "id": "1004",
+                "title": "Systems Processor",
+                "dept": "IT",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            },
+            {
+                "id": "1005",
+                "title": "Telephone Operator",
+                "dept": "Administration",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            }
+        ]
+    },
+    {
         "levelName": "Group B - Tier 1",
         "roles": [
             {
@@ -7,7 +52,7 @@
                 "title": "Accounting Assistant I",
                 "dept": "Finance",
                 "desc": "The Accounting Assistant is responsible for performing routine and repetitive clerical accounting and bookkeeping duties following established procedures to accomplish duties",
-                "req": "� 5 O�Levels including Mathematics, English & Accounts\n� 3 A �Levels\n� CAT or ACCA level 1\n� LOMA 280 and 281, ACS 100 & ACS 101\n� Working knowledge of Microsoft Office Suite\n� Skill in both verbal and written communication.\n� Minimum of 1 year relevant experience or any equivalent combination of experience and/or qualifications.",
+                "req": "  5 O Levels including Mathematics, English & Accounts\n  3 A  Levels\n  CAT or ACCA level 1\n  LOMA 280 and 281, ACS 100 & ACS 101\n  Working knowledge of Microsoft Office Suite\n  Skill in both verbal and written communication.\n  Minimum of 1 year relevant experience or any equivalent combination of experience and/or qualifications.",
                 "nextSteps": [
                     "1021"
                 ]
@@ -17,7 +62,7 @@
                 "title": "Administrative Assistant I",
                 "dept": "Administration",
                 "desc": "Provides administrative and secretarial support to the Department daily. Projects a professional company image through in-person and phone interaction.",
-                "req": "� 5 CXC O�Levels\n� Minimum 2 CAPE passes. \n� Diploma in business administration or management would be an asset.\n� LOMA 281, LOMA 291 would be an asset.\n� Proficient in Microsoft Office Suite, e.g. Microsoft Word, PowerPoint, Excel, Access. \n� Knowledge of business procedures and Industry�s structures, regulations, policies and procedures.\n� Good spelling and grammar skills.\n� At least 1 year in an administrative position",
+                "req": "• 5 CXC O'Levels\n• Minimum 2 CAPE passes. \n• Diploma in business administration or management would be an asset.\n• LOMA 281, LOMA 291 would be an asset.\n• Proficient in Microsoft Office Suite, e.g. Microsoft Word, PowerPoint, Excel, Access. \n• Knowledge of business procedures and Industry's structures, regulations, policies and procedures.\n• Good spelling and grammar skills.\n• At least 1 year in an administrative position",
                 "nextSteps": [
                     "1022"
                 ]
@@ -27,7 +72,7 @@
                 "title": "Customer Relations Officer I",
                 "dept": "Sales Administration",
                 "desc": "Primarily responsible for building relationships with key clients as well as Agents to support the growth and development of the portfolio. The role supports the customer service staff, utilizing excellent in-depth knowledge of company products and programs, as well as team members within the Customers Service Department.",
-                "req": "� 5 Ordinary Level Passes including Mathematics and English.\n� Diploma in Business Administration or related field an asset\n� Professional Insurance qualifications such as LOMA, ACS will be an asset\n� Working Knowledge of Microsoft Office Suite (Word, Excel).\n� Customer Service environment\n� At least 0-1 years� experience in the Life Insurance Industry with at least 1 years� experience in Customer Service\n� Customer service experience with an insurance provider may be necessary",
+                "req": "  5 Ordinary Level Passes including Mathematics and English.\n  Diploma in Business Administration or related field an asset\n  Professional Insurance qualifications such as LOMA, ACS will be an asset\n  Working Knowledge of Microsoft Office Suite (Word, Excel).\n  Customer Service environment\n  At least 0-1 years  experience in the Life Insurance Industry with at least 1 years  experience in Customer Service\n  Customer service experience with an insurance provider may be necessary",
                 "nextSteps": [
                     "1031"
                 ]
@@ -47,7 +92,7 @@
                 "title": "Customer Service Rep I",
                 "dept": "Client Services",
                 "desc": "Responsible for providing administrative support to the department and customer \nservice at first level. No decision making is required. Produces updates with data \ngathering",
-                "req": "� 5 Ordinary Level Passes including Mathematics and English, 2 A �Levels.\n� Associate Degree/Diploma in Business Administration or related field an asset\n� Working Knowledge of Microsoft Office Suite (Word, Excel).\n� Customer Service environment\n� Reading skills\n� At least 0-1 years� experience in the Life Insurance Industry with at least 1 years� experience in Customer Service\n� Customer service experience with an insurance provider may be necessary",
+                "req": "  5 Ordinary Level Passes including Mathematics and English, 2 A  Levels.\n  Associate Degree/Diploma in Business Administration or related field an asset\n  Working Knowledge of Microsoft Office Suite (Word, Excel).\n  Customer Service environment\n  Reading skills\n  At least 0-1 years  experience in the Life Insurance Industry with at least 1 years  experience in Customer Service\n  Customer service experience with an insurance provider may be necessary",
                 "nextSteps": [
                     "1024"
                 ]
@@ -68,9 +113,7 @@
                 "dept": "Pensions",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1027"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1033",
@@ -78,9 +121,7 @@
                 "dept": "HR",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1022"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1026",
@@ -88,9 +129,7 @@
                 "dept": "",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1041"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1012",
@@ -98,9 +137,7 @@
                 "dept": "IT",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1037"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1013",
@@ -108,19 +145,15 @@
                 "dept": "Operations",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1015"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1027",
                 "title": "Pension Administrator I",
                 "dept": "Pensions",
                 "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
-                "req": "� Associate degree from an accredited college/university in Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics\n� Basic proficiency in Microsoft Word \n� Intermediate proficiency in Microsoft Excel\n� At least one year experience in the Financial Services Industry would be an asset",
-                "nextSteps": [
-                    "1048"
-                ]
+                "req": "  Associate degree from an accredited college/university in Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics\n  Basic proficiency in Microsoft Word \n  Intermediate proficiency in Microsoft Excel\n  At least one year experience in the Financial Services Industry would be an asset",
+                "nextSteps": []
             },
             {
                 "id": "1014",
@@ -128,9 +161,7 @@
                 "dept": "Operations",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1015"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1015",
@@ -138,19 +169,15 @@
                 "dept": "Operations",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1034"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1016",
                 "title": "Premium Processing Clerk I",
                 "dept": "Finance",
                 "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
-                "req": "� 5 Ordinary level passes inclusive of Mathematics and English\n� 3 A �levels\n� Diploma or certificate in Business Management or Accounting\n� LOMA 280 and 281, ACS 100 and ACS 101\n� Working knowledge of Microsoft Office Suite.\n� Ability to prepare routine administrative work. \n� Ability to perform simple accounting procedures. \n� Knowledge of insurance accounting processes.\n� 1 year experience directly related to the duties and responsibilities specified.",
-                "nextSteps": [
-                    "1017"
-                ]
+                "req": "  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  1 year experience directly related to the duties and responsibilities specified.",
+                "nextSteps": []
             },
             {
                 "id": "1028",
@@ -158,9 +185,7 @@
                 "dept": "IT",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1041"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1018",
@@ -168,19 +193,15 @@
                 "dept": "Administration",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1015"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1019",
                 "title": "Reinsurance Administrator I",
                 "dept": "Underwriting",
                 "desc": "Responsible for supporting the Reinsurance team in the Administration of the Reinsurance portfolio. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
-                "req": "� Bachelor degree in Business studies, Mathematics, Accounts, Actuarial Science, Economics or related field an asset\n� Professional Insurance qualifications such as LOMA - Reinsurance, FLMI  Working knowledge of Treaty standards\n� Microsoft Office Suite - Intermediate\n� Complete Training in all aspects as related Insurance software \n� Advance Product and Treaty Knowledge\n� Must possess strong leadership and organizational skills\n� Exceptional written and oral communication abilities \n� Minimum of (0-1) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience\n� Technical knowledge of underwriting and the Insurance Industry relating to theories and practices\n� Sound knowledge of Reinsurance",
-                "nextSteps": [
-                    "1029"
-                ]
+                "req": "  Bachelor degree in Business studies, Mathematics, Accounts, Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, FLMI  Working knowledge of Treaty standards\n  Microsoft Office Suite - Intermediate\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills\n  Exceptional written and oral communication abilities \n  Minimum of (0-1) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience\n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices\n  Sound knowledge of Reinsurance",
+                "nextSteps": []
             },
             {
                 "id": "1020",
@@ -188,9 +209,7 @@
                 "dept": "",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1016"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1037",
@@ -198,19 +217,15 @@
                 "dept": "IT",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1051"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1030",
                 "title": "Underwriter I",
                 "dept": "Underwriting",
-                "desc": "Examines an applicant�s health status to determine the level of exposure the potential client presents based on company underwriting guidelines.",
-                "req": "� Minimum 5 O�Levels and 2 A� Levels \n� LOMA 280 LOMA 290 \n� Diploma in Business Management or related field would be an asset\n� Working knowledge of Microsoft Office Suite.\n� At least 1-2 years� experience in Life Underwriting\n� Customer Service Experience would be an asset",
-                "nextSteps": [
-                    "1038"
-                ]
+                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines.",
+                "req": "  Minimum 5 O Levels and 2 A  Levels \n  LOMA 280 LOMA 290 \n  Diploma in Business Management or related field would be an asset\n  Working knowledge of Microsoft Office Suite.\n  At least 1-2 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
+                "nextSteps": []
             }
         ]
     },
@@ -222,7 +237,7 @@
                 "title": "Accounting Assistant II",
                 "dept": "Finance",
                 "desc": "The Accounting Assistant II is responsible for performing routine and repetitive clerical accounting and bookkeeping duties following established procedures to accomplish duties",
-                "req": "� BSc in Accounting or ACCA level II or equivalent Accounting qualification\n� 5 O�Levels including Mathematics, English & Accounts\n� 3 A �Levels\n� LOMA 280 and 281, ACS 100 & ACS 101\n� Working knowledge of Microsoft Office Suite\n� Skill in both verbal and written communication.\n� Minimum of 3 years relevant experience or any equiva",
+                "req": "  BSc in Accounting or ACCA level II or equivalent Accounting qualification\n  5 O Levels including Mathematics, English & Accounts\n  3 A  Levels\n  LOMA 280 and 281, ACS 100 & ACS 101\n  Working knowledge of Microsoft Office Suite\n  Skill in both verbal and written communication.\n  Minimum of 3 years relevant experience or any equiva",
                 "nextSteps": [
                     "1039"
                 ]
@@ -232,29 +247,9 @@
                 "title": "Administrative Assistant II",
                 "dept": "Administration",
                 "desc": "Provides administrative and secretarial support to the Department daily. Projects a professional company image through in-person and phone interaction.",
-                "req": "� Minimum 2 CAPE passes. \n� Diploma in business administration or management would be an asset.\n� LOMA 281, LOMA 291\n� LOMA ACS would be an asset\n� Proficient in Microsoft Office Suite, e.g. Microsoft Word, PowerPoint, Excel, Access. \n� Knowledge of business procedures and Industry�s structures, regulations, policies and procedures.\n� Good spelling and grammar skills.\n� At least 2 years in an administrative position",
+                "req": "  Minimum 2 CAPE passes. \n  Diploma in business administration or management would be an asset.\n  LOMA 281, LOMA 291\n  LOMA ACS would be an asset\n  Proficient in Microsoft Office Suite, e.g. Microsoft Word, PowerPoint, Excel, Access. \n  Knowledge of business procedures and Industry s structures, regulations, policies and procedures.\n  Good spelling and grammar skills.\n  At least 2 years in an administrative position",
                 "nextSteps": [
                     "1040"
-                ]
-            },
-            {
-                "id": "1041",
-                "title": "Business Analyst",
-                "dept": "Administration",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1047"
-                ]
-            },
-            {
-                "id": "1008",
-                "title": "Claims Specialist",
-                "dept": "",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1038"
                 ]
             },
             {
@@ -262,7 +257,7 @@
                 "title": "Customer Relations Officer II",
                 "dept": "Sales Administration",
                 "desc": "Primarily responsible for building relationships with key clients as well as Agents to support the growth and development of the portfolio. The role supports the customer service staff, utilizing excellent in-depth knowledge of company products and programs, as well as team members within the Customers Service Department",
-                "req": "� Associate Degree in Business Administration or related field.\n� Professional Insurance qualifications such as LOMA, ACS\n� Proficient in Microsoft Office Suite.\n� Complete Training in all aspects as related to CSR Ingenium system\n� Advance Product Knowledge\n� At least 2 - 4 years� experience in the Life Insurance Industry with at least 2 years� experience in Customer Service\n� Supervising branch Administration in a fast-paced environment\n� Customer service experience with an insurance provider may be necessary",
+                "req": "  Associate Degree in Business Administration or related field.\n  Professional Insurance qualifications such as LOMA, ACS\n  Proficient in Microsoft Office Suite.\n  Complete Training in all aspects as related to CSR Ingenium system\n  Advance Product Knowledge\n  At least 2 - 4 years  experience in the Life Insurance Industry with at least 2 years  experience in Customer Service\n  Supervising branch Administration in a fast-paced environment\n  Customer service experience with an insurance provider may be necessary",
                 "nextSteps": [
                     "1042"
                 ]
@@ -282,7 +277,7 @@
                 "title": "Customer Service Rep II",
                 "dept": "Client Services",
                 "desc": "Ensures customers are satisfied and remain loyal by providing assistance and resolving a wide variety of issues ranging from very technical to basic queries.",
-                "req": "� 5 Ordinary Level Passes including Mathematics and English, 2 A �Levels.\n� Associate Degree/Diploma in Business Administration\n� ACS, LOMA 1 and 2.\n� Additional course(s) in Customer Services or related fields would be an asset.\n� Training in Microsoft Office Suite, and other operating software with intermediate level Microsoft Word & Excel.\n� Training in Customer Service procedures and policies.\n� Working knowledge of insurance products and services, along with the policies and procedures for the administration of such. \n� Ability to analyze clientele as it relates to conserving current, as well as new customers.",
+                "req": "  5 Ordinary Level Passes including Mathematics and English, 2 A  Levels.\n  Associate Degree/Diploma in Business Administration\n  ACS, LOMA 1 and 2.\n  Additional course(s) in Customer Services or related fields would be an asset.\n  Training in Microsoft Office Suite, and other operating software with intermediate level Microsoft Word & Excel.\n  Training in Customer Service procedures and policies.\n  Working knowledge of insurance products and services, along with the policies and procedures for the administration of such. \n  Ability to analyze clientele as it relates to conserving current, as well as new customers.",
                 "nextSteps": [
                     "1032"
                 ]
@@ -298,14 +293,28 @@
                 ]
             },
             {
+                "id": "1041",
+                "title": "Business Analyst",
+                "dept": "Administration",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            },
+            {
+                "id": "1008",
+                "title": "Claims Specialist",
+                "dept": "",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            },
+            {
                 "id": "1045",
                 "title": "Marketing Analyst",
                 "dept": "Marketing",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1046"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1046",
@@ -313,19 +322,15 @@
                 "dept": "Marketing",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1050"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1048",
                 "title": "Pension Administrator II",
                 "dept": "Pensions",
                 "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
-                "req": "� BS/BA degree from an accredited college/university in \n� Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n� LOMA Associate Secure Retirement Institute designation (ASRI)\n� Manage and track document changes \n� Creation and use of mail merge documents \n� Creation and formatting of illustrations/graphics \n� Intermediate proficiency in Microsoft Excel \n� Create, modify and format charts\n� Demonstration or certification of at least two of the following: \n� Business Writing \n� Minute Taking \n� Public Speaking \n� Payroll Administration \n� Records Administration/Management\n� Minimum of 4 years of experience in administration of defined benefit and defined contribution pension plans\n� Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
-                "nextSteps": [
-                    "1055"
-                ]
+                "req": "  BS/BA degree from an accredited college/university in \n  Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n  LOMA Associate Secure Retirement Institute designation (ASRI)\n  Manage and track document changes \n  Creation and use of mail merge documents \n  Creation and formatting of illustrations/graphics \n  Intermediate proficiency in Microsoft Excel \n  Create, modify and format charts\n  Demonstration or certification of at least two of the following: \n  Business Writing \n  Minute Taking \n  Public Speaking \n  Payroll Administration \n  Records Administration/Management\n  Minimum of 4 years of experience in administration of defined benefit and defined contribution pension plans\n  Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
+                "nextSteps": []
             },
             {
                 "id": "1034",
@@ -333,19 +338,15 @@
                 "dept": "Operations",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1049"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1017",
                 "title": "Premium Processing Clerk II",
                 "dept": "",
                 "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
-                "req": "� BSc in Business Management or Accounting\n� 5 Ordinary level passes inclusive of Mathematics and English\n� 3 A �levels\n� Diploma or certificate in Business Management or Accounting\n� LOMA 280 and 281, ACS 100 and ACS 101\n� Working knowledge of Microsoft Office Suite.\n� Ability to prepare routine administrative work. \n� Ability to perform simple accounting procedures. \n� Knowledge of insurance accounting processes.\n� 3 years� experience directly related to the duties and responsibilities specified.",
-                "nextSteps": [
-                    "1035"
-                ]
+                "req": "  BSc in Business Management or Accounting\n  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  3 years  experience directly related to the duties and responsibilities specified.",
+                "nextSteps": []
             },
             {
                 "id": "1050",
@@ -360,10 +361,8 @@
                 "title": "Reinsurance Administrator II",
                 "dept": "Underwriting",
                 "desc": "Responsible for the administration of reinsurance treaties for Individual and Group Business within authorized limits. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
-                "req": "� Bachelor degree in Business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n� Professional Insurance qualifications such as LOMA - Reinsurance, ALMI\n� Knowledge of Treaty standards\n� Microsoft Office Suite - Advance\n� Complete Training in all aspects as related Insurance software \n� Advance Product and Treaty Knowledge\n� Must possess strong leadership and organizational skills.\n� Exceptional written and oral communication abilities\n� Minimum of (2) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience.\n� Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n� Sound knowledge of Reinsurance",
-                "nextSteps": [
-                    "1036"
-                ]
+                "req": "  Bachelor degree in Business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, ALMI\n  Knowledge of Treaty standards\n  Microsoft Office Suite - Advance\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills.\n  Exceptional written and oral communication abilities\n  Minimum of (2) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience.\n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n  Sound knowledge of Reinsurance",
+                "nextSteps": []
             },
             {
                 "id": "1051",
@@ -371,19 +370,15 @@
                 "dept": "IT",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1056"
-                ]
+                "nextSteps": []
             },
             {
                 "id": "1038",
                 "title": "Underwriter II",
                 "dept": "Underwriting",
-                "desc": "Examines an applicant�s health status to determine the level of exposure the potential client presents based on company underwriting guidelines; and assist with training Underwriting Trainees.",
-                "req": "� Associate Degree in Business Management or related field\n� LOMA 281 LOMA 291, ACS or FLMI\n� Academy of Life Underwriting, Associate (AALU) would be an asset\n� Working knowledge of Microsoft Office Suite.\n� At least 2-3 years� experience in Life Underwriting\n� Customer Service Experience would be an asset",
-                "nextSteps": [
-                    "1057"
-                ]
+                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines; and assist with training Underwriting Trainees.",
+                "req": "  Associate Degree in Business Management or related field\n  LOMA 281 LOMA 291, ACS or FLMI\n  Academy of Life Underwriting, Associate (AALU) would be an asset\n  Working knowledge of Microsoft Office Suite.\n  At least 2-3 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
+                "nextSteps": []
             }
         ]
     },
@@ -395,15 +390,7 @@
                 "title": "Accounting Assistant III",
                 "dept": "Finance",
                 "desc": "The Accounting Assistant III is responsible for the preparing of the Agents payroll and provide support to the Sales Administration department",
-                "req": "� BSc in Accounting\n� ACCA level III\n� 5 O�Levels including Mathematics, English & Accounts\n� 3 A �Levels\n� LOMA 280 and 281, ACS 100 & ACS 101\n� Working knowledge of Microsoft Office Suite\n� Skill in both verbal and written communication.\n� Minimum of 5 years relevant experience or any equivalent combination of experience and/or qualifications",
-                "nextSteps": []
-            },
-            {
-                "id": "1052",
-                "title": "Actuarial Assistant",
-                "dept": "Actuarial",
-                "desc": "",
-                "req": "",
+                "req": "  BSc in Accounting\n  ACCA level III\n  5 O Levels including Mathematics, English & Accounts\n  3 A  Levels\n  LOMA 280 and 281, ACS 100 & ACS 101\n  Working knowledge of Microsoft Office Suite\n  Skill in both verbal and written communication.\n  Minimum of 5 years relevant experience or any equivalent combination of experience and/or qualifications",
                 "nextSteps": []
             },
             {
@@ -411,7 +398,7 @@
                 "title": "Administrative Assistant III",
                 "dept": "Administration",
                 "desc": "Provides administrative and secretarial support to the Department daily. Projects a professional company image through in-person and phone interaction.",
-                "req": "� Minimum 2 CAPE passes. \n� Diploma in business administration or management would be an asset.\n� LOMA 281, LOMA 291\n� LOMA ACS, ALMI would be an asset.\n� Proficient in Microsoft Office Suite, e.g. Microsoft Word, PowerPoint, Excel, Access. \n� Knowledge of business procedures and Industry�s structures, regulations, policies and procedures.\n� Good spelling and grammar skills.\n� At least 3 years in an administrative position",
+                "req": "  Minimum 2 CAPE passes. \n  Diploma in business administration or management would be an asset.\n  LOMA 281, LOMA 291\n  LOMA ACS, ALMI would be an asset.\n  Proficient in Microsoft Office Suite, e.g. Microsoft Word, PowerPoint, Excel, Access. \n  Knowledge of business procedures and Industry s structures, regulations, policies and procedures.\n  Good spelling and grammar skills.\n  At least 3 years in an administrative position",
                 "nextSteps": []
             },
             {
@@ -419,7 +406,7 @@
                 "title": "Customer Relations Officer III",
                 "dept": "Sales Administration",
                 "desc": "Primarily responsible for building relationships with key clients as well as Agents to support the growth and development of the portfolio. The role supervises and supports the customer service staff, utilizing excellent in-depth knowledge of company products and programs, as well as team members with in the Customers Service Department",
-                "req": "� Bachelor�s Degree in a Social Sciences or Business Management Associate Degree/Diploma in Business Administration or related field.\n� Professional Insurance qualifications such as LOMA, ACS required\n� Proficient in Microsoft Office Suite.\n� Complete Training in all aspects as related to CSR Ingenium system\n� Advance Product Knowledge\n� A minimum of 5 years� experience in the Life Insurance Industry with at least 3 years� experience in a fast paced Customer Service environment\n� Customer service experience with an insurance provider is a must",
+                "req": "  Bachelor s Degree in a Social Sciences or Business Management Associate Degree/Diploma in Business Administration or related field.\n  Professional Insurance qualifications such as LOMA, ACS required\n  Proficient in Microsoft Office Suite.\n  Complete Training in all aspects as related to CSR Ingenium system\n  Advance Product Knowledge\n  A minimum of 5 years  experience in the Life Insurance Industry with at least 3 years  experience in a fast paced Customer Service environment\n  Customer service experience with an insurance provider is a must",
                 "nextSteps": []
             },
             {
@@ -435,13 +422,21 @@
                 "title": "Customer Service Rep III",
                 "dept": "Client Services",
                 "desc": "Experienced in various products and is responsible for delivering a professional and friendly customer service experience. Ensures customers service delivery by leading a team of competent staff to execute a range of very technical processes. To remain poised, motivated and enthused about the service (effective and efficient).",
-                "req": "� 5 Ordinary Level Passes including Mathematics and English, 2 A �Levels.\n� Associate Degree/Diploma in Business Administration or ACS, LOMA 1 and 2.\n� Bachelor�s Degree in Business Management or Social Science\n� Additional course(s) in Customer Services or related fields would be an asset.\n� Proficient in Microsoft Office Suite, and other operating software with intermediate level Microsoft Word & Excel.\n� Proficient in procedures and policies\n� In the test environment (Ingenium) Subject Matter expert.\n� Ability to operate in a fast-paced and dynamic environment.\n� Ability to understand and analyze complex technical scenarios\n� Meticulous with a history of high accuracy level.\n� Incumbent must have thorough knowledge of various Insurance products and services, along with the policies and procedures for the administration of all client requests. Ability to analyze complex system functions and provide resolutions to complex situations. Situational Policy testing in test environment to complex or unknown changes. \n� In the test environment (Ingenium) Subject Matter expert",
+                "req": "  5 Ordinary Level Passes including Mathematics and English, 2 A  Levels.\n  Associate Degree/Diploma in Business Administration or ACS, LOMA 1 and 2.\n  Bachelor s Degree in Business Management or Social Science\n  Additional course(s) in Customer Services or related fields would be an asset.\n  Proficient in Microsoft Office Suite, and other operating software with intermediate level Microsoft Word & Excel.\n  Proficient in procedures and policies\n  In the test environment (Ingenium) Subject Matter expert.\n  Ability to operate in a fast-paced and dynamic environment.\n  Ability to understand and analyze complex technical scenarios\n  Meticulous with a history of high accuracy level.\n  Incumbent must have thorough knowledge of various Insurance products and services, along with the policies and procedures for the administration of all client requests. Ability to analyze complex system functions and provide resolutions to complex situations. Situational Policy testing in test environment to complex or unknown changes. \n  In the test environment (Ingenium) Subject Matter expert",
                 "nextSteps": []
             },
             {
                 "id": "1054",
                 "title": "Group Life Administrator III",
                 "dept": "Underwriting",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            },
+            {
+                "id": "1052",
+                "title": "Actuarial Assistant",
+                "dept": "Actuarial",
                 "desc": "",
                 "req": "",
                 "nextSteps": []
@@ -459,7 +454,7 @@
                 "title": "Pension Administrator III",
                 "dept": "Pensions",
                 "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
-                "req": "� BS/BA degree from an accredited college/university in \n� Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n� LOMA Associate Secure Retirement Institute designation (ASRI)\n� LOMA Fellow Secure Retirement Institute designation (FSRI) or equivalent qualification \n� Certificate designation (pensions) from CEBS, RPA, PPAC or from another credited employee benefit institution.\n� Manage and track document changes \n� Creation and use of mail merge documents \n� Creation and formatting of illustrations/graphics \n� Advance proficiency in Microsoft Excel \n� Create, modify and Macro commands\n� Demonstration or certification of at least four of the following: \n� Business Writing \n� Minute Taking \n� Public Speaking \n� Payroll Administration \n� Records Administration/Management\n� Minimum of 8 years of experience in administration of defined benefit and defined contribution pension plans\n� Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
+                "req": "  BS/BA degree from an accredited college/university in \n  Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n  LOMA Associate Secure Retirement Institute designation (ASRI)\n  LOMA Fellow Secure Retirement Institute designation (FSRI) or equivalent qualification \n  Certificate designation (pensions) from CEBS, RPA, PPAC or from another credited employee benefit institution.\n  Manage and track document changes \n  Creation and use of mail merge documents \n  Creation and formatting of illustrations/graphics \n  Advance proficiency in Microsoft Excel \n  Create, modify and Macro commands\n  Demonstration or certification of at least four of the following: \n  Business Writing \n  Minute Taking \n  Public Speaking \n  Payroll Administration \n  Records Administration/Management\n  Minimum of 8 years of experience in administration of defined benefit and defined contribution pension plans\n  Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
                 "nextSteps": []
             },
             {
@@ -475,7 +470,7 @@
                 "title": "Premium Processing Clerk III",
                 "dept": "Finance",
                 "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
-                "req": "� BSc in Business Management or Accounting\n� 5 Ordinary level passes inclusive of Mathematics and English\n� 3 A �levels\n� Diploma or certificate in Business Management or Accounting\n� LOMA 280 and 281, ACS 100 and ACS 101\n� Working knowledge of Microsoft Office Suite.\n� Ability to prepare routine administrative work. \n� Ability to perform simple accounting procedures. \n� Knowledge of insurance accounting processes.\n� 5 years� experience directly related to the duties and responsibilities specified.",
+                "req": "  BSc in Business Management or Accounting\n  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  5 years  experience directly related to the duties and responsibilities specified.",
                 "nextSteps": []
             },
             {
@@ -483,7 +478,7 @@
                 "title": "Reinsurance Administrator III",
                 "dept": "Underwriting",
                 "desc": "Responsible for the administration of reinsurance treaties for Individual and Group Business. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
-                "req": "� Bachelor�s degree in business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n� Professional Insurance qualifications such as LOMA - Reinsurance, FLMI \n� Expert knowledge of Treaty standards\n� Microsoft Office Suite - Advance\n� Complete Training in all aspects as related Insurance software \n� Advance Product and Treaty Knowledge\n� Must possess strong leadership and organizational skills.\n� Exceptional written and oral communication abilities \n� Minimum of (5) year experience in Reinsurance and (5) years in Life Insurance or strong working experience. \n� Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n� Sound knowledge of Reinsurance\n� Signoff on reinsurance reports",
+                "req": "  Bachelor s degree in business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, FLMI \n  Expert knowledge of Treaty standards\n  Microsoft Office Suite - Advance\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills.\n  Exceptional written and oral communication abilities \n  Minimum of (5) year experience in Reinsurance and (5) years in Life Insurance or strong working experience. \n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n  Sound knowledge of Reinsurance\n  Signoff on reinsurance reports",
                 "nextSteps": []
             },
             {
@@ -498,64 +493,9 @@
                 "id": "1057",
                 "title": "Underwriter III",
                 "dept": "Underwriting",
-                "desc": "Examines an applicant�s health status to determine the level of exposure the potential client presents based on company underwriting guidelines; and trains/coaches Underwriting Trainees.",
-                "req": "� Bachelor�s Degree in Business Management or related field\n� Academy of Life Underwriting, Fellow (FALU) would be an asset\n� FLMI, ACS\n� Working knowledge of Microsoft Office Suite.\n� At least 4-5 years� experience in Life Underwriting\n� Customer Service Experience would be an asset",
+                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines; and trains/coaches Underwriting Trainees.",
+                "req": "  Bachelor s Degree in Business Management or related field\n  Academy of Life Underwriting, Fellow (FALU) would be an asset\n  FLMI, ACS\n  Working knowledge of Microsoft Office Suite.\n  At least 4-5 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
                 "nextSteps": []
-            }
-        ]
-    },
-    {
-        "levelName": "Group A - Entry Level",
-        "roles": [
-            {
-                "id": "1001",
-                "title": "Courier",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1013"
-                ]
-            },
-            {
-                "id": "1002",
-                "title": "Executive Assistant",
-                "dept": "Administration",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1007"
-                ]
-            },
-            {
-                "id": "1003",
-                "title": "Office Assistant",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1007"
-                ]
-            },
-            {
-                "id": "1004",
-                "title": "Systems Processor",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1012"
-                ]
-            },
-            {
-                "id": "1005",
-                "title": "Telephone Operator",
-                "dept": "Administration",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1010"
-                ]
             }
         ]
     }
