@@ -1,530 +1,394 @@
 [
     {
-        "levelName": "Group A - Entry Level",
+        "levelName": "Tier 1 - Entry Level & Support",
         "roles": [
             {
                 "id": "1001",
                 "title": "Courier",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
+                "dept": "Administration",
+                "desc": "Drives, delivers, collects, sorts and distributes company's mail.",
+                "req": "3-5 years driving exp; 5 O-Levels.",
                 "nextSteps": []
             },
             {
                 "id": "1002",
-                "title": "Executive Assistant",
+                "title": "Office Assistant",
                 "dept": "Administration",
-                "desc": "",
-                "req": "",
+                "desc": "Responsible for the mail function (receipt, disbursement, hand delivered). Maintains relevant registers. Assists with Banking and Government transactions.",
+                "req": "1 yr admin exp; 5 O-Levels.",
                 "nextSteps": [
-                    "1007"
+                    "1009"
                 ]
             },
             {
                 "id": "1003",
-                "title": "Office Assistant",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
+                "title": "Telephone Operator",
+                "dept": "Administration",
+                "desc": "Effectively greets and directs all callers using service language. Speaks clearly, distinctly with a friendly courteous tone.",
+                "req": "2-3 years related exp; 5 O-Levels.",
                 "nextSteps": [
-                    "1007"
+                    "1009"
+                ]
+            },
+            {
+                "id": "1004",
+                "title": "New Business Clerk",
+                "dept": "Underwriting",
+                "desc": "Responsible for the preparation of files for Underwriting and supports the process for the issuance of a policy.",
+                "req": "1 yr industry exp; 5 O-Levels; Assoc. Degree (Asset).",
+                "nextSteps": [
+                    "1017",
+                    "1013",
+                    "1014"
                 ]
             },
             {
                 "id": "1005",
-                "title": "Telephone Operator",
-                "dept": "Administration",
-                "desc": "",
-                "req": "",
+                "title": "Customer Service Rep. I",
+                "dept": "Client Services",
+                "desc": "Responsible for providing administrative support to the department and customer service at first level. No decision making is required.",
+                "req": "0-1 yr exp; 5 O-Levels; 2 A-Levels.",
                 "nextSteps": [
                     "1010"
                 ]
             },
             {
-                "id": "1004",
-                "title": "Systems Processor",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "id": "1006",
+                "title": "Premium Processing Clerk I",
+                "dept": "Finance",
+                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
+                "req": "1 yr related exp; 5 O-Levels; 3 A-Levels.",
+                "nextSteps": [
+                    "1027"
+                ]
+            },
+            {
+                "id": "1007",
+                "title": "Research/Suspense Clerk",
+                "dept": "Finance",
+                "desc": "Investigates and retrieves data with speed and accuracy. Ensures research requests are responded to timely. Handles customer service and interpersonal dealings.",
+                "req": "1 yr insurance exp; 5 O-Levels.",
+                "nextSteps": [
+                    "1008"
+                ]
             }
         ]
     },
     {
-        "levelName": "Group B - Tier 1",
+        "levelName": "Tier 2 - Intermediate Operational & Technical",
         "roles": [
             {
-                "id": "1006",
+                "id": "1008",
                 "title": "Accounting Assistant I",
                 "dept": "Finance",
-                "desc": "The Accounting Assistant is responsible for performing routine and repetitive clerical accounting and bookkeeping duties following established procedures to accomplish duties",
-                "req": "  5 O Levels including Mathematics, English & Accounts\n  3 A  Levels\n  CAT or ACCA level 1\n  LOMA 280 and 281, ACS 100 & ACS 101\n  Working knowledge of Microsoft Office Suite\n  Skill in both verbal and written communication.\n  Minimum of 1 year relevant experience or any equivalent combination of experience and/or qualifications.",
+                "desc": "Responsible for performing routine and repetitive clerical accounting and bookkeeping duties following established procedures.",
+                "req": "1 yr exp; A-Levels; CAT/ACCA Level 1.",
+                "nextSteps": [
+                    "1018"
+                ]
+            },
+            {
+                "id": "1009",
+                "title": "Administrative Assistant I",
+                "dept": "Various",
+                "desc": "Provides administrative/secretarial support to the Department daily. Projects a professional company image through in-person and phone interaction.",
+                "req": "1 yr admin exp; 5 O-Levels; 2 CAPE; Diploma.",
+                "nextSteps": [
+                    "1019"
+                ]
+            },
+            {
+                "id": "1010",
+                "title": "Customer Service Rep. II",
+                "dept": "Client Services",
+                "desc": "Ensures customers are satisfied and remain loyal by providing assistance and resolving issues ranging from technical to basic.",
+                "req": "Working knowledge of products; A-Levels; LOMA 1 & 2.",
+                "nextSteps": [
+                    "1023"
+                ]
+            },
+            {
+                "id": "1011",
+                "title": "Conservation Officer I",
+                "dept": "Life Operations",
+                "desc": "Responsible for making initial contact to customers to prevent termination and to follow up on delinquent policies. Provide customer service.",
+                "req": "2-3 years customer service/sales exp.",
                 "nextSteps": [
                     "1021"
                 ]
             },
             {
-                "id": "1007",
-                "title": "Administrative Assistant I",
-                "dept": "Administration",
-                "desc": "Provides administrative and secretarial support to the Department daily. Projects a professional company image through in-person and phone interaction.",
-                "req": "• 5 CXC O'Levels\n• Minimum 2 CAPE passes. \n• Diploma in business administration or management would be an asset.\n• LOMA 281, LOMA 291 would be an asset.\n• Proficient in Microsoft Office Suite, e.g. Microsoft Word, PowerPoint, Excel, Access. \n• Knowledge of business procedures and Industry's structures, regulations, policies and procedures.\n• Good spelling and grammar skills.\n• At least 1 year in an administrative position",
+                "id": "1012",
+                "title": "Customer Relations Officer I",
+                "dept": "Sales Admin",
+                "desc": "Primarily responsible for building relationships with key clients and Agents to support portfolio growth. Supports customer service staff.",
+                "req": "0-1 yr exp (1 yr in CS); 5 O-Levels.",
                 "nextSteps": [
                     "1022"
                 ]
             },
             {
-                "id": "1009",
-                "title": "Customer Relations Officer I",
-                "dept": "Sales Administration",
-                "desc": "Primarily responsible for building relationships with key clients as well as Agents to support the growth and development of the portfolio. The role supports the customer service staff, utilizing excellent in-depth knowledge of company products and programs, as well as team members within the Customers Service Department.",
-                "req": "  5 Ordinary Level Passes including Mathematics and English.\n  Diploma in Business Administration or related field an asset\n  Professional Insurance qualifications such as LOMA, ACS will be an asset\n  Working Knowledge of Microsoft Office Suite (Word, Excel).\n  Customer Service environment\n  At least 0-1 years  experience in the Life Insurance Industry with at least 1 years  experience in Customer Service\n  Customer service experience with an insurance provider may be necessary",
-                "nextSteps": [
-                    "1031"
-                ]
-            },
-            {
-                "id": "1023",
-                "title": "Customer Retention Rep I",
-                "dept": "Life Operations",
-                "desc": "Responsible for advising clients on viable solutions with the main objective of facilitating conservation related activities in conjunction with Sales Admin, Customer Service, Client Services, New Business / Underwriting and Claims. The incumbent should provide effective and efficient customer service to both internal and external clients in alignment with the Company’s goals and objectives.",
-                "req": "· 5 CXC ‘O’ Levels, including Mathematics and English · A’ Levels · LOMA diploma – FLMI / ACS\n· Training in Microsoft Office Suite and other operating software with intermediate level in Microsoft Word and Excel. · Training in Customer Service procedures and policies.\n· At least 2-3 years’ experience in a Customer Service / Sales Environment in the financial services industry, and/or Conservation.",
-                "nextSteps": [
-                    "1043"
-                ]
-            },
-            {
-                "id": "1010",
-                "title": "Customer Service Rep I",
-                "dept": "Client Services",
-                "desc": "Responsible for providing administrative support to the department and customer \nservice at first level. No decision making is required. Produces updates with data \ngathering",
-                "req": "  5 Ordinary Level Passes including Mathematics and English, 2 A  Levels.\n  Associate Degree/Diploma in Business Administration or related field an asset\n  Working Knowledge of Microsoft Office Suite (Word, Excel).\n  Customer Service environment\n  Reading skills\n  At least 0-1 years  experience in the Life Insurance Industry with at least 1 years  experience in Customer Service\n  Customer service experience with an insurance provider may be necessary",
-                "nextSteps": [
-                    "1024"
-                ]
-            },
-            {
-                "id": "1025",
-                "title": "Group Life Administrator I",
-                "dept": "Underwriting",
-                "desc": "This position is responsible for updating Group Life Plans by preparing and maintaining files, client information and relevant underwriting administration.",
-                "req": "• 5 CXC Passes including Mathematics and English\n• Diploma in Business Management or related respect\n• LOMA 280, LOMA 290\n• Working knowledge of Microsoft Office Suite\n• Training in Group Life Plans and Reinsurance Treaties\n• Benefit administration will be an asset\n• Minimum 1-2 years’ experience in the Insurance industry\n• Customer Service Experience would be an asset",
-                "nextSteps": [
-                    "1044"
-                ]
-            },
-            {
-                "id": "1027",
-                "title": "Pension Administrator I",
-                "dept": "Pensions",
-                "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
-                "req": "  Associate degree from an accredited college/university in Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics\n  Basic proficiency in Microsoft Word \n  Intermediate proficiency in Microsoft Excel\n  At least one year experience in the Financial Services Industry would be an asset",
-                "nextSteps": [
-                    "1048"
-                ]
-            },
-            {
-                "id": "1016",
-                "title": "Premium Processing Clerk I",
-                "dept": "Finance",
-                "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
-                "req": "  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  1 year experience directly related to the duties and responsibilities specified.",
-                "nextSteps": [
-                    "1017"
-                ]
-            },
-            {
-                "id": "1030",
+                "id": "1013",
                 "title": "Underwriter I",
                 "dept": "Underwriting",
-                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines.",
-                "req": "  Minimum 5 O Levels and 2 A  Levels \n  LOMA 280 LOMA 290 \n  Diploma in Business Management or related field would be an asset\n  Working knowledge of Microsoft Office Suite.\n  At least 1-2 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
-                "nextSteps": [
-                    "1038"
-                ]
-            },
-            {
-                "id": "1037",
-                "title": "Systems Administrator I",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1051"
-                ]
-            },
-            {
-                "id": "1015",
-                "title": "Policy Registrar I",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1034"
-                ]
-            },
-            {
-                "id": "1019",
-                "title": "Reinsurance Administrator I",
-                "dept": "Underwriting",
-                "desc": "Responsible for supporting the Reinsurance team in the Administration of the Reinsurance portfolio. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
-                "req": "  Bachelor degree in Business studies, Mathematics, Accounts, Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, FLMI  Working knowledge of Treaty standards\n  Microsoft Office Suite - Intermediate\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills\n  Exceptional written and oral communication abilities \n  Minimum of (0-1) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience\n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices\n  Sound knowledge of Reinsurance",
+                "desc": "Examines an applicant's health status to determine the level of exposure the potential client presents based on company underwriting guidelines.",
+                "req": "1-2 years underwriting exp; 5 O-Levels; 2 A-Levels.",
                 "nextSteps": [
                     "1029"
                 ]
             },
             {
-                "id": "1011",
-                "title": "Group Pension Clerk",
-                "dept": "Pensions",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1033",
-                "title": "Human Resource Assistant",
-                "dept": "HR",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1026",
-                "title": "Investment Clerk",
-                "dept": "",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1012",
-                "title": "IT Coordinator",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1013",
-                "title": "New Business Clerk",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
                 "id": "1014",
-                "title": "Policy Issue Clerk",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "title": "Group Creditor Admin I",
+                "dept": "Underwriting",
+                "desc": "Responsible for updating Group Life Plans by preparing and maintaining files, client information and relevant underwriting administration.",
+                "req": "1-2 years industry exp; 5 CXC; Diploma.",
+                "nextSteps": [
+                    "1024"
+                ]
             },
             {
-                "id": "1028",
-                "title": "Programmer",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "id": "1015",
+                "title": "Reinsurance Admin I",
+                "dept": "Reinsurance",
+                "desc": "Supports Reinsurance team in Administration of portfolio. Maintains records, ensures compliance with CBTT. Timely accounting/reporting.",
+                "req": "0-1 yr Reinsurance / 3 yrs Life Ins exp; Bachelor's (Asset).",
+                "nextSteps": [
+                    "1028"
+                ]
             },
             {
-                "id": "1018",
-                "title": "Records Management Clerk",
-                "dept": "Administration",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "id": "1016",
+                "title": "Pension Administrator I",
+                "dept": "Actuarial",
+                "desc": "Assures regulatory and contractual compliance of pension plans through maintenance of databases, preparation/payment of benefits and support to stakeholders.",
+                "req": "1 yr financial exp; Associate Degree.",
+                "nextSteps": [
+                    "1030"
+                ]
             },
             {
-                "id": "1020",
-                "title": "Research Suspense Clerk",
-                "dept": "",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "id": "1017",
+                "title": "Policy Registrar I",
+                "dept": "New Business",
+                "desc": "Maintains Compliance for sign off on new business contracts (non-risk). Sign off on non-financial endorsements. Maintains policy register and updates changes with CBTT.",
+                "req": "2-4 years policy exp; 5 O-Levels; 3 A-Levels.",
+                "nextSteps": [
+                    "1026"
+                ]
             }
         ]
     },
     {
-        "levelName": "Group C - Tier 2",
+        "levelName": "Tier 3 - Senior Technical & Professional",
         "roles": [
             {
-                "id": "1021",
+                "id": "1018",
                 "title": "Accounting Assistant II",
                 "dept": "Finance",
-                "desc": "The Accounting Assistant II is responsible for performing routine and repetitive clerical accounting and bookkeeping duties following established procedures to accomplish duties",
-                "req": "  BSc in Accounting or ACCA level II or equivalent Accounting qualification\n  5 O Levels including Mathematics, English & Accounts\n  3 A  Levels\n  LOMA 280 and 281, ACS 100 & ACS 101\n  Working knowledge of Microsoft Office Suite\n  Skill in both verbal and written communication.\n  Minimum of 3 years relevant experience or any equiva",
+                "desc": "Responsible for performing routine and repetitive clerical accounting and bookkeeping duties following established procedures.",
+                "req": "3 yrs exp; BSc Accounting or ACCA Level II.",
                 "nextSteps": [
-                    "1039"
+                    "1031"
                 ]
             },
             {
-                "id": "1022",
+                "id": "1019",
                 "title": "Administrative Assistant II",
-                "dept": "Administration",
-                "desc": "Provides administrative and secretarial support to the Department daily. Projects a professional company image through in-person and phone interaction.",
-                "req": "  Minimum 2 CAPE passes. \n  Diploma in business administration or management would be an asset.\n  LOMA 281, LOMA 291\n  LOMA ACS would be an asset\n  Proficient in Microsoft Office Suite, e.g. Microsoft Word, PowerPoint, Excel, Access. \n  Knowledge of business procedures and Industry s structures, regulations, policies and procedures.\n  Good spelling and grammar skills.\n  At least 2 years in an administrative position",
-                "nextSteps": [
-                    "1040"
-                ]
-            },
-            {
-                "id": "1031",
-                "title": "Customer Relations Officer II",
-                "dept": "Sales Administration",
-                "desc": "Primarily responsible for building relationships with key clients as well as Agents to support the growth and development of the portfolio. The role supports the customer service staff, utilizing excellent in-depth knowledge of company products and programs, as well as team members within the Customers Service Department",
-                "req": "  Associate Degree in Business Administration or related field.\n  Professional Insurance qualifications such as LOMA, ACS\n  Proficient in Microsoft Office Suite.\n  Complete Training in all aspects as related to CSR Ingenium system\n  Advance Product Knowledge\n  At least 2 - 4 years  experience in the Life Insurance Industry with at least 2 years  experience in Customer Service\n  Supervising branch Administration in a fast-paced environment\n  Customer service experience with an insurance provider may be necessary",
-                "nextSteps": [
-                    "1042"
-                ]
-            },
-            {
-                "id": "1043",
-                "title": "Customer Retention Rep II",
-                "dept": "Life Operations",
-                "desc": "Responsible for advising clients on viable solutions with the main objective of facilitating conservation related activities in conjunction with Sales Admin, Customer Service, Client Services, New Business / Underwriting and Claims. The incumbent should provide effective and efficient customer service to both internal and external clients in alignment with the Company’s goals and objectives.",
-                "req": "· Bachelor’s degree in Marketing/Sales \n· 5 CXC ‘O’ Levels, including Mathematics and English · State License · ALMI/ACS\n· Working knowledge of Microsoft Office Suite, and industry related business operating software. \n· In depth Product Knowledge\n· At least 3-4 years’ experience in a Customer Service / Sales Environment in the financial services industry, and/or Conservation.",
-                "nextSteps": [
-                    "1053"
-                ]
-            },
-            {
-                "id": "1024",
-                "title": "Customer Service Rep II",
-                "dept": "Client Services",
-                "desc": "Ensures customers are satisfied and remain loyal by providing assistance and resolving a wide variety of issues ranging from very technical to basic queries.",
-                "req": "  5 Ordinary Level Passes including Mathematics and English, 2 A  Levels.\n  Associate Degree/Diploma in Business Administration\n  ACS, LOMA 1 and 2.\n  Additional course(s) in Customer Services or related fields would be an asset.\n  Training in Microsoft Office Suite, and other operating software with intermediate level Microsoft Word & Excel.\n  Training in Customer Service procedures and policies.\n  Working knowledge of insurance products and services, along with the policies and procedures for the administration of such. \n  Ability to analyze clientele as it relates to conserving current, as well as new customers.",
+                "dept": "Various",
+                "desc": "Provides administrative/secretarial support to the Department daily. Projects a professional company image.",
+                "req": "2 yrs admin exp; 2 CAPE; Diploma; LOMA.",
                 "nextSteps": [
                     "1032"
                 ]
             },
             {
-                "id": "1044",
-                "title": "Group Life Administrator II",
+                "id": "1020",
+                "title": "Business Analyst",
+                "dept": "Project",
+                "desc": "Represents user interests in system design/config. Collects, analyzes, reviews requirements. Bridges gap between IT and business.",
+                "req": "Industry exp; Bachelor s Degree (Systems/Info).",
+                "nextSteps": []
+            },
+            {
+                "id": "1021",
+                "title": "Conservation Officer II",
+                "dept": "Life Operations",
+                "desc": "Advises clients on viable solutions to conserve existing policies, acquire new business and manage the orphan client portfolio. Provide customer service.",
+                "req": "4-5 years exp; Bachelor s Degree (Marketing/Sales).",
+                "nextSteps": [
+                    "1033"
+                ]
+            },
+            {
+                "id": "1022",
+                "title": "Customer Relations Officer II",
+                "dept": "Sales Admin",
+                "desc": "Primarily responsible for building relationships with key clients and Agents to support portfolio growth. Supports customer service staff.",
+                "req": "2-4 years exp; Associate Degree; LOMA/ACS.",
+                "nextSteps": [
+                    "1034"
+                ]
+            },
+            {
+                "id": "1023",
+                "title": "Customer Service Rep. III",
+                "dept": "Client Services",
+                "desc": "Delivering professional customer service. Leading a team to execute a range of very technical processes.",
+                "req": "Thorough product knowledge; Lead team; Bachelor's Degree.",
+                "nextSteps": []
+            },
+            {
+                "id": "1024",
+                "title": "Group Creditor Admin II",
                 "dept": "Underwriting",
-                "desc": "This position is responsible for updating Group Life Plans by preparing and maintaining files, client information and relevant underwriting administration.",
-                "req": "• Associate Degree in Business Management or related respect\n• LOMA 281, LOMA 291\n• Working knowledge of Microsoft Office Suite\n• Training in Group Life Plans and Reinsurance Treaties\n• Benefit administration will be an asset\n• Minimum 2-3 years’ experience in the Insurance industry \n• Customer Service Experience would be an asset",
-                "nextSteps": [
-                    "1054"
-                ]
-            },
-            {
-                "id": "1048",
-                "title": "Pension Administrator II",
-                "dept": "Pensions",
-                "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
-                "req": "  BS/BA degree from an accredited college/university in Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n  LOMA Associate Secure Retirement Institute designation (ASRI)\n  Manage and track document changes \n  Creation and use of mail merge documents \n  Creation and formatting of illustrations/graphics \n  Intermediate proficiency in Microsoft Excel \n  Create, modify and format charts\n  Demonstration or certification of at least two of the following: \n  Business Writing \n  Minute Taking \n  Public Speaking \n  Payroll Administration \n  Records Administration/Management\n  Minimum of 4 years of experience in administration of defined benefit and defined contribution pension plans\n  Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
-                "nextSteps": [
-                    "1055"
-                ]
-            },
-            {
-                "id": "1017",
-                "title": "Premium Processing Clerk II",
-                "dept": "",
-                "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
-                "req": "  BSc in Business Management or Accounting\n  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  3 years  experience directly related to the duties and responsibilities specified.",
+                "desc": "Responsible for updating Group Life Plans by preparing and maintaining files, client information and relevant underwriting administration.",
+                "req": "2-3 years exp; Associate Degree; LOMA 281/291.",
                 "nextSteps": [
                     "1035"
                 ]
             },
             {
-                "id": "1038",
-                "title": "Underwriter II",
-                "dept": "Underwriting",
-                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines; and assist with training Underwriting Trainees.",
-                "req": "  Associate Degree in Business Management or related field\n  LOMA 281 LOMA 291, ACS or FLMI\n  Academy of Life Underwriting, Associate (AALU) would be an asset\n  Working knowledge of Microsoft Office Suite.\n  At least 2-3 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
-                "nextSteps": [
-                    "1057"
-                ]
+                "id": "1025",
+                "title": "Mortgage Officer",
+                "dept": "Mortgages",
+                "desc": "Solicits new business, performs assessment of new mortgage clients, obtains documents, ensures securities are perfected, and follows up on arrears.",
+                "req": "3 yrs financial exp; BA/BSc Business Admin.",
+                "nextSteps": []
             },
             {
-                "id": "1051",
-                "title": "Systems Administrator II",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1056"
-                ]
-            },
-            {
-                "id": "1034",
+                "id": "1026",
                 "title": "Policy Registrar II",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1049"
-                ]
-            },
-            {
-                "id": "1029",
-                "title": "Reinsurance Administrator II",
-                "dept": "Underwriting",
-                "desc": "Responsible for the administration of reinsurance treaties for Individual and Group Business within authorized limits. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
-                "req": "  Bachelor degree in Business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, ALMI\n  Knowledge of Treaty standards\n  Microsoft Office Suite - Advance\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills.\n  Exceptional written and oral communication abilities\n  Minimum of (2) year experience in Reinsurance and three (3) years in Life Insurance or strong working experience.\n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n  Sound knowledge of Reinsurance",
+                "dept": "New Business",
+                "desc": "Maintains Compliance for sign off on new business contracts (non-risk). Sign off on endorsements (contractual/non-contractual). Maintains policy register.",
+                "req": "3-5 years exp; Associate Degree; LOMA/ACS.",
                 "nextSteps": [
                     "1036"
                 ]
             },
             {
-                "id": "1041",
-                "title": "Business Analyst",
-                "dept": "Administration",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "id": "1027",
+                "title": "Premium Processing Clerk II",
+                "dept": "Finance",
+                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
+                "req": "3 yrs exp; BSc Business/Acct or Diploma.",
+                "nextSteps": [
+                    "1037"
+                ]
             },
             {
-                "id": "1008",
-                "title": "Claims Specialist",
-                "dept": "",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "id": "1028",
+                "title": "Reinsurance Admin II",
+                "dept": "Reinsurance",
+                "desc": "Administration of reinsurance treaties for Individual and Group Business. Records, compliance (CBTT), accounting, reporting.",
+                "req": "2 yrs Reinsurance / 3 yrs Life Ins exp; Bachelor s (Asset).",
+                "nextSteps": [
+                    "1038"
+                ]
             },
             {
-                "id": "1045",
-                "title": "Marketing Analyst",
-                "dept": "Marketing",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "id": "1029",
+                "title": "Underwriter II",
+                "dept": "Underwriting",
+                "desc": "Examines an applicant's health status to determine the level of exposure; assist with training Underwriting Trainees.",
+                "req": "2-3 years exp; Associate Degree; LOMA/AALU.",
+                "nextSteps": [
+                    "1039"
+                ]
             },
             {
-                "id": "1046",
-                "title": "Marketing Officer",
-                "dept": "Marketing",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1050",
-                "title": "Public Relations Assistant",
-                "dept": "Marketing",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "id": "1030",
+                "title": "Pension Administrator II",
+                "dept": "Actuarial",
+                "desc": "Assures regulatory and contractual compliance of pension plans through maintenance of databases, preparation/payment of benefits and support to stakeholders.",
+                "req": "4 yrs pension admin exp; BS/BA Degree.",
+                "nextSteps": [
+                    "1040"
+                ]
             }
         ]
     },
     {
-        "levelName": "Group D - Tier 3",
+        "levelName": "Tier 4 - Specialist Lead & Management",
         "roles": [
             {
-                "id": "1039",
+                "id": "1031",
                 "title": "Accounting Assistant III",
                 "dept": "Finance",
-                "desc": "The Accounting Assistant III is responsible for the preparing of the Agents payroll and provide support to the Sales Administration department",
-                "req": "  BSc in Accounting\n  ACCA level III\n  5 O Levels including Mathematics, English & Accounts\n  3 A  Levels\n  LOMA 280 and 281, ACS 100 & ACS 101\n  Working knowledge of Microsoft Office Suite\n  Skill in both verbal and written communication.\n  Minimum of 5 years relevant experience or any equivalent combination of experience and/or qualifications",
-                "nextSteps": []
-            },
-            {
-                "id": "1040",
-                "title": "Administrative Assistant III",
-                "dept": "Administration",
-                "desc": "Provides administrative and secretarial support to the Department daily. Projects a professional company image through in-person and phone interaction.",
-                "req": "  Minimum 2 CAPE passes. \n  Diploma in business administration or management would be an asset.\n  LOMA 281, LOMA 291\n  LOMA ACS, ALMI would be an asset.\n  Proficient in Microsoft Office Suite, e.g. Microsoft Word, PowerPoint, Excel, Access. \n  Knowledge of business procedures and Industry s structures, regulations, policies and procedures.\n  Good spelling and grammar skills.\n  At least 3 years in an administrative position",
-                "nextSteps": []
-            },
-            {
-                "id": "1042",
-                "title": "Customer Relations Officer III",
-                "dept": "Sales Administration",
-                "desc": "Primarily responsible for building relationships with key clients as well as Agents to support the growth and development of the portfolio. The role supervises and supports the customer service staff, utilizing excellent in-depth knowledge of company products and programs, as well as team members with in the Customers Service Department",
-                "req": "  Bachelor s Degree in a Social Sciences or Business Management Associate Degree/Diploma in Business Administration or related field.\n  Professional Insurance qualifications such as LOMA, ACS required\n  Proficient in Microsoft Office Suite.\n  Complete Training in all aspects as related to CSR Ingenium system\n  Advance Product Knowledge\n  A minimum of 5 years  experience in the Life Insurance Industry with at least 3 years  experience in a fast paced Customer Service environment\n  Customer service experience with an insurance provider is a must",
-                "nextSteps": []
-            },
-            {
-                "id": "1053",
-                "title": "Customer Retention Rep III",
-                "dept": "Life Operations",
-                "desc": "Responsible for advising clients on viable solutions with the main objective of facilitating conservation related activities in conjunction with Sales Admin, Customer Service, Client Services, New Business / Underwriting and Claims. The incumbent should provide effective and efficient customer service to both internal and external clients in alignment with the Company’s goals and objectives.",
-                "req": "· Bachelor’s degree in Marketing / Sales · 5 CXC ‘O’ Levels, including Mathematics and English; · A’ Levels · Sales techniques certification · LOMA diploma – FLMI / ACS\n\n· Training in Microsoft Office Suite and other operating software with intermediate level in Microsoft Word and Excel. · Training in Customer Service procedures and policies.\n\nEXPERIENCE · At least 4-5 years’ experience in a Customer Service / Sales Environment in the financial services industry, and/or Conservation.",
+                "desc": "Responsible for preparing the Agents payroll and providing support to the Sales Administration department.",
+                "req": "5 yrs exp; BSc Accounting or ACCA Level III.",
                 "nextSteps": []
             },
             {
                 "id": "1032",
-                "title": "Customer Service Rep III",
-                "dept": "Client Services",
-                "desc": "Experienced in various products and is responsible for delivering a professional and friendly customer service experience. Ensures customers service delivery by leading a team of competent staff to execute a range of very technical processes. To remain poised, motivated and enthused about the service (effective and efficient).",
-                "req": "  5 Ordinary Level Passes including Mathematics and English, 2 A  Levels.\n  Associate Degree/Diploma in Business Administration or ACS, LOMA 1 and 2.\n  Bachelor s Degree in Business Management or Social Science\n  Additional course(s) in Customer Services or related fields would be an asset.\n  Proficient in Microsoft Office Suite, and other operating software with intermediate level Microsoft Word & Excel.\n  Proficient in procedures and policies\n  In the test environment (Ingenium) Subject Matter expert.\n  Ability to operate in a fast-paced and dynamic environment.\n  Ability to understand and analyze complex technical scenarios\n  Meticulous with a history of high accuracy level.\n  Incumbent must have thorough knowledge of various Insurance products and services, along with the policies and procedures for the administration of all client requests. Ability to analyze complex system functions and provide resolutions to complex situations. Situational Policy testing in test environment to complex or unknown changes. \n  In the test environment (Ingenium) Subject Matter expert",
+                "title": "Administrative Assistant III",
+                "dept": "Various",
+                "desc": "Provides administrative/secretarial support to the Department daily. Projects a professional company image.",
+                "req": "3 yrs admin exp; Diploma; LOMA ACS/ALMI.",
                 "nextSteps": []
             },
             {
-                "id": "1054",
-                "title": "Group Life Administrator III",
-                "dept": "Underwriting",
-                "desc": "This position is responsible for implementing and updating Group Life Plans by preparing and maintaining files, client information, reports and relevant underwriting administration.",
-                "req": "• Bachelor’s Degree in Business Management or related respect\n• LOMA 281, LOMA 291 or FLMI\n• Working knowledge of Microsoft Office Suite\n• Training in Group Life Plans and Reinsurance Treaties\n• Benefit administration will be an asset\n• Minimum 4-5 years’ experience in the Insurance industry \n• Customer Service Experience would be an asset",
+                "id": "1033",
+                "title": "Conservation Officer III",
+                "dept": "Life Operations",
+                "desc": "Advises clients on viable solutions to conserve existing policies, acquire new business and manage the orphan client portfolio. Provide customer service.",
+                "req": "6 years exp; Bachelor s Degree; LOMA FLMI.",
                 "nextSteps": []
             },
             {
-                "id": "1055",
-                "title": "Pension Administrator III",
-                "dept": "Pensions",
-                "desc": "Assures the regulatory and contractual compliance of pension plans through the maintenance of databases, preparation and payments of benefits and providing professional support to all stakeholders.",
-                "req": "  BS/BA degree from an accredited college/university in \n  Actuarial Science, Business, Economics, Finance, Mathematics, or Statistics \n  LOMA Associate Secure Retirement Institute designation (ASRI)\n  LOMA Fellow Secure Retirement Institute designation (FSRI) or equivalent qualification \n  Certificate designation (pensions) from CEBS, RPA, PPAC or from another credited employee benefit institution.\n  Manage and track document changes \n  Creation and use of mail merge documents \n  Creation and formatting of illustrations/graphics \n  Advance proficiency in Microsoft Excel \n  Create, modify and Macro commands\n  Demonstration or certification of at least four of the following: \n  Business Writing \n  Minute Taking \n  Public Speaking \n  Payroll Administration \n  Records Administration/Management\n  Minimum of 8 years of experience in administration of defined benefit and defined contribution pension plans\n  Understanding of defined benefit and defined contribution pension plans, and the Trust Deed and Rules of pension plans",
+                "id": "1034",
+                "title": "Customer Relations Officer III",
+                "dept": "Sales Admin",
+                "desc": "Primarily responsible for building relationships with key clients and Agents to support portfolio growth. Supervises and supports customer service staff.",
+                "req": "5 years exp; Bachelor s Degree; LOMA/ACS.",
                 "nextSteps": []
             },
             {
                 "id": "1035",
-                "title": "Premium Processing Clerk III",
-                "dept": "Finance",
-                "desc": "Performs various clerical and routine accounting tasks to include posting entries, verifying and reconciling input to financial reporting system output, processing payments, and/or vendors to resolve a variety of problems.",
-                "req": "  BSc in Business Management or Accounting\n  5 Ordinary level passes inclusive of Mathematics and English\n  3 A  levels\n  Diploma or certificate in Business Management or Accounting\n  LOMA 280 and 281, ACS 100 and ACS 101\n  Working knowledge of Microsoft Office Suite.\n  Ability to prepare routine administrative work. \n  Ability to perform simple accounting procedures. \n  Knowledge of insurance accounting processes.\n  5 years  experience directly related to the duties and responsibilities specified.",
-                "nextSteps": []
-            },
-            {
-                "id": "1057",
-                "title": "Underwriter III",
+                "title": "Group Creditor Admin III",
                 "dept": "Underwriting",
-                "desc": "Examines an applicant s health status to determine the level of exposure the potential client presents based on company underwriting guidelines; and trains/coaches Underwriting Trainees.",
-                "req": "  Bachelor s Degree in Business Management or related field\n  Academy of Life Underwriting, Fellow (FALU) would be an asset\n  FLMI, ACS\n  Working knowledge of Microsoft Office Suite.\n  At least 4-5 years  experience in Life Underwriting\n  Customer Service Experience would be an asset",
-                "nextSteps": []
-            },
-            {
-                "id": "1056",
-                "title": "Systems Administrator III",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1049",
-                "title": "Policy Registrar III",
-                "dept": "Operations",
-                "desc": "",
-                "req": "",
+                "desc": "Responsible for implementing and updating Group Life Plans by preparing and maintaining files, client information, reports and underwriting administration.",
+                "req": "4-5 years exp; Bachelor s Degree; FLMI.",
                 "nextSteps": []
             },
             {
                 "id": "1036",
-                "title": "Reinsurance Administrator III",
-                "dept": "Underwriting",
-                "desc": "Responsible for the administration of reinsurance treaties for Individual and Group Business. Maintains records and ensures compliance and regulations with CBTT. Ensures timely accounting, reporting and auditing. Researches and analyzes reinsurance prices and specifications. Liaises directly with the reinsurers to resolve any outstanding queries. Performs any business analyst function related to continuous improvement in the Reinsurance Administrative process for Life and Group Business",
-                "req": "  Bachelor s degree in business studies, Mathematics, Accounts Actuarial Science, Economics or related field an asset\n  Professional Insurance qualifications such as LOMA - Reinsurance, FLMI \n  Expert knowledge of Treaty standards\n  Microsoft Office Suite - Advance\n  Complete Training in all aspects as related Insurance software \n  Advance Product and Treaty Knowledge\n  Must possess strong leadership and organizational skills.\n  Exceptional written and oral communication abilities \n  Minimum of (5) year experience in Reinsurance and (5) years in Life Insurance or strong working experience. \n  Technical knowledge of underwriting and the Insurance Industry relating to theories and practices. \n  Sound knowledge of Reinsurance\n  Signoff on reinsurance reports",
+                "title": "Policy Registrar III",
+                "dept": "New Business",
+                "desc": "Maintains Compliance for sign off on new business/replacement policy contracts (risks and non-risk). Sign off on endorsements. Maintains policy register.",
+                "req": "3-5 years exp (High complexity); Bachelor s Degree.",
                 "nextSteps": []
             },
             {
-                "id": "1052",
-                "title": "Actuarial Assistant",
-                "dept": "Actuarial",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1047",
-                "title": "Mortgage Officer",
+                "id": "1037",
+                "title": "Premium Processing Clerk III",
                 "dept": "Finance",
-                "desc": "",
-                "req": "",
+                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
+                "req": "5 years exp; BSc Business/Acct.",
+                "nextSteps": []
+            },
+            {
+                "id": "1038",
+                "title": "Reinsurance Admin III",
+                "dept": "Reinsurance",
+                "desc": "Administration of reinsurance treaties for Individual and Group Business. Records, compliance (CBTT), accounting, reporting. Researches prices.",
+                "req": "5 yrs Reinsurance / 5 yrs Life Ins exp; Bachelor s (Asset).",
+                "nextSteps": []
+            },
+            {
+                "id": "1039",
+                "title": "Underwriter III",
+                "dept": "Underwriting",
+                "desc": "Examines an applicant's health status to determine the level of exposure; trains/coaches Underwriting Trainees.",
+                "req": "4-5 years exp; Bachelor s Degree; FALU (Asset).",
+                "nextSteps": []
+            },
+            {
+                "id": "1040",
+                "title": "Pension Administrator III",
+                "dept": "Actuarial",
+                "desc": "Assures regulatory and contractual compliance of pension plans through maintenance of databases, preparation/payment of benefits and support to stakeholders.",
+                "req": "8 yrs pension admin exp; BS/BA Degree; LOMA FSRI.",
                 "nextSteps": []
             }
         ]
