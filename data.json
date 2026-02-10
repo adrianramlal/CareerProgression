@@ -3,12 +3,14 @@
         "levelName": "Tier 1 - Entry Level & Support",
         "roles": [
             {
-                "id": "1001",
-                "title": "Courier",
-                "dept": "Administration",
-                "desc": "Drives, delivers, collects, sorts and distributes company's mail.",
-                "req": "3-5 years driving exp; 5 O-Levels.",
-                "nextSteps": []
+                "id": "1007",
+                "title": "Research/Suspense Clerk",
+                "dept": "Finance",
+                "desc": "Investigates and retrieves data with speed and accuracy. Ensures research requests are responded to timely. Handles customer service and interpersonal dealings.",
+                "req": "1 yr insurance exp; 5 O-Levels.",
+                "nextSteps": [
+                    "1008"
+                ]
             },
             {
                 "id": "1002",
@@ -31,6 +33,16 @@
                 ]
             },
             {
+                "id": "1005",
+                "title": "Customer Service Rep. I",
+                "dept": "Client Services",
+                "desc": "Responsible for providing administrative support to the department and customer service at first level. No decision making is required.",
+                "req": "0-1 yr exp; 5 O-Levels; 2 A-Levels.",
+                "nextSteps": [
+                    "1010"
+                ]
+            },
+            {
                 "id": "1004",
                 "title": "New Business Clerk",
                 "dept": "Underwriting",
@@ -43,47 +55,17 @@
                 ]
             },
             {
-                "id": "1005",
-                "title": "Customer Service Rep. I",
-                "dept": "Client Services",
-                "desc": "Responsible for providing administrative support to the department and customer service at first level. No decision making is required.",
-                "req": "0-1 yr exp; 5 O-Levels; 2 A-Levels.",
-                "nextSteps": [
-                    "1010"
-                ]
-            },
-            {
-                "id": "1006",
-                "title": "Premium Processing Clerk I",
-                "dept": "Finance",
-                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
-                "req": "1 yr related exp; 5 O-Levels; 3 A-Levels.",
-                "nextSteps": [
-                    "1027"
-                ]
-            },
-            {
-                "id": "1007",
-                "title": "Research/Suspense Clerk",
-                "dept": "Finance",
-                "desc": "Investigates and retrieves data with speed and accuracy. Ensures research requests are responded to timely. Handles customer service and interpersonal dealings.",
-                "req": "1 yr insurance exp; 5 O-Levels.",
-                "nextSteps": [
-                    "1008"
-                ]
-            },
-            {
-                "id": "1770649524164",
-                "title": "Executive Assistanto",
-                "dept": "Administration",
+                "id": "1770649587022",
+                "title": "Group Pension Clerk",
+                "dept": "Life Operations",
                 "desc": "",
                 "req": "",
                 "nextSteps": []
             },
             {
-                "id": "1770649587022",
-                "title": "Group Pension Clerk",
-                "dept": "Life Operations",
+                "id": "1770649524164",
+                "title": "Executive Assistant",
+                "dept": "Administration",
                 "desc": "",
                 "req": "",
                 "nextSteps": []
@@ -105,6 +87,16 @@
                 "nextSteps": []
             },
             {
+                "id": "1006",
+                "title": "Premium Processing Clerk I",
+                "dept": "Finance",
+                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
+                "req": "1 yr related exp; 5 O-Levels; 3 A-Levels.",
+                "nextSteps": [
+                    "1027"
+                ]
+            },
+            {
                 "id": "1770649910230",
                 "title": "Systems Processor",
                 "dept": "IT",
@@ -113,6 +105,14 @@
                 "nextSteps": [
                     "1770649844340"
                 ]
+            },
+            {
+                "id": "1001",
+                "title": "Courier",
+                "dept": "Administration",
+                "desc": "Drives, delivers, collects, sorts and distributes company's mail.",
+                "req": "3-5 years driving exp; 5 O-Levels.",
+                "nextSteps": []
             }
         ]
     },
@@ -220,6 +220,16 @@
                 ]
             },
             {
+                "id": "1770649844340",
+                "title": "Systems Administrator I",
+                "dept": "IT",
+                "desc": "",
+                "req": "",
+                "nextSteps": [
+                    "1770649867845"
+                ]
+            },
+            {
                 "id": "1770649460598",
                 "title": "Actuarial Assistant",
                 "dept": "Actuary",
@@ -246,14 +256,6 @@
                 ]
             },
             {
-                "id": "1770649663648",
-                "title": "Marketing Officer",
-                "dept": "Dept",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
-            },
-            {
                 "id": "1770649745039",
                 "title": "Programmer",
                 "dept": "IT",
@@ -264,14 +266,12 @@
                 ]
             },
             {
-                "id": "1770649844340",
-                "title": "Systems Administrator I",
-                "dept": "IT",
+                "id": "1770649663648",
+                "title": "Marketing Officer",
+                "dept": "Dept",
                 "desc": "",
                 "req": "",
-                "nextSteps": [
-                    "1770649867845"
-                ]
+                "nextSteps": []
             }
         ]
     },
@@ -299,11 +299,11 @@
                 ]
             },
             {
-                "id": "1020",
-                "title": "Business Analyst",
-                "dept": "Project",
-                "desc": "Represents user interests in system design/config. Collects, analyzes, reviews requirements. Bridges gap between IT and business.",
-                "req": "Industry exp; Bachelor s Degree (Systems/Info).",
+                "id": "1023",
+                "title": "Customer Service Rep. III",
+                "dept": "Client Services",
+                "desc": "Delivering professional customer service. Leading a team to execute a range of very technical processes.",
+                "req": "Thorough product knowledge; Lead team; Bachelor's Degree.",
                 "nextSteps": []
             },
             {
@@ -327,12 +327,14 @@
                 ]
             },
             {
-                "id": "1023",
-                "title": "Customer Service Rep. III",
-                "dept": "Client Services",
-                "desc": "Delivering professional customer service. Leading a team to execute a range of very technical processes.",
-                "req": "Thorough product knowledge; Lead team; Bachelor's Degree.",
-                "nextSteps": []
+                "id": "1029",
+                "title": "Underwriter II",
+                "dept": "Underwriting",
+                "desc": "Examines an applicant's health status to determine the level of exposure; assist with training Underwriting Trainees.",
+                "req": "2-3 years exp; Associate Degree; LOMA/AALU.",
+                "nextSteps": [
+                    "1039"
+                ]
             },
             {
                 "id": "1024",
@@ -342,34 +344,6 @@
                 "req": "2-3 years exp; Associate Degree; LOMA 281/291.",
                 "nextSteps": [
                     "1035"
-                ]
-            },
-            {
-                "id": "1025",
-                "title": "Mortgage Officer",
-                "dept": "Mortgages",
-                "desc": "Solicits new business, performs assessment of new mortgage clients, obtains documents, ensures securities are perfected, and follows up on arrears.",
-                "req": "3 yrs financial exp; BA/BSc Business Admin.",
-                "nextSteps": []
-            },
-            {
-                "id": "1026",
-                "title": "Policy Registrar II",
-                "dept": "New Business",
-                "desc": "Maintains Compliance for sign off on new business contracts (non-risk). Sign off on endorsements (contractual/non-contractual). Maintains policy register.",
-                "req": "3-5 years exp; Associate Degree; LOMA/ACS.",
-                "nextSteps": [
-                    "1036"
-                ]
-            },
-            {
-                "id": "1027",
-                "title": "Premium Processing Clerk II",
-                "dept": "Finance",
-                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
-                "req": "3 yrs exp; BSc Business/Acct or Diploma.",
-                "nextSteps": [
-                    "1037"
                 ]
             },
             {
@@ -383,16 +357,6 @@
                 ]
             },
             {
-                "id": "1029",
-                "title": "Underwriter II",
-                "dept": "Underwriting",
-                "desc": "Examines an applicant's health status to determine the level of exposure; assist with training Underwriting Trainees.",
-                "req": "2-3 years exp; Associate Degree; LOMA/AALU.",
-                "nextSteps": [
-                    "1039"
-                ]
-            },
-            {
                 "id": "1030",
                 "title": "Pension Administrator II",
                 "dept": "Actuarial",
@@ -401,6 +365,52 @@
                 "nextSteps": [
                     "1040"
                 ]
+            },
+            {
+                "id": "1026",
+                "title": "Policy Registrar II",
+                "dept": "New Business",
+                "desc": "Maintains Compliance for sign off on new business contracts (non-risk). Sign off on endorsements (contractual/non-contractual). Maintains policy register.",
+                "req": "3-5 years exp; Associate Degree; LOMA/ACS.",
+                "nextSteps": [
+                    "1036"
+                ]
+            },
+            {
+                "id": "1770649867845",
+                "title": "Systems Administrator II",
+                "dept": "IT",
+                "desc": "",
+                "req": "",
+                "nextSteps": [
+                    "1770649890521"
+                ]
+            },
+            {
+                "id": "1027",
+                "title": "Premium Processing Clerk II",
+                "dept": "Finance",
+                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
+                "req": "3 yrs exp; BSc Business/Acct or Diploma.",
+                "nextSteps": [
+                    "1037"
+                ]
+            },
+            {
+                "id": "1025",
+                "title": "Mortgage Officer",
+                "dept": "Mortgages",
+                "desc": "Solicits new business, performs assessment of new mortgage clients, obtains documents, ensures securities are perfected, and follows up on arrears.",
+                "req": "3 yrs financial exp; BA/BSc Business Admin.",
+                "nextSteps": []
+            },
+            {
+                "id": "1020",
+                "title": "Business Analyst",
+                "dept": "Project",
+                "desc": "Represents user interests in system design/config. Collects, analyzes, reviews requirements. Bridges gap between IT and business.",
+                "req": "Industry exp; Bachelor s Degree (Systems/Info).",
+                "nextSteps": []
             },
             {
                 "id": "1770649501243",
@@ -417,16 +427,6 @@
                 "desc": "",
                 "req": "",
                 "nextSteps": []
-            },
-            {
-                "id": "1770649867845",
-                "title": "Systems Administrator II",
-                "dept": "IT",
-                "desc": "",
-                "req": "",
-                "nextSteps": [
-                    "1770649890521"
-                ]
             }
         ]
     },
@@ -466,27 +466,19 @@
                 "nextSteps": []
             },
             {
+                "id": "1039",
+                "title": "Underwriter III",
+                "dept": "Underwriting",
+                "desc": "Examines an applicant's health status to determine the level of exposure; trains/coaches Underwriting Trainees.",
+                "req": "4-5 years exp; Bachelor s Degree; FALU (Asset).",
+                "nextSteps": []
+            },
+            {
                 "id": "1035",
                 "title": "Group Life Admin III",
                 "dept": "Underwriting",
                 "desc": "Responsible for implementing and updating Group Life Plans by preparing and maintaining files, client information, reports and underwriting administration.",
                 "req": "4-5 years exp; Bachelor s Degree; FLMI.",
-                "nextSteps": []
-            },
-            {
-                "id": "1036",
-                "title": "Policy Registrar III",
-                "dept": "New Business",
-                "desc": "Maintains Compliance for sign off on new business/replacement policy contracts (risks and non-risk). Sign off on endorsements. Maintains policy register.",
-                "req": "3-5 years exp (High complexity); Bachelor s Degree.",
-                "nextSteps": []
-            },
-            {
-                "id": "1037",
-                "title": "Premium Processing Clerk III",
-                "dept": "Finance",
-                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
-                "req": "5 years exp; BSc Business/Acct.",
                 "nextSteps": []
             },
             {
@@ -498,14 +490,6 @@
                 "nextSteps": []
             },
             {
-                "id": "1039",
-                "title": "Underwriter III",
-                "dept": "Underwriting",
-                "desc": "Examines an applicant's health status to determine the level of exposure; trains/coaches Underwriting Trainees.",
-                "req": "4-5 years exp; Bachelor s Degree; FALU (Asset).",
-                "nextSteps": []
-            },
-            {
                 "id": "1040",
                 "title": "Pension Administrator III",
                 "dept": "Actuarial",
@@ -514,11 +498,27 @@
                 "nextSteps": []
             },
             {
+                "id": "1036",
+                "title": "Policy Registrar III",
+                "dept": "New Business",
+                "desc": "Maintains Compliance for sign off on new business/replacement policy contracts (risks and non-risk). Sign off on endorsements. Maintains policy register.",
+                "req": "3-5 years exp (High complexity); Bachelor s Degree.",
+                "nextSteps": []
+            },
+            {
                 "id": "1770649890521",
                 "title": "Systems Administrator III",
                 "dept": "IT",
                 "desc": "",
                 "req": "",
+                "nextSteps": []
+            },
+            {
+                "id": "1037",
+                "title": "Premium Processing Clerk III",
+                "dept": "Finance",
+                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
+                "req": "5 years exp; BSc Business/Acct.",
                 "nextSteps": []
             }
         ]
