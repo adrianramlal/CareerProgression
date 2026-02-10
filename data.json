@@ -87,16 +87,6 @@
                 "nextSteps": []
             },
             {
-                "id": "1006",
-                "title": "Premium Processing Clerk I",
-                "dept": "Finance",
-                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
-                "req": "1 yr related exp; 5 O-Levels; 3 A-Levels.",
-                "nextSteps": [
-                    "1027"
-                ]
-            },
-            {
                 "id": "1770649910230",
                 "title": "Systems Processor",
                 "dept": "IT",
@@ -104,6 +94,16 @@
                 "req": "",
                 "nextSteps": [
                     "1770649844340"
+                ]
+            },
+            {
+                "id": "1006",
+                "title": "Premium Processing Clerk I",
+                "dept": "Finance",
+                "desc": "Performs various clerical and routine accounting tasks (posting entries, verifying, reconciling, processing payments).",
+                "req": "1 yr related exp; 5 O-Levels; 3 A-Levels.",
+                "nextSteps": [
+                    "1027"
                 ]
             },
             {
