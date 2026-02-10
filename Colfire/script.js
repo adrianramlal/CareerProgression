@@ -29,8 +29,8 @@ function initApp() {
         style.id = 'dynamic-styles';
         style.innerHTML = `
             :root {
-                --tatil-red: #E31837; 
-                --tatil-black: #000000;
+                --tatil-red: #ec7034; 
+                --tatil-black: #082044;
                 --gray-light: #f8f9fa;
             }
 
@@ -378,3 +378,4 @@ function initApp() {
     window.addEventListener('resize', () => drawLines(false)); 
     renderChart();
 }
+
