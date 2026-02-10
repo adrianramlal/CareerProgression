@@ -8,7 +8,9 @@
                 "dept": "Administration",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
+                "nextSteps": [
+                    "1770743968397"
+                ]
             },
             {
                 "id": "1770743956876",
@@ -16,7 +18,9 @@
                 "dept": "Administration",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
+                "nextSteps": [
+                    "1770743968397"
+                ]
             },
             {
                 "id": "1770744001196",
@@ -24,7 +28,9 @@
                 "dept": "Administration",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
+                "nextSteps": [
+                    "1770743968397"
+                ]
             }
         ]
     },
@@ -37,15 +43,9 @@
                 "dept": "Agency Administration",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
-            },
-            {
-                "id": "1770744065132",
-                "title": "New Role",
-                "dept": "Dept",
-                "desc": "",
-                "req": "",
-                "nextSteps": []
+                "nextSteps": [
+                    "1770744107972"
+                ]
             }
         ]
     },
@@ -71,7 +71,9 @@
                 "dept": "Agency Administration",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
+                "nextSteps": [
+                    "1770744147576"
+                ]
             }
         ]
     },
@@ -81,16 +83,39 @@
             {
                 "id": "1770744147576",
                 "title": "Agency Administrator",
-                "dept": "Dept",
+                "dept": "Agency Administration",
                 "desc": "",
                 "req": "",
-                "nextSteps": []
+                "nextSteps": [
+                    "1770744183842"
+                ]
+            },
+            {
+                "id": "1770744312349",
+                "title": "Internal Auditor",
+                "dept": "Audit",
+                "desc": "",
+                "req": "",
+                "nextSteps": [
+                    "1770744336158"
+                ]
             }
         ]
     },
     {
         "levelName": "Level 6",
-        "roles": []
+        "roles": [
+            {
+                "id": "1770744336158",
+                "title": "Senior Internal Auditor",
+                "dept": "Audit",
+                "desc": "",
+                "req": "",
+                "nextSteps": [
+                    "1770744373307"
+                ]
+            }
+        ]
     },
     {
         "levelName": "Level 7",
@@ -99,6 +124,19 @@
                 "id": "1770744183842",
                 "title": "Senior Agency Administrator",
                 "dept": "Agency Administration",
+                "desc": "",
+                "req": "",
+                "nextSteps": []
+            }
+        ]
+    },
+    {
+        "levelName": "Management",
+        "roles": [
+            {
+                "id": "1770744373307",
+                "title": "Manager Audit",
+                "dept": "Audit",
                 "desc": "",
                 "req": "",
                 "nextSteps": []
