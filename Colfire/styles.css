@@ -1,7 +1,7 @@
         /* --- TATIL BRANDING & CORE STYLES --- */
         :root {
-            --tatil-red: #E31837; 
-            --tatil-black: #000000;
+            --tatil-red: #ec7034; 
+            --tatil-black: #082044;
             --gray-light: #f8f9fa;
             --gray-border: #e9ecef;
             --text-dark: #333;
@@ -244,4 +244,5 @@
             align-items: center;
             justify-content: center;
             color: #666;
+
         }
