@@ -438,7 +438,8 @@
         </div>
 
         <div class="save-area">
-            <button class="btn btn-primary" onclick="exportData()">💾 Save JSON</button>
+            <button class="btn btn-primary" onclick="saveToGitHub()">☁️ Save to Cloud</button>
+            <!-- <button class="btn btn-primary" onclick="exportData()">💾 Save JSON</button> -->
         </div>
     </div>
 
@@ -1028,11 +1029,79 @@
             appData.splice(idx, 1); renderChart();
         }
         function updateLevelName(idx, val) { appData[idx].levelName = val; }
-        function exportData() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData, null, 4));
-            const a = document.createElement('a');
-            a.href = dataStr; a.download = "data.json"; a.click();
+
+
+        // ===========================================
+// GITHUB CONFIGURATION
+// ===========================================
+// ⚠️ SECURITY WARNING: Never commit your actual token to a public repo!
+// For a private internal tool, this is okay, but be careful.
+const GITHUB_CONFIG = {
+    token: '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', // Paste your token here
+    owner: 'adrianramlal',   // e.g., 'adrianramlal'
+    repo: 'CareerProgression',          // e.g., 'tatil-pathways'
+    path: 'data.json'                // Path to file in repo
+};
+
+async function saveToGitHub() {
+    const btn = document.querySelector('.btn-primary');
+    const originalText = btn.innerText;
+    btn.innerText = "Saving...";
+    btn.disabled = true;
+
+    try {
+        // 1. Get the current file's SHA (required by GitHub API to update)
+        const getUrl = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.path}`;
+        
+        const getResponse = await fetch(getUrl, {
+            headers: {
+                'Authorization': `token ${GITHUB_CONFIG.token}`,
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
+
+        if (!getResponse.ok) throw new Error("Failed to find file on GitHub");
+        const fileData = await getResponse.json();
+        const sha = fileData.sha;
+
+        // 2. Prepare the new content (Base64 encoded)
+        // We use btoa() for base64, but we need to handle Unicode characters properly
+        const jsonString = JSON.stringify(appData, null, 4);
+        const contentEncoded = btoa(unescape(encodeURIComponent(jsonString)));
+
+        // 3. Send the PUT request to update the file
+        const putResponse = await fetch(getUrl, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${GITHUB_CONFIG.token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: "Update data.json via Admin Dashboard", // Commit message
+                content: contentEncoded,
+                sha: sha
+            })
+        });
+
+        if (putResponse.ok) {
+            alert("Success! Changes saved to GitHub. \n\nDigitalOcean will now rebuild the site. Please wait ~2 minutes for changes to appear on the public page.");
+        } else {
+            const err = await putResponse.json();
+            throw new Error(err.message);
         }
+
+    } catch (error) {
+        console.error(error);
+        alert("Error saving: " + error.message);
+    } finally {
+        btn.innerText = originalText;
+        btn.disabled = false;
+    }
+}
+
+
+        
     </script>
 </body>
+
 </html>
