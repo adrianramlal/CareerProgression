@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatil Pathways - Admin Dashboard</title>
+    <style>
+        /* =========================================
+           ADMIN UI STYLES
+           ========================================= */
+        :root {
+            --admin-bg: #1a1a1a;
+            --admin-panel: #2d2d2d;
+            --admin-text: #e0e0e0;
+            --admin-accent: #E31837; 
+            --preview-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- SIDEBAR --- */
+        .admin-sidebar {
+            width: 350px;
+            min-width: 350px;
+            background: var(--admin-bg);
+            color: var(--admin-text);
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #444;
+            z-index: 100;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .admin-header {
+            padding: 20px;
+            background: var(--admin-panel);
+            border-bottom: 1px solid #444;
+        }
+        .admin-header h2 { margin: 0; font-size: 1.2rem; }
+        .admin-header p { margin: 5px 0 0; font-size: 0.8rem; color: #888; }
+
+        .sidebar-scroll-area {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        /* Editor View in Sidebar */
+        .editor-view {
+            background: #333;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--admin-accent);
+            display: none; /* Hidden by default */
+        }
+        .editor-view.active { display: block; }
+        .editor-view h3 { margin-top: 0; font-size: 1.1rem; color: white; margin-bottom: 15px; border-bottom: 1px solid #444; padding-bottom: 10px; }
+        
+        .sidebar-conn-list {
+            background: #252525;
+            border: 1px solid #444;
+            border-radius: 4px;
+            max-height: 150px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        .sidebar-conn-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            border-bottom: 1px solid #333;
+            font-size: 0.85rem;
+        }
+        .sidebar-conn-item:last-child { border-bottom: none; }
+        .sidebar-conn-item span { color: #ccc; }
+        .btn-remove-conn {
+            background: none;
+            border: none;
+            color: #d9534f;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1;
+        }
+        .btn-remove-conn:hover { color: #ff0000; }
+
+        /* Admin Controls */
+        .control-group { margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        .control-group h3 { font-size: 0.9rem; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+        
+        label { display: block; margin-bottom: 5px; font-size: 0.85rem; color: #aaa; }
+        input[type="text"], input[type="url"], textarea, select {
+            width: 100%;
+            background: #252525;
+            border: 1px solid #444;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 12px;
+            font-family: inherit;
+        }
+        input[type="text"]:focus, textarea:focus { border-color: var(--admin-accent); outline: none; }
+        
+        input[type="color"] { width: 100%; height: 40px; border: none; cursor: pointer; }
+        input[type="file"] { margin-bottom: 10px; font-size: 0.8rem; color: #aaa; }
+
+        .btn {
+            background: #444;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            width: 100%;
+            margin-bottom: 10px;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #555; }
+        .btn-primary { background: var(--admin-accent); font-weight: bold; }
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-danger { background: #c0392b; }
+        .btn-success { background: #27ae60; }
+        .btn-outline { background: transparent; border: 1px solid #666; }
+        .btn-outline:hover { background: #333; }
+        
+        .save-area {
+            padding: 20px;
+            background: var(--admin-panel);
+            border-top: 1px solid #444;
+        }
+
+        /* --- PREVIEW AREA --- */
+        .preview-area {
+            flex-grow: 1;
+            position: relative;
+            background: var(--preview-bg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-toolbar {
+            height: 40px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 0.8rem;
+            color: #555;
+            border-bottom: 1px solid #ccc;
+            user-select: none;
+        }
+
+        .chart-viewport {
+            flex-grow: 1;
+            position: relative;
+            overflow: auto;
+            background-color: #f8f9fa;
+            background-image: radial-gradient(#ddd 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .chart-container {
+            display: flex;
+            gap: 100px;
+            padding: 50px;
+            position: relative;
+            min-width: max-content;
+            min-height: 80vh; 
+            pointer-events: none; /* KEY FIX: Allow clicks to pass through to SVG */
+        }
+
+        #connections-layer {
+            position: absolute;
+            top: 0; left: 0;
+            pointer-events: none; 
+            overflow: visible;
+            z-index: 0;
+        }
+        
+        /* The visible line */
+        .connector-path {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 2px;
+            transition: all 0.2s ease;
+            pointer-events: none; /* Hit handled by connector-hit */
+        }
+        /* The invisible wide hit area */
+        .connector-hit {
+            fill: none;
+            stroke: transparent;
+            stroke-width: 25px; /* Wider hit area */
+            pointer-events: stroke; /* Capture events */
+            cursor: pointer;
+        }
+        .connector-hit:hover {
+            stroke: rgba(227, 24, 55, 0.1); /* Slight highlight on hover */
+        }
+
+        .connector-path.highlighted {
+            stroke: var(--admin-accent);
+            stroke-width: 3px;
+            opacity: 1;
+        }
+        
+        /* Delete Button for Lines */
+        .line-delete-btn {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #d9534f;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1000;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: none;
+            border: 2px solid white;
+            pointer-events: auto;
+        }
+        .line-delete-btn:hover {
+            background: #c9302c;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        /* --- CARD STYLES --- */
+        .level-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            min-width: 250px;
+            min-height: 200px; /* Drop target area */
+            border-radius: 8px;
+            transition: background 0.2s;
+            border: 2px solid transparent;
+            pointer-events: none; /* Allow click through */
+        }
+        
+        .level-column.drag-over {
+            background: rgba(0,0,0,0.05);
+            outline: 2px dashed #999;
+        }
+        .level-column.dragging-col {
+            opacity: 0.4;
+            border-color: #999;
+            background: #eee;
+        }
+        .level-column.drag-over-col {
+            background: rgba(0,0,0,0.1);
+            border-color: var(--admin-accent);
+        }
+
+        .level-header {
+            background: #e0e0e0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #555;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            z-index: 2;
+            cursor: grab;
+            pointer-events: auto; /* Re-enable pointer events */
+        }
+        .level-header:active { cursor: grabbing; }
+
+        .role-card {
+            background: white;
+            padding: 15px;
+            width: 220px;
+            border-radius: 4px;
+            border-left: 5px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: move; 
+            pointer-events: auto; /* Re-enable pointer events */
+        }
+
+        /* Dragging State */
+        .role-card.dragging {
+            opacity: 0.5;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: scale(1.02);
+        }
+
+        /* Connection Handle */
+        .connector-handle {
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 2px solid var(--admin-accent);
+            border-radius: 50%;
+            cursor: crosshair;
+            z-index: 10;
+            opacity: 0; /* Hidden until hover */
+            transition: opacity 0.2s;
+        }
+        .role-card:hover .connector-handle { opacity: 1; }
+        .connector-handle:hover { background: var(--admin-accent); transform: translateY(-50%) scale(1.2); }
+
+        .role-card:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .role-card h3 { margin: 0 0 5px 0; font-size: 1rem; color: #333; pointer-events: none;}
+        .role-card p { margin: 0; font-size: 0.8rem; color: #666; pointer-events: none;}
+        
+        /* Selected State */
+        .role-card.selected {
+            border-left-color: var(--admin-accent);
+            background: #fff0f0;
+        }
+
+        .branch-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: #eee;
+            border-radius: 50%;
+            width: 20px; height: 20px;
+            font-size: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: #666;
+            pointer-events: none;
+        }
+
+        /* New Role Button style */
+        .btn-add-role {
+            background: #ccc;
+            border: none;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex; align-items: center; justify-content: center;
+            pointer-events: auto;
+        }
+        .btn-add-role:hover { background: #bbb; }
+
+        /* Temp Connection Line */
+        #temp-connection {
+            pointer-events: none;
+            stroke: var(--admin-accent);
+            stroke-width: 2;
+            stroke-dasharray: 5,5;
+            fill: none;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="admin-sidebar">
+        <div class="admin-header">
+            <h2>Pathway Admin</h2>
+            <p>Select a card to edit.</p>
+        </div>
+
+        <div class="sidebar-scroll-area">
+            
+            <!-- EDITOR VIEW (Dynamic) -->
+            <div id="editorView" class="editor-view">
+                <h3>Edit Role</h3>
+                
+                <label>Job Title</label>
+                <input type="text" id="sbTitle" onchange="updateRoleFromSidebar()">
+
+                <label>Department</label>
+                <input type="text" id="sbDept" onchange="updateRoleFromSidebar()">
+
+                <label>Description</label>
+                <textarea id="sbDesc" rows="4" onchange="updateRoleFromSidebar()"></textarea>
+
+                <label>Requirements</label>
+                <textarea id="sbReq" rows="3" onchange="updateRoleFromSidebar()"></textarea>
+                
+                <label>Connected To (Next Steps)</label>
+                <div id="sbConnectionsList" class="sidebar-conn-list">
+                    <!-- Connections injected here -->
+                </div>
+                <div style="font-size:0.7rem; color:#888; margin-bottom:15px; font-style:italic;">
+                    Drag the red dot on the card to add more connections.
+                </div>
+
+                <button class="btn btn-danger" onclick="deleteSelectedRole()">Delete This Role</button>
+            </div>
+
+            <!-- Branding -->
+            <div class="control-group">
+                <h3>Admin Tools</h3>
+                <label>Upload Existing JSON</label>
+                <input type="file" id="jsonUpload" accept=".json">
+                <label>Add Level</label>
+                <button class="btn btn-outline" onclick="addLevel()">+ Add Column</button>
+            </div>
+
+            <!-- Structure -->
+            <div class="control-group">
+                <h3>Structure Config</h3>
+                <label>Column Names</label>
+                <div id="levelList">
+                    <!-- JS Injected -->
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <h3>Branding</h3>
+                <label>Primary Color</label>
+                <input type="color" id="brandColor" value="#E31837">
+                <label>Logo URL</label>
+                <input type="text" id="brandLogo" placeholder="logo.svg">
+            </div>
+        </div>
+
+        <div class="save-area">
+            <button class="btn btn-primary" onclick="exportData()">💾 Save JSON</button>
+        </div>
+    </div>
+
+    <!-- PREVIEW AREA -->
+    <div class="preview-area">
+        <div class="preview-toolbar">
+            <span style="margin-right: auto;">
+                <strong>Mode:</strong> Drag card or column to move. Click background to deselect. <strong>Hover line & click × to delete.</strong>
+            </span>
+            <div id="logo-preview-container">
+                <img id="previewLogoImg" src="" alt="Logo" style="height: 30px;">
+            </div>
+        </div>
+        
+        <div class="chart-viewport" id="chartViewport">
+            <!-- SVG Layer -->
+            <svg id="connections-layer">
+                <path id="temp-connection" d="" style="display:none;"></path>
+            </svg>
+            
+            <div class="chart-container" id="chartContainer">
+                <!-- CHART CONTENT GOES HERE -->
+            </div>
+            
+            <!-- Dynamic Delete Button Container -->
+            <div id="line-delete-btn" class="line-delete-btn" title="Delete Connection">×</div>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        // ===========================================
+        // 1. STATE & DATA
+        // ===========================================
+        let appData = [];
+        let config = { logoUrl: 'tatil-general-logo.svg', primaryColor: '#E31837' };
+        let currentSelectedRoleId = null;
+        let hoverConnection = null; // {src, tgt}
+        let deleteBtnTimeout;
+        
+        // Drag State
+        let dragSrcEl = null;
+        let isDraggingColumn = false; 
+        
+        // Drag State for Connections
+        let isConnecting = false;
+        let connectionStartId = null;
+        let tempPath = document.getElementById('temp-connection');
+
+        // DOM Elements
+        const container = document.getElementById('chartContainer');
+        const viewport = document.getElementById('chartViewport');
+        const svgLayer = document.getElementById('connections-layer');
+        const editorView = document.getElementById('editorView');
+        const deleteBtn = document.getElementById('line-delete-btn');
+
+        // ===========================================
+        // 2. INITIALIZATION
+        // ===========================================
+        function loadDefaultData() {
+            appData = [
+                { "levelName": "Level 1", "roles": [] },
+                { "levelName": "Level 2", "roles": [] }
+            ];
+            renderChart();
+            renderSettings();
+        }
+
+        fetch('data.json')
+            .then(res => res.ok ? res.json() : Promise.reject())
+            .then(data => {
+                appData = data;
+                initAdmin();
+            })
+            .catch(() => {
+                loadDefaultData();
+                initAdmin();
+            });
+
+        function initAdmin() {
+            renderSettings();
+            renderChart();
+            document.addEventListener('mousemove', onConnectionMove);
+            document.addEventListener('mouseup', onConnectionUp);
+            
+            // Background Click to Deselect
+            viewport.addEventListener('click', (e) => {
+                if (e.target === viewport || e.target === container || e.target.id === 'connections-layer') {
+                    deselectAll();
+                }
+            });
+
+            // Delete Button Click
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                deleteCurrentConnection();
+            });
+            // Keep button visible when hovering button itself
+            deleteBtn.addEventListener('mouseenter', () => clearTimeout(deleteBtnTimeout));
+            deleteBtn.addEventListener('mouseleave', () => hideDeleteButton());
+        }
+        
+        function deselectAll() {
+            currentSelectedRoleId = null;
+            editorView.classList.remove('active');
+            document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+            drawLines(); 
+        }
+
+        // ===========================================
+        // 3. RENDERING
+        // ===========================================
+        let cardElements = {};
+
+        function renderChart() {
+            container.innerHTML = '';
+            cardElements = {};
+
+            const levelList = document.getElementById('levelList');
+            levelList.innerHTML = '';
+
+            appData.forEach((level, lvlIndex) => {
+                // Sidebar controls
+                const lvlItem = document.createElement('div');
+                lvlItem.style.cssText = "display:flex; gap:5px; margin-bottom:5px;";
+                lvlItem.innerHTML = `
+                    <input type="text" value="${level.levelName}" onchange="updateLevelName(${lvlIndex}, this.value)">
+                    <button class="btn btn-danger" style="width:30px; margin:0;" onclick="deleteLevel(${lvlIndex})">×</button>
+                `;
+                levelList.appendChild(lvlItem);
+
+                // Chart Column
+                const col = document.createElement('div');
+                col.className = 'level-column';
+                col.dataset.levelIndex = lvlIndex;
+                col.draggable = true; 
+
+                col.addEventListener('dragstart', handleColDragStart);
+                col.addEventListener('dragover', handleColDragOver);
+                col.addEventListener('drop', handleDrop);
+                col.addEventListener('dragleave', handleDragLeave);
+
+                const header = document.createElement('div');
+                header.className = 'level-header';
+                header.innerHTML = `${level.levelName} <button class="btn-add-role" onclick="addNewRole(${lvlIndex})">+</button>`;
+                col.appendChild(header);
+
+                // Roles
+                level.roles.forEach(role => {
+                    const card = createRoleCard(role, lvlIndex);
+                    col.appendChild(card);
+                    cardElements[role.id] = { element: card, data: role };
+                    if(currentSelectedRoleId === role.id) card.classList.add('selected');
+                });
+
+                container.appendChild(col);
+            });
+
+            setTimeout(() => drawLines(currentSelectedRoleId), 50);
+        }
+
+        function createRoleCard(role, levelIndex) {
+            const card = document.createElement('div');
+            card.className = 'role-card';
+            card.id = `card-${role.id}`;
+            card.draggable = true;
+            card.dataset.id = role.id;
+            card.dataset.levelIndex = levelIndex;
+
+            card.innerHTML = `
+                <div class="connector-handle" title="Drag to connect" onmousedown="startConnectionDrag(event, '${role.id}')"></div>
+                <h3>${role.title}</h3>
+                <p>${role.dept}</p>
+                ${role.nextSteps && role.nextSteps.length > 0 ? `<div class="branch-badge">+${role.nextSteps.length}</div>` : ''}
+            `;
+
+            card.addEventListener('dragstart', handleDragStart);
+            card.addEventListener('click', (e) => {
+                e.stopPropagation();
+                selectRole(role);
+            });
+            card.addEventListener('dragover', handleDragOver);
+            card.addEventListener('drop', handleDrop);
+
+            return card;
+        }
+
+        // ===========================================
+        // 4. CONNECTION MANAGEMENT (HOVER & DELETE)
+        // ===========================================
+        function handleLineHover(src, tgt, midX, midY) {
+            clearTimeout(deleteBtnTimeout);
+            hoverConnection = { src, tgt };
+            
+            // Highlight specific line
+            const visiblePath = document.getElementById(`path-${src}-${tgt}`);
+            if(visiblePath) visiblePath.classList.add('highlighted');
+
+            // Show Button
+            deleteBtn.style.display = 'block';
+            deleteBtn.style.left = midX + 'px';
+            deleteBtn.style.top = midY + 'px';
+        }
+
+        function hideDeleteButton(src, tgt) {
+            // Remove highlight
+            if(src && tgt) {
+                 const visiblePath = document.getElementById(`path-${src}-${tgt}`);
+                 if(visiblePath) visiblePath.classList.remove('highlighted');
+            }
+            
+            deleteBtnTimeout = setTimeout(() => {
+                deleteBtn.style.display = 'none';
+                hoverConnection = null;
+            }, 300);
+        }
+
+        function deleteCurrentConnection() {
+            if(!hoverConnection) return;
+            const { src, tgt } = hoverConnection;
+            
+            const role = findRoleFlat(src);
+            if(role && role.nextSteps) {
+                // Use String compare for safety
+                role.nextSteps = role.nextSteps.filter(id => String(id) !== String(tgt));
+                renderChart();
+                if(currentSelectedRoleId === src) selectRole(role);
+                deleteBtn.style.display = 'none';
+            }
+        }
+
+        // ===========================================
+        // 5. SVG DRAWING
+        // ===========================================
+        function drawLines(activeRoleId = null) {
+            const temp = tempPath.cloneNode(true);
+            svgLayer.innerHTML = '';
+            svgLayer.appendChild(temp);
+            tempPath = document.getElementById('temp-connection');
+
+            const w = container.scrollWidth;
+            const h = container.scrollHeight;
+            svgLayer.style.width = w + 'px';
+            svgLayer.style.height = h + 'px';
+            svgLayer.setAttribute('width', w);
+            svgLayer.setAttribute('height', h);
+            const svgRect = svgLayer.getBoundingClientRect();
+
+            appData.forEach(level => {
+                level.roles.forEach(role => {
+                    if (!role.nextSteps) return;
+                    role.nextSteps.forEach(targetId => {
+                        const sEl = cardElements[role.id];
+                        const tEl = cardElements[targetId];
+                        if (sEl && tEl) {
+                            const sRect = sEl.element.getBoundingClientRect();
+                            const tRect = tEl.element.getBoundingClientRect();
+                            
+                            const x1 = sRect.right - svgRect.left;
+                            const y1 = (sRect.top - svgRect.top) + sRect.height/2;
+                            const x2 = tRect.left - svgRect.left;
+                            const y2 = (tRect.top - svgRect.top) + tRect.height/2;
+
+                            // Curve
+                            const d = `M ${x1} ${y1} C ${x1 + 50} ${y1}, ${x2 - 50} ${y2}, ${x2} ${y2}`;
+                            
+                            // 1. VISIBLE PATH
+                            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                            path.setAttribute("d", d);
+                            path.setAttribute("class", "connector-path");
+                            path.id = `path-${role.id}-${targetId}`; 
+
+                            // 2. HIT AREA
+                            const hitPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                            hitPath.setAttribute("d", d);
+                            hitPath.setAttribute("class", "connector-hit");
+                            
+                            // Calculate Midpoint for Button
+                            const mx = 0.125*x1 + 0.375*(x1+50) + 0.375*(x2-50) + 0.125*x2;
+                            const my = 0.5*y1 + 0.5*y2;
+
+                            // Interactions
+                            hitPath.addEventListener('mouseenter', () => handleLineHover(role.id, targetId, mx, my));
+                            hitPath.addEventListener('mouseleave', () => hideDeleteButton(role.id, targetId));
+                            
+                            // Backup Click
+                            hitPath.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                if(confirm("Delete this connection?")) {
+                                    hoverConnection = { src: role.id, tgt: targetId };
+                                    deleteCurrentConnection();
+                                }
+                            });
+
+                            if (activeRoleId) {
+                                if (role.id === activeRoleId || targetId === activeRoleId) {
+                                    path.style.stroke = config.primaryColor;
+                                    path.style.strokeWidth = "3px";
+                                    path.style.opacity = "1";
+                                } else {
+                                    path.style.opacity = "0.1";
+                                }
+                            }
+
+                            svgLayer.appendChild(path);
+                            svgLayer.appendChild(hitPath);
+                        }
+                    });
+                });
+            });
+        }
+
+        // ===========================================
+        // 6. DRAG & DROP LOGIC
+        // ===========================================
+        
+        function handleDragStart(e) {
+            if (isConnecting) { e.preventDefault(); return; }
+            e.stopPropagation();
+            dragSrcEl = this;
+            isDraggingColumn = false;
+            dragSrcEl.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', this.dataset.id);
+            e.dataTransfer.setData('sourceLevel', this.dataset.levelIndex);
+        }
+
+        function handleColDragStart(e) {
+            if (e.target.closest('.role-card')) return;
+            isDraggingColumn = true;
+            dragSrcEl = this;
+            this.classList.add('dragging-col');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('colIndex', this.dataset.levelIndex);
+        }
+
+        function handleDragOver(e) { e.preventDefault(); return false; }
+
+        function handleColDragOver(e) {
+            e.preventDefault();
+            if (isDraggingColumn) this.classList.add('drag-over-col');
+            else this.classList.add('drag-over');
+            return false;
+        }
+
+        function handleDragLeave(e) { this.classList.remove('drag-over', 'drag-over-col'); }
+
+        function handleDrop(e) {
+            e.stopPropagation();
+            document.querySelectorAll('.level-column').forEach(col => col.classList.remove('drag-over', 'drag-over-col', 'dragging-col'));
+            if(dragSrcEl) dragSrcEl.classList.remove('dragging');
+
+            if (isDraggingColumn) {
+                const srcIdx = parseInt(e.dataTransfer.getData('colIndex'));
+                const targetCol = e.target.closest('.level-column');
+                if (!targetCol) return;
+                const tgtIdx = parseInt(targetCol.dataset.levelIndex);
+                if (srcIdx !== tgtIdx && !isNaN(srcIdx) && !isNaN(tgtIdx)) {
+                    const colData = appData.splice(srcIdx, 1)[0];
+                    appData.splice(tgtIdx, 0, colData);
+                    renderChart();
+                }
+                isDraggingColumn = false;
+                return;
+            }
+
+            const roleId = e.dataTransfer.getData('text/plain');
+            const sourceLvlIdx = parseInt(e.dataTransfer.getData('sourceLevel'));
+            let targetEl = e.target.closest('.role-card') || e.target.closest('.level-column');
+            if (!targetEl || targetEl === dragSrcEl) return;
+
+            let roleObj = null;
+            let roleIdx = -1;
+            const sourceLevel = appData[sourceLvlIdx];
+            roleObj = sourceLevel.roles.find((r, i) => { if(r.id === roleId) { roleIdx = i; return true; } return false; });
+            if(!roleObj) return; 
+
+            sourceLevel.roles.splice(roleIdx, 1);
+            if (targetEl.classList.contains('level-column')) {
+                const targetLvlIdx = parseInt(targetEl.dataset.levelIndex);
+                appData[targetLvlIdx].roles.push(roleObj);
+            } else if (targetEl.classList.contains('role-card')) {
+                const targetLvlIdx = parseInt(targetEl.dataset.levelIndex);
+                const targetId = targetEl.dataset.id;
+                const targetRoleIdx = appData[targetLvlIdx].roles.findIndex(r => r.id === targetId);
+                appData[targetLvlIdx].roles.splice(targetRoleIdx, 0, roleObj);
+            }
+            renderChart();
+        }
+
+        // ===========================================
+        // 7. DRAG TO CONNECT LOGIC
+        // ===========================================
+        function startConnectionDrag(e, roleId) {
+            e.stopPropagation(); e.preventDefault();
+            isConnecting = true;
+            connectionStartId = roleId;
+            tempPath.style.display = 'block';
+            updateTempLine(e.pageX, e.pageY);
+        }
+
+        function onConnectionMove(e) {
+            if (!isConnecting) return;
+            updateTempLine(e.pageX, e.pageY);
+        }
+
+        function updateTempLine(mouseX, mouseY) {
+            if (!cardElements[connectionStartId]) return;
+            const startCard = cardElements[connectionStartId].element;
+            const sRect = startCard.getBoundingClientRect();
+            const svgRect = svgLayer.getBoundingClientRect();
+            
+            const startX = sRect.right - svgRect.left - 8; 
+            const startY = (sRect.top - svgRect.top) + (sRect.height / 2);
+            const endX = mouseX - svgRect.left;
+            const endY = mouseY - svgRect.top;
+
+            tempPath.setAttribute('d', `M ${startX} ${startY} L ${endX} ${endY}`);
+        }
+
+        function onConnectionUp(e) {
+            if (!isConnecting) return;
+            isConnecting = false;
+            tempPath.style.display = 'none';
+            const targetEl = e.target.closest('.role-card');
+            if (targetEl) {
+                const targetId = targetEl.dataset.id;
+                if (targetId !== connectionStartId) createConnection(connectionStartId, targetId);
+            }
+            connectionStartId = null;
+        }
+
+        function createConnection(sourceId, targetId) {
+            const sourceRole = findRoleFlat(sourceId);
+            if (!sourceRole) return;
+            if (!sourceRole.nextSteps) sourceRole.nextSteps = [];
+            if (!sourceRole.nextSteps.includes(targetId)) {
+                sourceRole.nextSteps.push(targetId);
+                renderChart();
+                if(currentSelectedRoleId === sourceId) selectRole(sourceRole);
+            }
+        }
+
+        // ===========================================
+        // 8. SIDEBAR & SETTINGS
+        // ===========================================
+        
+        function selectRole(role) {
+            currentSelectedRoleId = role.id;
+            document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+            const card = document.getElementById(`card-${role.id}`);
+            if(card) card.classList.add('selected');
+            editorView.classList.add('active');
+            
+            document.getElementById('sbTitle').value = role.title;
+            document.getElementById('sbDept').value = role.dept;
+            document.getElementById('sbDesc').value = role.desc || '';
+            document.getElementById('sbReq').value = role.req || '';
+
+            const connList = document.getElementById('sbConnectionsList');
+            connList.innerHTML = '';
+            
+            if(role.nextSteps && role.nextSteps.length > 0) {
+                role.nextSteps.forEach(targetId => {
+                    const targetRole = findRoleFlat(targetId);
+                    const name = targetRole ? targetRole.title : "Unknown Role";
+                    const item = document.createElement('div');
+                    item.className = 'sidebar-conn-item';
+                    item.innerHTML = `<span>→ ${name}</span><button class="btn-remove-conn" onclick="removeConnection('${targetId}')">×</button>`;
+                    connList.appendChild(item);
+                });
+            } else {
+                connList.innerHTML = '<div style="padding:10px; color:#666; font-style:italic;">No outgoing connections</div>';
+            }
+            highlightConnections(role.id);
+        }
+
+        function updateRoleFromSidebar() {
+            if(!currentSelectedRoleId) return;
+            const role = findRoleFlat(currentSelectedRoleId);
+            if(!role) return;
+            role.title = document.getElementById('sbTitle').value;
+            role.dept = document.getElementById('sbDept').value;
+            role.desc = document.getElementById('sbDesc').value;
+            role.req = document.getElementById('sbReq').value;
+            const card = document.getElementById(`card-${role.id}`);
+            if(card) {
+                card.querySelector('h3').innerText = role.title;
+                card.querySelector('p').innerText = role.dept;
+            }
+        }
+
+        function removeConnection(targetId) {
+            if(!currentSelectedRoleId) return;
+            const role = findRoleFlat(currentSelectedRoleId);
+            if(!role || !role.nextSteps) return;
+            role.nextSteps = role.nextSteps.filter(id => id !== targetId);
+            renderChart();
+            selectRole(role);
+        }
+
+        function deleteSelectedRole() {
+            if(!currentSelectedRoleId) return;
+            if(!confirm("Are you sure you want to delete this role?")) return;
+            const id = currentSelectedRoleId;
+            appData.forEach(lvl => { lvl.roles = lvl.roles.filter(r => r.id !== id); });
+            appData.forEach(lvl => { lvl.roles.forEach(r => { if(r.nextSteps) r.nextSteps = r.nextSteps.filter(s => s !== id); }); });
+            deselectAll();
+            renderChart();
+        }
+
+        // ===========================================
+        // 9. HELPERS
+        // ===========================================
+        function findRoleFlat(id) {
+            for(let l of appData) {
+                let r = l.roles.find(x => x.id === id);
+                if(r) return r;
+            }
+            return null;
+        }
+
+        function highlightConnections(roleId) {
+            drawLines(roleId);
+            Object.values(cardElements).forEach(wrapper => {
+                wrapper.element.style.opacity = "0.4";
+                wrapper.element.style.borderLeftColor = "#ccc";
+            });
+            if(cardElements[roleId]) {
+                cardElements[roleId].element.style.opacity = "1";
+                cardElements[roleId].element.style.borderLeftColor = config.primaryColor;
+            }
+            const role = findRoleFlat(roleId);
+            if(role && role.nextSteps) {
+                role.nextSteps.forEach(nid => {
+                    if(cardElements[nid]) {
+                        cardElements[nid].element.style.opacity = "1";
+                        cardElements[nid].element.style.borderLeftColor = config.primaryColor;
+                    }
+                });
+            }
+        }
+
+        // Settings Listeners
+        document.getElementById('jsonUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const json = JSON.parse(e.target.result);
+                    if (Array.isArray(json)) { appData = json; renderChart(); renderSettings(); alert("Data loaded!"); }
+                } catch(err) { alert("Error parsing JSON."); }
+            };
+            reader.readAsText(file);
+        });
+
+        const logoInput = document.getElementById('brandLogo');
+        const colorInput = document.getElementById('brandColor');
+        const previewLogo = document.getElementById('previewLogoImg');
+
+        function renderSettings() {
+            logoInput.value = config.logoUrl;
+            previewLogo.src = config.logoUrl;
+            colorInput.value = config.primaryColor;
+            document.documentElement.style.setProperty('--admin-accent', config.primaryColor);
+        }
+
+        logoInput.addEventListener('input', (e) => { config.logoUrl = e.target.value; previewLogo.src = config.logoUrl; });
+        colorInput.addEventListener('input', (e) => { 
+            config.primaryColor = e.target.value; 
+            document.documentElement.style.setProperty('--admin-accent', config.primaryColor);
+            if(currentSelectedRoleId) highlightConnections(currentSelectedRoleId);
+            else drawLines();
+        });
+
+        function addNewRole(levelIndex) {
+            const newId = Date.now().toString(); 
+            const newRole = { id: newId, title: "New Role", dept: "Dept", desc: "", req: "", nextSteps: [] };
+            appData[levelIndex].roles.push(newRole);
+            renderChart();
+            setTimeout(() => selectRole(newRole), 100);
+        }
+        function addLevel() { appData.push({ levelName: "New Level", roles: [] }); renderChart(); }
+        function deleteLevel(idx) { 
+            if(appData[idx].roles.length > 0) return alert("Level must be empty first.");
+            appData.splice(idx, 1); renderChart();
+        }
+        function updateLevelName(idx, val) { appData[idx].levelName = val; }
+        function exportData() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData, null, 4));
+            const a = document.createElement('a');
+            a.href = dataStr; a.download = "data.json"; a.click();
+        }
+    </script>
+</body>
+</html>
